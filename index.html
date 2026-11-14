@@ -59,7 +59,8 @@
         body {
             background-color: #1E1916;
             font-family: 'Plus Jakarta Sans', sans-serif;
-            overflow: hidden;
+            overflow-y: auto;
+            overscroll-behavior-y: auto;
         }
 
         /* Animasi halus saat perpindahan konten slide */
@@ -196,7 +197,7 @@
         </header>
 
         <!-- Area Konten Dinamis Slide (Halaman 1 s/d 15) -->
-        <section id="slide-content-area" class="relative z-20 flex-1 px-4 pb-3 overflow-y-auto no-scrollbar flex flex-col justify-between">
+        <section id="slide-content-area" style="overscroll-behavior-y: auto;" class="relative z-20 flex-1 px-4 pb-3 overflow-y-auto no-scrollbar flex flex-col justify-between">
             <!-- Konten slide dirender secara dinamis melalui JavaScript -->
         </section>
 
