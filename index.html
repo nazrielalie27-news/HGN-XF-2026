@@ -103,13 +103,13 @@
     </div>
     <div class="hidden sm:block fixed inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70 pointer-events-none"></div>
 
-    <!-- Pemutar Audio Latar -->
-    <audio id="bg-music" loop preload="auto">
+    <!-- Pemutar Audio Tunggal (Langsung Autoplay dengan Fade-In, satu jalan tanpa stop) -->
+    <audio id="bg-music" loop preload="auto" autoplay>
         <source src="hymne-guru.mp3" type="audio/mpeg">
     </audio>
 
     <!-- =====================================================================
-         1. WELCOME OVERLAY (LAYAR PEMBUKA GELAP PEKAT ANTI-SPOILER)
+         1. WELCOME OVERLAY (BERSIH TANPA TOMBOL MUSIK)
          ===================================================================== -->
     <div id="welcome-overlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1E1916] transition-opacity duration-700">
         <div class="w-full max-w-[440px] bg-cream-50 rounded-3xl p-7 sm:p-9 text-center shadow-2xl border border-gold-500/30 relative overflow-hidden">
@@ -151,42 +151,36 @@
     </div>
 
     <!-- =====================================================================
-         2. CONTAINER UTAMA STORIES (RESPONSIF: FULL DI HP, FRAME DI DESKTOP)
+         2. CONTAINER UTAMA STORIES (16 HALAMAN: PEMBUKA, 13 MEMORI, PENUTUP, CREDITS)
          ===================================================================== -->
     <main id="story-container" class="invisible relative w-full h-[100dvh] sm:h-[94dvh] sm:max-h-[860px] sm:w-[440px] md:w-[460px] bg-cream-50 sm:rounded-[32px] shadow-2xl overflow-hidden flex flex-col justify-between sm:border sm:border-gold-500/30 cursor-pointer">
 
-        <!-- Header Overlay: 15 Progress Bar & Kontrol Atas -->
+        <!-- Header Overlay: 16 Progress Bar & Info Halaman -->
         <header class="relative z-30 pt-3 px-3 pb-2 bg-gradient-to-b from-cream-50 via-cream-50/95 to-transparent">
-            <!-- 15 Progress Bars -->
-            <div id="progress-bars-container" class="grid gap-1 w-full mb-2.5" style="grid-template-columns: repeat(15, minmax(0, 1fr));">
+            <!-- 16 Progress Bars -->
+            <div id="progress-bars-container" class="grid gap-1 w-full mb-2.5" style="grid-template-columns: repeat(16, minmax(0, 1fr));">
             </div>
 
-            <!-- Bar Info Halaman & Tombol Musik -->
+            <!-- Bar Info Halaman -->
             <div class="flex items-center justify-between px-1">
                 <div class="flex items-center gap-2">
                     <span id="slide-counter" class="text-[11px] font-bold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-cream-200 text-charcoal-800">
-                        1 / 15
+                        1 / 16
                     </span>
-                    <span id="slide-category" class="text-xs font-medium text-charcoal-800/75 truncate max-w-[140px]">
+                    <span id="slide-category" class="text-xs font-medium text-charcoal-800/75 truncate max-w-[180px]">
                         Pembuka
                     </span>
                 </div>
 
-                <div class="flex items-center gap-1.5">
-                    <!-- Tombol Mute / Unmute Musik -->
-                    <button id="mute-btn" type="button" aria-label="Kontrol Musik" class="interactive-control p-2 rounded-full bg-cream-100 hover:bg-cream-200 text-charcoal-900 border border-gold-500/25 transition active:scale-90 shadow-sm">
-                        <svg id="icon-sound-on" class="w-4 h-4 text-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-                        </svg>
-                        <svg id="icon-sound-off" class="w-4 h-4 text-charcoal-800/60 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15zM17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
-                        </svg>
-                    </button>
+                <!-- Badge Musik Mengalun -->
+                <div class="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-cream-100 border border-gold-500/20 text-[10.5px] font-medium text-gold-600">
+                    <span class="w-1.5 h-1.5 rounded-full bg-gold-600 animate-ping"></span>
+                    <span>Hymne Guru</span>
                 </div>
             </div>
         </header>
 
-        <!-- Area Konten Dinamis Slide (Halaman 1 s/d 15) -->
+        <!-- Area Konten Dinamis Slide (Halaman 1 s/d 16) -->
         <section id="slide-content-area" style="overscroll-behavior-y: auto;" class="relative z-20 flex-1 px-4 pb-3 overflow-y-auto no-scrollbar flex flex-col justify-between">
         </section>
 
@@ -199,7 +193,7 @@
     </main>
 
     <!-- =====================================================================
-         JAVASCRIPT: DATA 45 SISWA, 15 SLIDE & NAVIGASI MANUAL ANTI DOUBLE-TAP
+         JAVASCRIPT: DATA 45 SISWA, PENGURUS KELAS, 16 SLIDE & AUTOPLAY FADE-IN
          ===================================================================== -->
     <script>
         /**
@@ -614,7 +608,55 @@
         ];
 
         /**
-         * DATA 15 SLIDE (HALAMAN)
+         * DATA PENGURUS INTI, DIVISI & PJ MATA PELAJARAN KELAS X.F
+         */
+        const creditsData = {
+            developer: {
+                divisi: "Divisi Hubungan Masyarakat",
+                anggota: "M. Nazril Ali & Rianti Puspita Sari"
+            },
+            pengurusInti: [
+                { jabatan: "Ketua Kelas", nama: "Khanza Humaira Prawira" },
+                { jabatan: "Wakil Ketua", nama: "Raihan Ahmad Fauzi" },
+                { jabatan: "Sekretaris 1", nama: "Fadhil Putra Ghandra" },
+                { jabatan: "Sekretaris 2", nama: "Rayhanum Ayatul Khuzma" },
+                { jabatan: "Bendahara 1", nama: "Puput Puspitasari" },
+                { jabatan: "Bendahara 2", nama: "Maisyah Nursyafa Salma D" }
+            ],
+            divisiList: [
+                { divisi: "Kebersihan", nama: "Fitri Amaliah Wardana & Abdurazzaq Amran Zabran" },
+                { divisi: "Keamanan & Ketertiban", nama: "Pitri Oktari & M. Ghaizan Fajar Adien" },
+                { divisi: "Acara & Dokumentasi", nama: "Washifa Hazirah Mutiara & Muthiaravanza Putri S" },
+                { divisi: "Peralatan", nama: "M. Farrel Rinaldi & Shidiq Gammawan" },
+                { divisi: "Olahraga", nama: "Zaidan Firas Sulthani & Fhaneysa Rasyqa Margareyta" },
+                { divisi: "Hubungan Masyarakat", nama: "M. Nazril Ali & Rianti Puspita Sari" },
+                { divisi: "Keagamaan", nama: "Keysha Aldeandra Budiman & M. Ijmal Maulana" },
+                { divisi: "Kesehatan", nama: "Nayla Abigail Cantika S & Syaqira Rajasa N" },
+                { divisi: "Kesenian", nama: "M. Fitra Ramadhan & M. Nicky Al Vhaley" }
+            ],
+            pjMapel: [
+                { mapel: "PAI", nama: "Keysha & Ijmal" },
+                { mapel: "PPKn", nama: "Evan" },
+                { mapel: "B. Indonesia", nama: "Sasabila" },
+                { mapel: "Matematika", nama: "Rayhan Byantara & Jeremiah" },
+                { mapel: "B. Inggris", nama: "Balqis Shafira & Rasya" },
+                { mapel: "Fisika", nama: "Khansa Fathia" },
+                { mapel: "Kimia", nama: "Dzaky" },
+                { mapel: "Biologi", nama: "Sadra & Valene" },
+                { mapel: "Sejarah", nama: "Maura" },
+                { mapel: "Geografi", nama: "Falisha & Veloxa" },
+                { mapel: "Ekonomi", nama: "Diana & Balqis Naila" },
+                { mapel: "Sosiologi", nama: "Shidiq & Zydna" },
+                { mapel: "Informatika", nama: "Rais" },
+                { mapel: "PJOK", nama: "Zaidan & Fhaney" },
+                { mapel: "PKWU", nama: "Habibie" },
+                { mapel: "B. Sunda", nama: "Shazfa" },
+                { mapel: "KKA", nama: "Ghazi Akbar" }
+            ]
+        };
+
+        /**
+         * DATA 16 SLIDE (HALAMAN)
          */
         const memoryMeta = [
             {
@@ -684,9 +726,8 @@
             }
         ];
 
-        // Susun array lengkap 15 halaman
+        // Susun array lengkap 16 halaman
         const slidesData = [
-            // Halaman 1: Pembuka
             {
                 type: 'intro',
                 category: 'Ucapan Utama',
@@ -697,7 +738,6 @@
             }
         ];
 
-        // Masukkan Halaman 2 sampai 14 beserta irisan 45 siswa
         let studentCursor = 0;
         memoryMeta.forEach((meta, idx) => {
             const slice = studentsList.slice(studentCursor, studentCursor + meta.count);
@@ -722,8 +762,15 @@
             signature: 'Dari Kami, Kelas X.F — 2026'
         });
 
+        // Halaman 16: Credits & Struktur Pengurus Kelas X.F
+        slidesData.push({
+            type: 'credits',
+            category: 'Credits & Pengurus',
+            photo: 'Ibu-Inggit.jpeg'
+        });
+
         /**
-         * STATE & REFERENSI ELEMEN DOM (MODE MANUAL TANPA TIMER OTOMATIS)
+         * STATE & REFERENSI ELEMEN DOM
          */
         let currentSlideIndex = 0;
         let isStarted = false;
@@ -741,11 +788,7 @@
         const slideCounter = document.getElementById('slide-counter');
         const slideCategory = document.getElementById('slide-category');
         const ambientBg = document.getElementById('ambient-bg');
-
         const bgMusic = document.getElementById('bg-music');
-        const muteBtn = document.getElementById('mute-btn');
-        const iconSoundOn = document.getElementById('icon-sound-on');
-        const iconSoundOff = document.getElementById('icon-sound-off');
 
         function initProgressBars() {
             progressBarsContainer.innerHTML = '';
@@ -879,10 +922,94 @@
                         </div>
 
                         <div class="relative z-10 pt-3 border-t border-white/25">
-                            <p class="font-serif italic text-sm sm:text-base font-semibold text-gold-400 mb-3.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                            <p class="font-serif italic text-sm sm:text-base font-semibold text-gold-400 mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                                 ${slide.signature}
                             </p>
-                            <button id="replay-btn" type="button" class="interactive-control w-full py-2.5 px-5 rounded-xl gold-shimmer text-white font-semibold text-xs sm:text-sm tracking-wide transition-transform active:scale-95 inline-flex items-center justify-center gap-2 shadow-lg cursor-pointer">
+                            <p class="text-[11px] text-cream-50/80">
+                                Ketuk kanan untuk melihat halaman apresiasi tim &amp; pengurus ›
+                            </p>
+                        </div>
+                    </div>
+                `;
+            } else if (slide.type === 'credits') {
+                const intiHtml = creditsData.pengurusInti.map(item => `
+                    <div class="bg-cream-50 rounded-lg p-2.5 border border-cream-200 text-center">
+                        <span class="block text-[9.5px] font-bold uppercase tracking-wider text-gold-600">${item.jabatan}</span>
+                        <span class="block text-[11px] font-semibold text-charcoal-900 leading-tight mt-0.5">${item.nama}</span>
+                    </div>
+                `).join('');
+
+                const divisiHtml = creditsData.divisiList.map(item => `
+                    <div class="py-2 border-b border-cream-100 last:border-b-0 text-center">
+                        <span class="block text-[10px] font-bold uppercase tracking-wider text-sage-700">${item.divisi}</span>
+                        <span class="block text-[11.5px] font-medium text-charcoal-900 leading-snug mt-0.5">${item.nama}</span>
+                    </div>
+                `).join('');
+
+                const pjHtml = creditsData.pjMapel.map(item => `
+                    <div class="bg-cream-50 rounded-lg p-2 border border-cream-200 text-center">
+                        <span class="block text-[9.5px] font-bold uppercase tracking-wider text-gold-600">${item.mapel}</span>
+                        <span class="block text-[11px] font-medium text-charcoal-900 leading-tight mt-0.5">${item.nama}</span>
+                    </div>
+                `).join('');
+
+                slideContentArea.innerHTML = `
+                    <div class="animate-slide-content flex flex-col gap-3 pb-2 text-center">
+                        <!-- Header Credits & Developed By -->
+                        <div class="bg-charcoal-900 text-cream-50 rounded-2xl p-4 text-center shadow-md border border-gold-500/40 relative overflow-hidden">
+                            <span class="inline-block px-3 py-0.5 rounded-full bg-gold-500/20 text-gold-400 text-[10px] font-bold uppercase tracking-widest mb-2 border border-gold-500/30">
+                                Behind The Scenes • Kelas X.F
+                            </span>
+                            <h2 class="font-serif text-2xl sm:text-3xl italic font-semibold text-gold-400 leading-tight mb-3">
+                                Apresiasi &amp; Pengurus Kelas
+                            </h2>
+                            <div class="bg-white/10 rounded-xl p-2.5 border border-white/10 text-center">
+                                <p class="text-[10px] uppercase tracking-wider text-gold-400 font-bold">Developed by</p>
+                                <p class="text-xs sm:text-sm font-bold text-white mt-0.5">${creditsData.developer.divisi}</p>
+                                <p class="text-[11px] text-cream-200 mt-0.5">${creditsData.developer.anggota}</p>
+                            </div>
+                        </div>
+
+                        <!-- Special Thanks: Pengurus Inti -->
+                        <div class="bg-white rounded-2xl p-3.5 shadow-sm border border-gold-500/25 text-center">
+                            <div class="flex items-center justify-center gap-1.5 mb-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-gold-600"></span>
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-charcoal-900">Special Thanks — Pengurus Inti</h3>
+                                <span class="w-1.5 h-1.5 rounded-full bg-gold-600"></span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                ${intiHtml}
+                            </div>
+                        </div>
+
+                        <!-- Koordinator Divisi -->
+                        <div class="bg-white rounded-2xl p-3.5 shadow-sm border border-cream-200 text-center">
+                            <div class="flex items-center justify-center gap-1.5 mb-2">
+                                <span class="w-1.5 h-1.5 rounded-full bg-sage-500"></span>
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-charcoal-900">Koordinator Divisi Kelas</h3>
+                                <span class="w-1.5 h-1.5 rounded-full bg-sage-500"></span>
+                            </div>
+                            <div>
+                                ${divisiHtml}
+                            </div>
+                        </div>
+
+                        <!-- Penanggung Jawab Mata Pelajaran -->
+                        <div class="bg-white rounded-2xl p-3.5 shadow-sm border border-cream-200 text-center">
+                            <div class="flex items-center justify-center gap-1.5 mb-2.5">
+                                <span class="w-1.5 h-1.5 rounded-full bg-gold-500"></span>
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-charcoal-900">PJ Mata Pelajaran</h3>
+                                <span class="w-1.5 h-1.5 rounded-full bg-gold-500"></span>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                ${pjHtml}
+                            </div>
+                        </div>
+
+                        <!-- Tombol Kembali ke Awal -->
+                        <div class="pt-1 text-center">
+                            <p class="text-[10.5px] text-charcoal-800/70 mb-2.5 font-medium">#WERACEASONE • SMAN 3 Kota Sukabumi</p>
+                            <button id="replay-btn" type="button" class="interactive-control w-full py-3 px-5 rounded-xl gold-shimmer text-white font-semibold text-xs sm:text-sm tracking-wide transition-transform active:scale-95 inline-flex items-center justify-center gap-2 shadow-lg cursor-pointer">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                                 </svg>
@@ -962,23 +1089,72 @@
             }
         });
 
-        function updateMuteIcons() {
-            if (bgMusic.muted) {
-                iconSoundOn.classList.add('hidden');
-                iconSoundOff.classList.remove('hidden');
-            } else {
-                iconSoundOn.classList.remove('hidden');
-                iconSoundOff.classList.add('hidden');
+        /**
+         * DIRECT AUTOPLAY + UNLOCK AUDIO CONTEXT SEGERA SAAT WEB DIBUKA (FADE-IN)
+         */
+        let fadeInterval = null;
+        let hasFadedIn = false;
+
+        function fadeInAudio(targetVolume = 0.55, durationMs = 3500) {
+            if (fadeInterval) clearInterval(fadeInterval);
+            
+            const stepTime = 50;
+            const totalSteps = durationMs / stepTime;
+            const volumeStep = (targetVolume - bgMusic.volume) / totalSteps;
+
+            fadeInterval = setInterval(() => {
+                if (bgMusic.paused) {
+                    clearInterval(fadeInterval);
+                    return;
+                }
+                const nextVol = bgMusic.volume + volumeStep;
+                if (nextVol >= targetVolume) {
+                    bgMusic.volume = targetVolume;
+                    clearInterval(fadeInterval);
+                    fadeInterval = null;
+                } else {
+                    bgMusic.volume = Math.max(0, nextVol);
+                }
+            }, stepTime);
+        }
+
+        function unlockAndPlayAutoplay() {
+            const AudioCtx = window.AudioContext || window.webkitAudioContext;
+            if (AudioCtx) {
+                const ctx = new AudioCtx();
+                if (ctx.state === 'suspended') {
+                    ctx.resume().catch(() => {});
+                }
+            }
+
+            bgMusic.muted = false;
+            if (bgMusic.paused && !document.hidden) {
+                if (!hasFadedIn) {
+                    bgMusic.volume = 0;
+                }
+                bgMusic.play().then(() => {
+                    if (!hasFadedIn) {
+                        hasFadedIn = true;
+                        fadeInAudio(0.55, 3500);
+                    }
+                }).catch(() => {});
             }
         }
 
-        muteBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            bgMusic.muted = !bgMusic.muted;
-            if (!bgMusic.muted && bgMusic.paused) {
+        unlockAndPlayAutoplay();
+        window.addEventListener('DOMContentLoaded', unlockAndPlayAutoplay);
+        window.addEventListener('load', unlockAndPlayAutoplay);
+        window.addEventListener('pageshow', unlockAndPlayAutoplay);
+        window.addEventListener('focus', unlockAndPlayAutoplay);
+
+        ['pointerdown', 'pointermove', 'touchstart', 'touchend', 'mousemove', 'click', 'scroll', 'keydown'].forEach((evt) => {
+            window.addEventListener(evt, unlockAndPlayAutoplay, { passive: true });
+        });
+
+        bgMusic.addEventListener('pause', () => {
+            if (!document.hidden && isStarted) {
                 bgMusic.play().catch(() => {});
             }
-            updateMuteIcons();
         });
 
         startBtn.addEventListener('click', (e) => {
@@ -986,14 +1162,8 @@
             isStarted = true;
             lastNavTime = performance.now();
 
+            unlockAndPlayAutoplay();
             storyContainer.classList.remove('invisible');
-
-            bgMusic.volume = 0.55;
-            bgMusic.play().then(() => {
-                updateMuteIcons();
-            }).catch((err) => {
-                console.warn('Autoplay audio dibatasi browser:', err);
-            });
 
             welcomeOverlay.classList.add('opacity-0', 'pointer-events-none');
             setTimeout(() => {
@@ -1004,34 +1174,28 @@
             renderSlide(0);
         });
 
+        /**
+         * JEDA OTOMATIS HANYA SAAT PINDAH TAB / KELUAR APLIKASI / LAYAR MATI
+         */
         let pausedByTabSwitch = false;
 
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) {
-                if (isStarted) {
-                    bgMusic.pause();
+                if (!bgMusic.paused) {
                     pausedByTabSwitch = true;
+                    bgMusic.pause();
                 }
             } else {
-                if (isStarted && pausedByTabSwitch) {
+                if (pausedByTabSwitch) {
                     pausedByTabSwitch = false;
-                    if (!bgMusic.muted) {
-                        bgMusic.play().catch(() => {});
-                    }
+                    bgMusic.play().catch(() => {});
                 }
             }
         });
 
         window.addEventListener('pagehide', () => {
-            if (isStarted) bgMusic.pause();
-        });
-
-        ['click', 'keydown', 'touchstart'].forEach((eventName) => {
-            window.addEventListener(eventName, () => {
-                if (isStarted && !bgMusic.muted && bgMusic.paused && !document.hidden) {
-                    bgMusic.play().catch(() => {});
-                }
-            }, true);
+            pausedByTabSwitch = true;
+            bgMusic.pause();
         });
 
         // Inisialisasi awal tampilan
