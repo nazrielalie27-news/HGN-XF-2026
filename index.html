@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Selamat Hari Guru Nasional 2026 — Perjalanan Kenangan</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Konfigurasi Warna & Font Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            50: '#FDFBF7',
+                            100: '#F7F1E5',
+                            200: '#EFE4CE',
+                        },
+                        gold: {
+                            400: '#E2C15A',
+                            500: '#D4AF37',
+                            600: '#C59B27',
+                        },
+                        charcoal: {
+                            800: '#3D342E',
+                            900: '#2C2520',
+                        },
+                        sage: {
+                            100: '#E8EDE7',
+                            500: '#7D927B',
+                            700: '#556853',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'Georgia', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Mencegah seleksi teks & menu konteks saat menahan layar di HP/Desktop */
+        * {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            user-select: none;
+        }
+
+        body {
+            background-color: #1E1916;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Animasi halus saat perpindahan konten slide */
+        @keyframes fadeSlideUp {
+            from {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-slide-content {
+            animation: fadeSlideUp 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        /* Custom Scrollbar tipis jika layar HP sangat kecil */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Efek kilau emas halus pada tombol utama */
+        .gold-shimmer {
+            background: linear-gradient(135deg, #D4AF37 0%, #C59B27 50%, #E2C15A 100%);
+            box-shadow: 0 10px 25px -5px rgba(197, 155, 39, 0.45);
+        }
+    </style>
+</head>
+<body class="w-screen h-[100dvh] flex items-center justify-center relative text-charcoal-900">
+
+    <!-- Latar Belakang Ambient Buram untuk Tampilan Desktop/Tablet -->
+    <div id="ambient-bg" class="fixed inset-0 bg-cover bg-center scale-110 blur-2xl opacity-35 transition-all duration-1000 pointer-events-none"
+         style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1000&q=60');">
+    </div>
+    <div class="fixed inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70 pointer-events-none"></div>
+
+    <!-- Pemutar Audio Latar (Pastikan file hymne-guru.mp3 berada di folder yang sama dengan index.html) -->
+    <audio id="bg-music" loop preload="auto">
+        <source src="hymne-guru.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- =====================================================================
+         1. WELCOME OVERLAY (LAYAR PEMBUKA)
+         ===================================================================== -->
+    <div id="welcome-overlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-charcoal-900/90 backdrop-blur-md transition-opacity duration-700">
+        <div class="w-full max-w-[440px] bg-cream-50 rounded-3xl p-7 sm:p-9 text-center shadow-2xl border border-gold-500/30 relative overflow-hidden">
+            <!-- Ornamen Sudut -->
+            <div class="w-24 h-24 rounded-full bg-gold-500/10 absolute -top-10 -right-10 pointer-events-none"></div>
+            <div class="w-20 h-20 rounded-full bg-sage-500/10 absolute -bottom-8 -left-8 pointer-events-none"></div>
+
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cream-200/80 text-charcoal-800 text-xs font-semibold tracking-wider uppercase mb-5 border border-gold-500/20">
+                <span class="w-2 h-2 rounded-full bg-gold-600 animate-pulse"></span>
+                25 November 2026
+            </div>
+
+            <h1 class="font-serif text-3xl sm:text-4xl font-bold text-charcoal-900 leading-tight mb-3">
+                Selamat Hari Guru Nasional
+            </h1>
+
+            <p class="text-sm sm:text-base text-charcoal-800/85 leading-relaxed mb-6">
+                Sebuah persembahan kecil berisi potongan kenangan, doa tulus, dan suara hati dari <span class="font-semibold text-charcoal-900">45 siswa</span> untuk sosok pelita yang tak pernah lelah membimbing kami.
+            </p>
+
+            <!-- Petunjuk Interaksi Singkat -->
+            <div class="bg-cream-100 rounded-2xl p-3.5 mb-7 text-left border border-cream-200 space-y-2 text-xs text-charcoal-800">
+                <div class="flex items-center gap-2.5">
+                    <span class="w-6 h-6 rounded-full bg-white flex items-center justify-center shadow-sm text-gold-600 font-bold shrink-0">1</span>
+                    <span><strong>Tahan layar</strong> kapan saja untuk menjeda waktu & membaca dengan santai.</span>
+                </div>
+                <div class="flex items-center gap-2.5">
+                    <span class="w-6 h-6 rounded-full bg-white flex items-center justify-center shadow-sm text-gold-600 font-bold shrink-0">2</span>
+                    <span><strong>Ketuk kiri / kanan</strong> layar untuk berpindah halaman kenangan.</span>
+                </div>
+            </div>
+
+            <button id="start-btn" type="button" class="w-full py-3.5 px-6 rounded-2xl gold-shimmer text-white font-semibold text-sm sm:text-base tracking-wide transition-transform active:scale-95 flex items-center justify-center gap-2 cursor-pointer">
+                <span>Mulai Perjalanan Kenangan</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- =====================================================================
+         2. CONTAINER UTAMA STORIES (RESPONSIF: FULL DI HP, FRAME DI DESKTOP)
+         ===================================================================== -->
+    <main id="story-container" class="relative w-full h-[100dvh] sm:h-[94dvh] sm:max-h-[860px] sm:w-[440px] md:w-[460px] bg-cream-50 sm:rounded-[32px] shadow-2xl overflow-hidden flex flex-col justify-between sm:border sm:border-gold-500/30 cursor-pointer">
+
+        <!-- Header Overlay: 15 Progress Bar & Kontrol Atas -->
+        <header class="relative z-30 pt-3 px-3 pb-2 bg-gradient-to-b from-cream-50 via-cream-50/95 to-transparent">
+            <!-- 15 Progress Bars -->
+            <div id="progress-bars-container" class="grid gap-1 w-full mb-2.5" style="grid-template-columns: repeat(15, minmax(0, 1fr));">
+                <!-- Diisi otomatis via JavaScript -->
+            </div>
+
+            <!-- Bar Info Halaman, Indikator Jeda & Tombol Musik -->
+            <div class="flex items-center justify-between px-1">
+                <div class="flex items-center gap-2">
+                    <span id="slide-counter" class="text-[11px] font-bold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-cream-200 text-charcoal-800">
+                        1 / 15
+                    </span>
+                    <span id="slide-category" class="text-xs font-medium text-charcoal-800/75 truncate max-w-[140px]">
+                        Pembuka
+                    </span>
+                </div>
+
+                <div class="flex items-center gap-1.5">
+                    <!-- Badge Indikator Dijeda (Muncul saat layar ditahan) -->
+                    <div id="pause-indicator" class="hidden items-center gap-1 px-2.5 py-1 rounded-full bg-charcoal-900 text-cream-50 text-[11px] font-medium shadow-sm">
+                        <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-ping"></span>
+                        <span>Dijeda</span>
+                    </div>
+
+                    <!-- Tombol Mute / Unmute Musik -->
+                    <button id="mute-btn" type="button" aria-label="Kontrol Musik" class="interactive-control p-2 rounded-full bg-cream-100 hover:bg-cream-200 text-charcoal-900 border border-gold-500/25 transition active:scale-90 shadow-sm">
+                        <!-- Ikon Suara Aktif -->
+                        <svg id="icon-sound-on" class="w-4 h-4 text-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                        </svg>
+                        <!-- Ikon Suara Mute -->
+                        <svg id="icon-sound-off" class="w-4 h-4 text-charcoal-800/60 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15zM17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Area Konten Dinamis Slide (Halaman 1 s/d 15) -->
+        <section id="slide-content-area" class="relative z-20 flex-1 px-4 pb-3 overflow-y-auto no-scrollbar flex flex-col justify-between">
+            <!-- Konten slide dirender secara dinamis melalui JavaScript -->
+        </section>
+
+        <!-- Footer Petunjuk Halus di Bagian Bawah -->
+        <footer class="relative z-30 px-4 py-2 bg-cream-100/80 border-t border-cream-200/80 flex items-center justify-between text-[10px] text-charcoal-800/65">
+            <span>‹ Ketuk kiri: Sebelumnya</span>
+            <span class="font-medium text-gold-600">Tahan layar untuk menjeda</span>
+            <span>Ketuk kanan: Lanjut ›</span>
+        </footer>
+    </main>
+
+    <!-- =====================================================================
+         JAVASCRIPT: DATA 45 SISWA, 15 SLIDE, ENGINE TIMER & HOLD TO PAUSE
+         ===================================================================== -->
+    <script>
+        /**
+         * KONFIGURASI DURASI SLIDE (dalam milidetik)
+         * 7000 ms = 7 detik per halaman
+         */
+        const SLIDE_DURATION = 7000;
+
+        /**
+         * DATA 45 SISWA (Absen 1 - 45)
+         * Simpan foto siswa rasio 4:5 di folder 'foto-siswa/' dengan nama 01.jpg s.d. 45.jpg
+         */
+        /**
+         * DATA LENGKAP 45 SISWA (ABSEN 1 - 45)
+         * Tinggal edit teks pada bagian ucapan, pesan, dan kesan untuk masing-masing nama.
+         */
+        const studentsList = [
+            // ABSEN 01
+            {
+                absen: 1,
+                nama: "Abdurrazzaq Amran Zabran",
+                photo: "foto-siswa/01.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih telah menjadi pelita dalam perjalanan belajar kami.",
+                pesan: "Semoga Bapak/Ibu selalu diberikan kesehatan, kesabaran, dan kebahagiaan dalam mendidik generasi bangsa.",
+                kesan: "Cara Bapak/Ibu menjelaskan pelajaran selalu membuat suasana kelas hidup dan mudah dipahami."
+            },
+            // ABSEN 02
+            {
+                absen: 2,
+                nama: "Balqis Nailatul Husna",
+                photo: "foto-siswa/02.jpg",
+                ucapan: "Selamat Hari Guru untuk sosok paling menginspirasi di sekolah.",
+                pesan: "Teruslah menjadi guru yang ramah dan penuh semangat seperti yang kami kenal selama ini.",
+                kesan: "Tidak pernah bosan menjawab pertanyaan kami meskipun sering diulang-ulang."
+            },
+            // ABSEN 03
+            {
+                absen: 3,
+                nama: "Balqis Shafira Ahnafiyah",
+                photo: "foto-siswa/03.jpg",
+                ucapan: "Terima kasih atas segala ilmu dan nasihat berharga yang telah diberikan.",
+                pesan: "Semoga segala kebaikan Bapak/Ibu dibalas berlipat ganda oleh Tuhan Yang Maha Esa.",
+                kesan: "Momen diskusi di kelas bersama Bapak/Ibu selalu menjadi waktu yang paling ditunggu."
+            },
+            // ABSEN 04
+            {
+                absen: 4,
+                nama: "Diana Fauziah",
+                photo: "foto-siswa/04.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Jasa Bapak/Ibu tidak akan pernah kami lupakan.",
+                pesan: "Jaga kesehatan selalu di tengah padatnya jadwal mengajar.",
+                kesan: "Belajar dengan Bapak/Ibu tidak hanya tentang nilai, tapi juga tentang etika dan kedisiplinan."
+            },
+            // ABSEN 05
+            {
+                absen: 5,
+                nama: "Evan Khaerul Azzam",
+                photo: "foto-siswa/05.jpg",
+                ucapan: "Happy Teacher's Day! Terima kasih telah membimbing kami dengan sepenuh hati.",
+                pesan: "Semoga Bapak/Ibu selalu sukses dan bangga melihat keberhasilan murid-muridnya kelak.",
+                kesan: "Humor ringan di sela-sela pelajaran membuat kami tidak pernah merasa tertekan."
+            },
+            // ABSEN 06
+            {
+                absen: 6,
+                nama: "Fadhil Putra Ghandra",
+                photo: "Fadhil.jpg",
+                ucapan: "OAMAGA HELLOW MAMSKY INGGIT!! time fly sooo fast! udah mau uas aja nih itu menandakan hampir 6 bulan kita bersama sebagai seorang siswa dan wali kelas!. Aku ucapkan banyak banyak terimakasih untuk ibu yang selalu siaga membantu anak anak nya any time any where... Terimakasih banyak atas segala ilmu dan terimakasih pula atas selaga tugas nya..!",
+                pesan: "Pesan aku semoga ibu selalu sehat dan di limpahkan keberkahan oleh Allah.Swt terus apa yang di semogakan segera tersemogakan selalu jadi Bu Inggit yang punya perhatian lebih sama anak anak nya ya buu! dan selalu jadi guru biologi yang tenang di mulut dan killer di soal ya buu! ( jangan lupa Tj sekre Bu heheh..... 🥴🥴 ) ",
+                kesan: "Opkors kesan yang paling pertama adalah ibu seorang yang detail dan perfeksionis dan selalu mengusahan yang terbaik untuk anak anak nya lalu kesan kedua aku ibu adalah seorang yang luas wawasan nya, kayanya ada buku 1001 about biologi deh di kepala ibu?? 😭😭 tapi jujur aku kagum sama luas nya pengetahuan ibu. Lagiiii kesan aku lainnya adalah soal² ibu yang penggunaan bahasa nya menarik! ga kaya soal biasanya ini beneran kaya omongan Bu Inggit versi ketik tau ga si buuuu ih ( jangan lupa tanda tangan agenda kelas ibu..... 🐻🐻 ) "
+            },
+            // ABSEN 07
+            {
+                absen: 7,
+                nama: "Falisha Alya Sukmawibawa",
+                photo: "foto-siswa/07.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 08
+            {
+                absen: 8,
+                nama: "Fhaneysa Rasyqa Margareyta",
+                photo: "foto-siswa/08.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 09
+            {
+                absen: 9,
+                nama: "Fitri Amaliah Wardana",
+                photo: "foto-siswa/09.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 10
+            {
+                absen: 10,
+                nama: "Ghazi Akbar Fathurrahim",
+                photo: "foto-siswa/10.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 11
+            {
+                absen: 11,
+                nama: "Habibie Bintang Ramadhan",
+                photo: "foto-siswa/11.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 12
+            {
+                absen: 12,
+                nama: "Jeremiah Benedictus Caesar Toban",
+                photo: "foto-siswa/12.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 13
+            {
+                absen: 13,
+                nama: "Keysha Aldeandra Budiman",
+                photo: "foto-siswa/13.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 14
+            {
+                absen: 14,
+                nama: "Khansa Fathia Madina",
+                photo: "foto-siswa/14.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 15
+            {
+                absen: 15,
+                nama: "Khanza Humaira Prawira",
+                photo: "foto-siswa/15.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 16
+            {
+                absen: 16,
+                nama: "M. Ghaizan Fajar Addien",
+                photo: "foto-siswa/16.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 17
+            {
+                absen: 17,
+                nama: "Maisyah Nursyafa Salma Dwiyanti",
+                photo: "foto-siswa/17.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 18
+            {
+                absen: 18,
+                nama: "Muhamad Valene Maisan Ghani",
+                photo: "Valene.jpg",
+                ucapan:"Terimakasih yaa ibuu udah jadi wali kelas yang perhatian banget dan selalu nanya kabar tentang kita bahkan kondisi kita di setiap mapel apapun.",
+                pesan: "Untuk Bu Inggit jangan lupaa semangat terus yaa dan doakan kami agar sukses terus walaupun kita kelas 11 akan berpisah karena beda² minat, dan Ibu sukses terus yaa ibuu.",
+                kesan: "Valene ga nyangka ternyata Bu Inggit itu wali kelas yang bisa diajak bercanda tapi sekaligus serius, jadinyaa kita merasa have fun banget tanpa adanya tekanan batin hehehe"
+            },
+            // ABSEN 19
+            {
+                absen: 19,
+                nama: "Muhammad Dzaky Ananda",
+                photo: "foto-siswa/19.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 20
+            {
+                absen: 20,
+                nama: "Muhammad Farrel Rinaldi",
+                photo: "foto-siswa/20.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 21
+            {
+                absen: 21,
+                nama: "Muhammad Fitra Ramadhan",
+                photo: "foto-siswa/21.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 22
+            {
+                absen: 22,
+                nama: "Muhammad Ijmal Maulana",
+                photo: "Ijmal.jpg",
+                ucapan: "Terimakasih ibu udah menjadi bagian dalam hidup ijmal",
+                pesan: "ibu sebelumnya ijmal mau ngucapin terimakasih banyak udah menjadi sebuat bagian dari hidup ijmal menjadi salah satu guru terbaik yang pernah ada dalah hidup ijmal. mungkin dari si kakak juga sama rasa bahagianya kayak ijmal di wali kelasin sama ibu inggit, semoga ibu sehat selalu, diberikan umur yang panjang buat melihat murid murid ibu 5-20 tahun kedepan yang udah sukses sukses pastinya aamiinn. mohon maaf ibu kalau ijmal masih ngga nurut, banyak bercandanya, banyak ini itunya ya buu, janji bercandanya diulangin lagi hehehe. Arigatou guzaimasu ibuu 🥳",
+                kesan: "seru, rame, solid, menyenangkan, bahagia, istimewa well "
+            },
+            // ABSEN 23
+            {
+                absen: 23,
+                nama: "Muhammad Nazril Ali",
+                photo: "foto-siswa/23.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 24
+            {
+                absen: 24,
+                nama: "Muhammad Nicky Al Vhaley",
+                photo: "Nicky.jpg",
+                ucapan: "Ibu terimakasih banyak telah menuntun kami, ibu sangat baik, ibu mendidik kita seperti ke anak sendiri ",
+                pesan: "ibuu baik baik saja yaa, semoga Allah memberikan kesehatan, diberikan rezeki yang baik, dan dipermudahkan segala urusan nya, ibu maaf mungkin aku seringkali mengecewakan ibu (karena sering telat huhuu 😿) jangan pernah berhenti menjadi ibu yang sekarang ❤️",
+                kesan: "ibu baik sekali, ibu mengajari kami seperti anak sendiri (jiwa keibuan nya sangat tajam *love), ibu karna ibu aku jadi suka biologi (suka ya, bukan pandai *semoga aamiin 😃), apa lagi ya pokoknya #salambiologi !! "
+            },
+            // ABSEN 25
+            {
+                absen: 25,
+                nama: "Muhammad Rasya Affandie",
+                photo: "foto-siswa/25.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 26
+            {
+                absen: 26,
+                nama: "Muthiaravanza Putri Supriatna",
+                photo: "foto-siswa/26.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 27
+            {
+                absen: 27,
+                nama: "Nayla Abigail Cantika Shafire",
+                photo: "foto-siswa/27.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 28
+            {
+                absen: 28,
+                nama: "Pitri Oktari",
+                photo: "foto-siswa/28.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 29
+            {
+                absen: 29,
+                nama: "Puput Puspitasari",
+                photo: "foto-siswa/29.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 30
+            {
+                absen: 30,
+                nama: "Queenza Maura Jamilanafisa Gunawan",
+                photo: "foto-siswa/30.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 31
+            {
+                absen: 31,
+                nama: "Raihan Ahmad Fauzi",
+                photo: "foto-siswa/31.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 32
+            {
+                absen: 32,
+                nama: "Rais Anindya Hilwan",
+                photo: "foto-siswa/32.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 33
+            {
+                absen: 33,
+                nama: "Rayhan Byantara Antoneva",
+                photo: "foto-siswa/33.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 34
+            {
+                absen: 34,
+                nama: "Rayhanum Ayatul Khuzma",
+                photo: "foto-siswa/34.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 35
+            {
+                absen: 35,
+                nama: "Rianti Puspita Sari",
+                photo: "foto-siswa/35.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 36
+            {
+                absen: 36,
+                nama: "Sadra Adiyat Sanaha",
+                photo: "foto-siswa/36.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 37
+            {
+                absen: 37,
+                nama: "Sasabila Syakieb",
+                photo: "foto-siswa/37.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 38
+            {
+                absen: 38,
+                nama: "Shazfa Samiadzaky Sukarna",
+                photo: "foto-siswa/38.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 39
+            {
+                absen: 39,
+                nama: "Shidiq Gammawan",
+                photo: "Shidiq.jpg",
+                ucapan: "Syukron Ibu, sudah menjadi Wali Kelas yang selalu mendukung semua kegiatan kami dan mengerti apa yang kami inginkan",
+                pesan: "Semoga ibu diberikan kemudahan dan kelancaran dalam semua urusannya dan maaf kalo gamma sering sakit 😅",
+                kesan: "Alhamdulillah, rame, asik, dan bikin tenang"
+            },
+            // ABSEN 40
+            {
+                absen: 40,
+                nama: "Syaqira Rajasa Nursalih",
+                photo: "foto-siswa/40.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 41
+            {
+                absen: 41,
+                nama: "Veloxa Caithlynn Widjaja",
+                photo: "foto-siswa/41.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 42
+            {
+                absen: 42,
+                nama: "Washifa Hazirah Mutiara",
+                photo: "foto-siswa/42.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 43
+            {
+                absen: 43,
+                nama: "Zaidan Firas Sulthani",
+                photo: "foto-siswa/43.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 44
+            {
+                absen: 44,
+                nama: "Zaskia Dwi Aviya",
+                photo: "foto-siswa/44.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            },
+            // ABSEN 45
+            {
+                absen: 45,
+                nama: "Zydna Ilma Meirina",
+                photo: "foto-siswa/45.jpg",
+                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
+                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
+                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+            }
+        ];
+
+        /**
+         * DATA 15 SLIDE (HALAMAN)
+         * - Halaman 1: Intro / Pembuka
+         * - Halaman 2-14: 13 Halaman Memori & Ucapan (6 halaman isi 4 siswa, 7 halaman isi 3 siswa = 45 siswa)
+         * - Halaman 15: Outro / Penutup
+         */
+        const memoryMeta = [
+            {
+                photo: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=80",
+                caption: "Momen diskusi hangat di kelas saat jam pelajaran berlangsung.",
+                count: 4
+            },
+            {
+                photo: "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=900&q=80",
+                caption: "Kesabaran Bapak/Ibu menjelaskan materi hingga kami benar-benar paham.",
+                count: 4
+            },
+            {
+                photo: "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=900&q=80",
+                caption: "Kebersamaan di halaman sekolah penuh tawa dan cerita.",
+                count: 4
+            },
+            {
+                photo: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80",
+                caption: "Setiap catatan di papan tulis menjadi bekal masa depan kami.",
+                count: 4
+            },
+            {
+                photo: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80",
+                caption: "Kerja kelompok dan bimbingan langsung yang tak terlupakan.",
+                count: 4
+            },
+            {
+                photo: "https://images.unsplash.com/photo-1511629091441-ee46146481b6?auto=format&fit=crop&w=900&q=80",
+                caption: "Senyum semangat di pagi hari sebelum memulai aktivitas belajar.",
+                count: 4
+            },
+            {
+                photo: "https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=900&q=80",
+                caption: "Sosok teladan yang selalu menginspirasi kami untuk bermimpi besar.",
+                count: 3
+            },
+            {
+                photo: "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=900&q=80",
+                caption: "Tawa lepas di sela-sela waktu istirahat bersama wali kelas tercinta.",
+                count: 3
+            },
+            {
+                photo: "https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=80",
+                caption: "Setiap nasihat Bapak/Ibu menjadi kompas saat kami melangkah.",
+                count: 3
+            },
+            {
+                photo: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=900&q=80",
+                caption: "Menyiapkan masa depan bersama di ruang kelas penuh kenangan.",
+                count: 3
+            },
+            {
+                photo: "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&q=80",
+                caption: "Perhatian kecil Bapak/Ibu yang selalu membuat kami merasa dihargai.",
+                count: 3
+            },
+            {
+                photo: "https://images.unsplash.com/photo-1519452575417-564c1401ecc0?auto=format&fit=crop&w=900&q=80",
+                caption: "Langkah demi langkah kami tumbuh berkat ketulusan Bapak/Ibu.",
+                count: 3
+            },
+            {
+                photo: "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=900&q=80",
+                caption: "Lembar demi lembar ilmu yang akan selalu kami bawa sepanjang hayat.",
+                count: 3
+            }
+        ];
+
+        // Susun array lengkap 15 halaman
+        const slidesData = [
+            // Halaman 1: Pembuka
+            {
+                type: 'intro',
+                category: 'Ucapan Utama',
+                photo: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1000&q=85',
+                title: 'Selamat Hari Guru Nasional',
+                subtitle: 'Terima Kasih, Pelita dalam Setiap Langkah Kami',
+                message: 'Untuk Bapak dan Ibu Guru tercinta, terima kasih telah membimbing kami dengan kesabaran tanpa batas. Setiap ilmu, teguran lembut, dan doa tulus yang Bapak/Ibu berikan telah membentuk kami menjadi pribadi yang lebih kuat dan berani bermimpi. Selamat Hari Guru Nasional 2026!'
+            }
+        ];
+
+        // Masukkan Halaman 2 sampai 14 beserta irisan 45 siswa
+        let studentCursor = 0;
+        memoryMeta.forEach((meta, idx) => {
+            const slice = studentsList.slice(studentCursor, studentCursor + meta.count);
+            studentCursor += meta.count;
+
+            slidesData.push({
+                type: 'memory',
+                category: `Memori #${idx + 1}`,
+                photo: meta.photo,
+                caption: meta.caption,
+                students: slice
+            });
+        });
+
+        // Halaman 15: Penutup
+        slidesData.push({
+            type: 'outro',
+            category: 'Penutup & Doa',
+            photo: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1000&q=85',
+            title: 'Terima Kasih Selamanya',
+            message: 'Waktu mungkin akan membawa kami melangkah jauh meninggalkan bangku sekolah ini, namun jasa dan ketulusan Bapak/Ibu akan selalu hidup di hati kami. Semoga Bapak/Ibu senantiasa dikaruniai kesehatan, kebahagiaan, dan keberkahan.',
+            signature: 'Dari Kami, Kelas XII — Angkatan 2026'
+        });
+
+        /**
+         * STATE & REFERENSI ELEMEN DOM
+         */
+        let currentSlideIndex = 0;
+        let isStarted = false;
+        let isPaused = false;
+        let elapsedBeforePause = 0;
+        let lastFrameTimestamp = null;
+        let animationFrameId = null;
+
+        // Variabel pelacak interaksi sentuh/klik (Tap vs Hold)
+        let pointerDownTime = 0;
+        let pointerDownX = 0;
+        let isHolding = false;
+
+        const welcomeOverlay = document.getElementById('welcome-overlay');
+        const startBtn = document.getElementById('start-btn');
+        const storyContainer = document.getElementById('story-container');
+        const progressBarsContainer = document.getElementById('progress-bars-container');
+        const slideContentArea = document.getElementById('slide-content-area');
+        const slideCounter = document.getElementById('slide-counter');
+        const slideCategory = document.getElementById('slide-category');
+        const pauseIndicator = document.getElementById('pause-indicator');
+        const ambientBg = document.getElementById('ambient-bg');
+
+        const bgMusic = document.getElementById('bg-music');
+        const muteBtn = document.getElementById('mute-btn');
+        const iconSoundOn = document.getElementById('icon-sound-on');
+        const iconSoundOff = document.getElementById('icon-sound-off');
+
+        /**
+         * INISIALISASI 15 PROGRESS BAR DI BAGIAN ATAS
+         */
+        function initProgressBars() {
+            progressBarsContainer.innerHTML = '';
+            slidesData.forEach((_, index) => {
+                const track = document.createElement('div');
+                track.className = 'h-1 bg-charcoal-900/15 rounded-full overflow-hidden';
+                
+                const fill = document.createElement('div');
+                fill.id = `progress-fill-${index}`;
+                fill.className = 'h-full bg-gold-600 rounded-full w-0 transition-none';
+                
+                track.appendChild(fill);
+                progressBarsContainer.appendChild(track);
+            });
+        }
+
+        /**
+         * MERENDER KONTEN SLIDE BERDASARKAN INDEX (0 - 14)
+         */
+        function renderSlide(index) {
+            const slide = slidesData[index];
+            slideCounter.textContent = `${index + 1} / ${slidesData.length}`;
+            slideCategory.textContent = slide.category;
+            ambientBg.style.backgroundImage = `url('${slide.photo}')`;
+
+            // Update status progress bar sebelum & sesudah slide aktif
+            slidesData.forEach((_, idx) => {
+                const fillEl = document.getElementById(`progress-fill-${idx}`);
+                if (idx < index) {
+                    fillEl.style.width = '100%';
+                } else {
+                    fillEl.style.width = '0%';
+                }
+            });
+
+            // Template HTML berdasarkan tipe slide
+            if (slide.type === 'intro') {
+                slideContentArea.innerHTML = `
+                    <div class="animate-slide-content flex flex-col justify-between h-full py-1">
+                        <!-- Bingkai Foto Utama -->
+                        <div class="relative w-full h-[46%] rounded-2xl overflow-hidden shadow-md border-2 border-white bg-cream-200 shrink-0">
+                            <img src="${slide.photo}" alt="Foto Utama Kelas" 
+                                 onerror="this.src='https://placehold.co/800x600/F7F1E5/2C2520?text=Selamat+Hari+Guru+2026'"
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900/60 via-transparent to-transparent"></div>
+                            <span class="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-cream-50/90 backdrop-blur-sm text-[11px] font-semibold text-charcoal-900 shadow">
+                                ✨ Hari Guru Nasional 2026
+                            </span>
+                        </div>
+
+                        <!-- Kartu Ucapan Pembuka -->
+                        <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-5 shadow-sm border border-gold-500/25 flex-1 mt-3 flex flex-col justify-center text-center">
+                            <p class="text-xs font-bold uppercase tracking-widest text-gold-600 mb-1.5">${slide.subtitle}</p>
+                            <h2 class="font-serif text-2xl sm:text-[26px] font-bold text-charcoal-900 leading-snug mb-3">
+                                ${slide.title}
+                            </h2>
+                            <p class="text-xs sm:text-[13.5px] text-charcoal-800 leading-relaxed">
+                                "${slide.message}"
+                            </p>
+                        </div>
+                    </div>
+                `;
+            } else if (slide.type === 'memory') {
+                // Render kartu-kartu siswa (3 atau 4 kartu per slide) dengan foto siswa rasio 4:5 di sisi kiri
+                const cardsHtml = slide.students.map(student => {
+                    const fallbackInisial = student.nama.split(' ').slice(0, 2).map(n => n[0]).join('');
+                    const fallbackUrl = `https://placehold.co/400x500/EFE4CE/2C2520?text=${encodeURIComponent(fallbackInisial + ' • ' + String(student.absen).padStart(2, '0'))}`;
+                    return `
+                    <div class="bg-white/95 rounded-xl p-2.5 shadow-sm border border-cream-200 hover:border-gold-400/60 transition flex items-start gap-2.5">
+                        <!-- Foto Siswa Rasio Tepat 4:5 -->
+                        <div class="w-[72px] sm:w-[82px] aspect-[4/5] rounded-lg overflow-hidden shrink-0 border border-gold-500/35 bg-cream-100 shadow-sm relative">
+                            <img src="${student.photo}" alt="Foto ${student.nama}" 
+                                 onerror="this.onerror=null;this.src='${fallbackUrl}';"
+                                 class="w-full h-full object-cover object-center">
+                        </div>
+
+                        <!-- Konten Teks Ucapan, Pesan & Kesan -->
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-1.5 mb-1 pb-1 border-b border-cream-100">
+                                <span class="px-1.5 py-0.5 rounded bg-sage-100 text-sage-700 font-bold text-[9.5px] shrink-0">
+                                    #${String(student.absen).padStart(2, '0')}
+                                </span>
+                                <h3 class="font-bold text-xs sm:text-[12.5px] text-charcoal-900 truncate">
+                                    ${student.nama}
+                                </h3>
+                            </div>
+                            <div class="space-y-0.5 text-[10.5px] sm:text-[11px] leading-snug text-charcoal-800">
+                                <p><span class="font-semibold text-gold-600">Ucapan:</span> ${student.ucapan}</p>
+                                <p><span class="font-semibold text-sage-700">Pesan:</span> ${student.pesan}</p>
+                                <p><span class="font-semibold text-charcoal-900">Kesan:</span> ${student.kesan}</p>
+                            </div>
+                        </div>
+                    </div>
+                `}).join('');
+
+                slideContentArea.innerHTML = `
+                    <div class="animate-slide-content flex flex-col h-full gap-2">
+                        <!-- Foto Memori Atas -->
+                        <div class="relative w-full h-[140px] sm:h-[160px] rounded-2xl overflow-hidden shadow-sm border-2 border-white bg-cream-200 shrink-0">
+                            <img src="${slide.photo}" alt="${slide.category}" 
+                                 onerror="this.src='https://placehold.co/800x450/F7F1E5/2C2520?text=Kenangan+Bersama+Guru'"
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900/80 via-charcoal-900/15 to-transparent"></div>
+                            <p class="absolute bottom-2 left-3 right-3 text-cream-50 text-[11px] font-medium leading-tight drop-shadow">
+                                📸 ${slide.caption}
+                            </p>
+                        </div>
+
+                        <!-- Daftar Kartu Ucapan Siswa -->
+                        <div class="flex-1 flex flex-col justify-start gap-2 overflow-y-auto no-scrollbar pb-1">
+                            ${cardsHtml}
+                        </div>
+                    </div>
+                `;
+            } else if (slide.type === 'outro') {
+                slideContentArea.innerHTML = `
+                    <div class="animate-slide-content flex flex-col justify-between h-full py-1">
+                        <!-- Foto Kenangan Terakhir -->
+                        <div class="relative w-full h-[44%] rounded-2xl overflow-hidden shadow-md border-2 border-white bg-cream-200 shrink-0">
+                            <img src="${slide.photo}" alt="Foto Penutup" 
+                                 onerror="this.src='https://placehold.co/800x600/F7F1E5/2C2520?text=Terima+Kasih+Guruku'"
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900/65 via-transparent to-transparent"></div>
+                            <span class="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-gold-500 text-white text-[11px] font-semibold shadow">
+                                🎓 Selamanya Dalam Ingatan
+                            </span>
+                        </div>
+
+                        <!-- Kartu Doa & Penutup -->
+                        <div class="bg-white/95 rounded-2xl p-5 shadow-sm border border-gold-500/30 flex-1 mt-3 flex flex-col justify-between text-center">
+                            <div>
+                                <h2 class="font-serif text-2xl sm:text-[26px] font-bold text-charcoal-900 mb-2">
+                                    ${slide.title}
+                                </h2>
+                                <p class="text-xs sm:text-[13px] text-charcoal-800 leading-relaxed mb-3">
+                                    "${slide.message}"
+                                </p>
+                            </div>
+
+                            <div class="pt-2 border-t border-cream-200">
+                                <p class="font-serif italic text-sm font-semibold text-gold-600 mb-3">
+                                    ${slide.signature}
+                                </p>
+                                <button id="replay-btn" type="button" class="interactive-control w-full py-2.5 px-5 rounded-xl gold-shimmer text-white font-semibold text-xs sm:text-sm tracking-wide transition-transform active:scale-95 inline-flex items-center justify-center gap-2 shadow cursor-pointer">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                    </svg>
+                                    <span>Putar Ulang Perjalanan</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                // Event listener tombol Putar Ulang
+                const replayBtn = document.getElementById('replay-btn');
+                if (replayBtn) {
+                    replayBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        goToSlide(0);
+                    });
+                }
+            }
+
+            // Reset scroll area ke paling atas setiap ganti slide
+            slideContentArea.scrollTop = 0;
+        }
+
+        /**
+         * ENGINE TIMER HALUS DENGAN REQUESTANIMATIONFRAME
+         */
+        function startSlideTimer() {
+            cancelAnimationFrame(animationFrameId);
+            elapsedBeforePause = 0;
+            lastFrameTimestamp = performance.now();
+            isPaused = false;
+            updatePauseUI(false);
+            animationFrameId = requestAnimationFrame(updateProgressLoop);
+        }
+
+        function updateProgressLoop(now) {
+            if (!isStarted) return;
+
+            if (!isPaused) {
+                const delta = now - lastFrameTimestamp;
+                elapsedBeforePause += delta;
+                lastFrameTimestamp = now;
+
+                const progressPercent = Math.min((elapsedBeforePause / SLIDE_DURATION) * 100, 100);
+                const activeFill = document.getElementById(`progress-fill-${currentSlideIndex}`);
+                if (activeFill) {
+                    activeFill.style.width = `${progressPercent}%`;
+                }
+
+                if (elapsedBeforePause >= SLIDE_DURATION) {
+                    if (currentSlideIndex < slidesData.length - 1) {
+                        goToSlide(currentSlideIndex + 1);
+                        return;
+                    } else {
+                        isPaused = true;
+                        return;
+                    }
+                }
+            } else {
+                lastFrameTimestamp = now;
+            }
+
+            animationFrameId = requestAnimationFrame(updateProgressLoop);
+        }
+
+        function pauseTimer() {
+            if (!isStarted || isPaused) return;
+            isPaused = true;
+            updatePauseUI(true);
+        }
+
+        function resumeTimer() {
+            if (!isStarted || !isPaused) return;
+            if (currentSlideIndex === slidesData.length - 1 && elapsedBeforePause >= SLIDE_DURATION) {
+                updatePauseUI(false);
+                return;
+            }
+            isPaused = false;
+            lastFrameTimestamp = performance.now();
+            updatePauseUI(false);
+        }
+
+        function updatePauseUI(paused) {
+            if (paused) {
+                pauseIndicator.classList.remove('hidden');
+                pauseIndicator.classList.add('inline-flex');
+            } else {
+                pauseIndicator.classList.add('hidden');
+                pauseIndicator.classList.remove('inline-flex');
+            }
+        }
+
+        /**
+         * PINDAH HALAMAN (SLIDE)
+         */
+        function goToSlide(targetIndex) {
+            if (targetIndex < 0) {
+                targetIndex = 0;
+            } else if (targetIndex >= slidesData.length) {
+                targetIndex = slidesData.length - 1;
+            }
+
+            currentSlideIndex = targetIndex;
+            renderSlide(currentSlideIndex);
+            startSlideTimer();
+        }
+
+        /**
+         * LOGIKA INTERAKSI: TAHAN LAYAR (HOLD TO PAUSE) & KETUK KIRI/KANAN
+         */
+        let holdTimeout = null;
+
+        function handlePointerDown(e) {
+            if (!isStarted) return;
+            if (e.target.closest('.interactive-control')) return;
+
+            pointerDownTime = performance.now();
+            pointerDownX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+            isHolding = false;
+
+            holdTimeout = setTimeout(() => {
+                isHolding = true;
+                pauseTimer();
+            }, 180);
+        }
+
+        function handlePointerUp(e) {
+            if (!isStarted) return;
+            clearTimeout(holdTimeout);
+
+            if (e.target.closest('.interactive-control')) return;
+
+            const pressDuration = performance.now() - pointerDownTime;
+
+            if (isHolding || pressDuration >= 200) {
+                isHolding = false;
+                resumeTimer();
+            } else {
+                const rect = storyContainer.getBoundingClientRect();
+                const relativeX = pointerDownX - rect.left;
+                const leftBoundary = rect.width * 0.35;
+
+                if (relativeX < leftBoundary) {
+                    goToSlide(currentSlideIndex - 1);
+                } else {
+                    if (currentSlideIndex < slidesData.length - 1) {
+                        goToSlide(currentSlideIndex + 1);
+                    }
+                }
+            }
+        }
+
+        function handlePointerCancel() {
+            clearTimeout(holdTimeout);
+            if (isHolding) {
+                isHolding = false;
+                resumeTimer();
+            }
+        }
+
+        storyContainer.addEventListener('mousedown', handlePointerDown);
+        storyContainer.addEventListener('mouseup', handlePointerUp);
+        storyContainer.addEventListener('mouseleave', handlePointerCancel);
+
+        storyContainer.addEventListener('touchstart', handlePointerDown, { passive: true });
+        storyContainer.addEventListener('touchend', handlePointerUp);
+        storyContainer.addEventListener('touchcancel', handlePointerCancel);
+
+        window.addEventListener('keydown', (e) => {
+            if (!isStarted) return;
+            if (e.key === 'ArrowRight') {
+                if (currentSlideIndex < slidesData.length - 1) goToSlide(currentSlideIndex + 1);
+            } else if (e.key === 'ArrowLeft') {
+                goToSlide(currentSlideIndex - 1);
+            } else if (e.key === ' ') {
+                e.preventDefault();
+                isPaused ? resumeTimer() : pauseTimer();
+            }
+        });
+
+        /**
+         * KONTROL MUSIK & TOMBOL MULAI
+         */
+        function updateMuteIcons() {
+            if (bgMusic.muted) {
+                iconSoundOn.classList.add('hidden');
+                iconSoundOff.classList.remove('hidden');
+            } else {
+                iconSoundOn.classList.remove('hidden');
+                iconSoundOff.classList.add('hidden');
+            }
+        }
+
+        muteBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            bgMusic.muted = !bgMusic.muted;
+            if (!bgMusic.muted && bgMusic.paused) {
+                bgMusic.play().catch(() => {});
+            }
+            updateMuteIcons();
+        });
+
+        startBtn.addEventListener('click', () => {
+            isStarted = true;
+
+            bgMusic.volume = 0.55;
+            bgMusic.play().then(() => {
+                updateMuteIcons();
+            }).catch((err) => {
+                console.warn('Autoplay audio dibatasi browser:', err);
+            });
+
+            welcomeOverlay.classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                welcomeOverlay.style.display = 'none';
+            }, 700);
+
+            goToSlide(0);
+        });
+
+        /**
+         * KONTROL OTOMATIS SAAT PINDAH TAB / KELUAR WEB / LAYAR MATI (PC & HP)
+         */
+        let pausedByTabSwitch = false;
+
+        function stopMusicAndStory() {
+            if (isStarted) {
+                bgMusic.pause();
+                pausedByTabSwitch = true;
+                pauseTimer();
+            }
+        }
+
+        function resumeMusicAndStory() {
+            if (isStarted && pausedByTabSwitch) {
+                pausedByTabSwitch = false;
+                resumeTimer();
+
+                if (!bgMusic.muted) {
+                    bgMusic.play().catch(() => {});
+                }
+            }
+        }
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopMusicAndStory();
+            } else {
+                resumeMusicAndStory();
+            }
+        });
+
+        window.addEventListener('pagehide', stopMusicAndStory);
+
+        ['click', 'keydown', 'touchstart'].forEach((eventName) => {
+            window.addEventListener(eventName, () => {
+                if (isStarted && !bgMusic.muted && bgMusic.paused && !document.hidden) {
+                    bgMusic.play().catch(() => {});
+                }
+            }, true);
+        });
+
+        // Inisialisasi awal tampilan
+        initProgressBars();
+        renderSlide(0);
+    </script>
+</body>
+</html>
