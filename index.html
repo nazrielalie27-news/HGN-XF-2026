@@ -95,18 +95,14 @@
     </style>
 </head>
 <body class="w-screen h-[100dvh] flex items-center justify-center relative text-charcoal-900">
-    <!-- Latar Belakang Ambient Buram untuk Tampilan Desktop/Tablet -->
-    <div id="ambient-bg" class="fixed inset-0 bg-cover bg-center scale-110 blur-2xl opacity-35 transition-all duration-1000 pointer-events-none"
-         style="background-image: url('foto-kelas.jpg');"> <!-- <--- GANTI JUGA DI SINI -->
-    </div>
 
-    <!-- Latar Belakang Ambient Buram untuk Tampilan Desktop/Tablet -->
-    <div id="ambient-bg" class="fixed inset-0 bg-cover bg-center scale-110 blur-2xl opacity-35 transition-all duration-1000 pointer-events-none"
-         style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1000&q=60');">
+    <!-- Latar Belakang Ambient Buram (Hanya aktif di Desktop/Tablet, dimatikan di HP agar ringan) -->
+    <div id="ambient-bg" class="hidden sm:block fixed inset-0 bg-cover bg-center scale-110 blur-2xl opacity-35 transition-all duration-1000 pointer-events-none"
+         style="background-image: url('Ibu-Inggit.jpeg');">
     </div>
-    <div class="fixed inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70 pointer-events-none"></div>
+    <div class="hidden sm:block fixed inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70 pointer-events-none"></div>
 
-    <!-- Pemutar Audio Latar (Pastikan file hymne-guru.mp3 berada di folder yang sama dengan index.html) -->
+    <!-- Pemutar Audio Latar -->
     <audio id="bg-music" loop preload="auto">
         <source src="hymne-guru.mp3" type="audio/mpeg">
     </audio>
@@ -114,7 +110,7 @@
     <!-- =====================================================================
          1. WELCOME OVERLAY (LAYAR PEMBUKA)
          ===================================================================== -->
-    <div id="welcome-overlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-charcoal-900/90 backdrop-blur-md transition-opacity duration-700">
+    <div id="welcome-overlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-charcoal-900/95 transition-opacity duration-700">
         <div class="w-full max-w-[440px] bg-cream-50 rounded-3xl p-7 sm:p-9 text-center shadow-2xl border border-gold-500/30 relative overflow-hidden">
             <!-- Ornamen Sudut -->
             <div class="w-24 h-24 rounded-full bg-gold-500/10 absolute -top-10 -right-10 pointer-events-none"></div>
@@ -223,12 +219,7 @@
         const SLIDE_DURATION = 7000;
 
         /**
-         * DATA 45 SISWA (Absen 1 - 45)
-         * Simpan foto siswa rasio 4:5 di folder 'foto-siswa/' dengan nama 01.jpg s.d. 45.jpg
-         */
-        /**
          * DATA LENGKAP 45 SISWA (ABSEN 1 - 45)
-         * Tinggal edit teks pada bagian ucapan, pesan, dan kesan untuk masing-masing nama.
          */
         const studentsList = [
             // ABSEN 01
@@ -282,8 +273,8 @@
                 nama: "Fadhil Putra Ghandra",
                 photo: "Fadhil.jpg",
                 ucapan: "OAMAGA HELLOW MAMSKY INGGIT!! time fly sooo fast! udah mau uas aja nih itu menandakan hampir 6 bulan kita bersama sebagai seorang siswa dan wali kelas!. Aku ucapkan banyak banyak terimakasih untuk ibu yang selalu siaga membantu anak anak nya any time any where... Terimakasih banyak atas segala ilmu dan terimakasih pula atas selaga tugas nya..!",
-                pesan: "Pesan aku semoga ibu selalu sehat dan di limpahkan keberkahan oleh Allah.Swt terus apa yang di semogakan segera tersemogakan selalu jadi Bu Inggit yang punya perhatian lebih sama anak anak nya ya buu! dan selalu jadi guru biologi yang tenang di mulut dan killer di soal ya buu! ( jangan lupa Tj sekre Bu heheh..... 🥴🥴 ) ",
-                kesan: "Opkors kesan yang paling pertama adalah ibu seorang yang detail dan perfeksionis dan selalu mengusahan yang terbaik untuk anak anak nya lalu kesan kedua aku ibu adalah seorang yang luas wawasan nya, kayanya ada buku 1001 about biologi deh di kepala ibu?? 😭😭 tapi jujur aku kagum sama luas nya pengetahuan ibu. Lagiiii kesan aku lainnya adalah soal² ibu yang penggunaan bahasa nya menarik! ga kaya soal biasanya ini beneran kaya omongan Bu Inggit versi ketik tau ga si buuuu ih ( jangan lupa tanda tangan agenda kelas ibu..... 🐻🐻 ) "
+                pesan: "Pesan aku semoga ibu selalu sehat dan di limpahkan keberkahan oleh Allah.Swt terus apa yang di semogakan segera tersemogakan selalu jadi Bu Inggit yang punya perhatian lebih sama anak anak nya ya buu! dan selalu jadi guru biologi yang tenang di mulut dan killer di soal ya buu! ( jangan lupa Tj sekre Bu heheh..... 🥴🥴 )",
+                kesan: "Opkors kesan yang paling pertama adalah ibu seorang yang detail dan perfeksionis dan selalu mengusahan yang terbaik untuk anak anak nya lalu kesan kedua aku ibu adalah seorang yang luas wawasan nya, kayanya ada buku 1001 about biologi deh di kepala ibu?? 😭😭 tapi jujur aku kagum sama luas nya pengetahuan ibu. Lagiiii kesan aku lainnya adalah soal² ibu yang penggunaan bahasa nya menarik! ga kaya soal biasanya ini beneran kaya omongan Bu Inggit versi ketik tau ga si buuuu ih ( jangan lupa tanda tangan agenda kelas ibu..... 🐻🐻 )"
             },
             // ABSEN 07
             {
@@ -389,7 +380,7 @@
                 absen: 18,
                 nama: "Muhamad Valene Maisan Ghani",
                 photo: "Valene.jpg",
-                ucapan:"Terimakasih yaa ibuu udah jadi wali kelas yang perhatian banget dan selalu nanya kabar tentang kita bahkan kondisi kita di setiap mapel apapun.",
+                ucapan: "Terimakasih yaa ibuu udah jadi wali kelas yang perhatian banget dan selalu nanya kabar tentang kita bahkan kondisi kita di setiap mapel apapun.",
                 pesan: "Untuk Bu Inggit jangan lupaa semangat terus yaa dan doakan kami agar sukses terus walaupun kita kelas 11 akan berpisah karena beda² minat, dan Ibu sukses terus yaa ibuu.",
                 kesan: "Valene ga nyangka ternyata Bu Inggit itu wali kelas yang bisa diajak bercanda tapi sekaligus serius, jadinyaa kita merasa have fun banget tanpa adanya tekanan batin hehehe"
             },
@@ -427,7 +418,7 @@
                 photo: "Ijmal.jpg",
                 ucapan: "Terimakasih ibu udah menjadi bagian dalam hidup ijmal",
                 pesan: "ibu sebelumnya ijmal mau ngucapin terimakasih banyak udah menjadi sebuat bagian dari hidup ijmal menjadi salah satu guru terbaik yang pernah ada dalah hidup ijmal. mungkin dari si kakak juga sama rasa bahagianya kayak ijmal di wali kelasin sama ibu inggit, semoga ibu sehat selalu, diberikan umur yang panjang buat melihat murid murid ibu 5-20 tahun kedepan yang udah sukses sukses pastinya aamiinn. mohon maaf ibu kalau ijmal masih ngga nurut, banyak bercandanya, banyak ini itunya ya buu, janji bercandanya diulangin lagi hehehe. Arigatou guzaimasu ibuu 🥳",
-                kesan: "seru, rame, solid, menyenangkan, bahagia, istimewa well "
+                kesan: "seru, rame, solid, menyenangkan, bahagia, istimewa well"
             },
             // ABSEN 23
             {
@@ -443,9 +434,9 @@
                 absen: 24,
                 nama: "Muhammad Nicky Al Vhaley",
                 photo: "Nicky.jpg",
-                ucapan: "Ibu terimakasih banyak telah menuntun kami, ibu sangat baik, ibu mendidik kita seperti ke anak sendiri ",
+                ucapan: "Ibu terimakasih banyak telah menuntun kami, ibu sangat baik, ibu mendidik kita seperti ke anak sendiri",
                 pesan: "ibuu baik baik saja yaa, semoga Allah memberikan kesehatan, diberikan rezeki yang baik, dan dipermudahkan segala urusan nya, ibu maaf mungkin aku seringkali mengecewakan ibu (karena sering telat huhuu 😿) jangan pernah berhenti menjadi ibu yang sekarang ❤️",
-                kesan: "ibu baik sekali, ibu mengajari kami seperti anak sendiri (jiwa keibuan nya sangat tajam *love), ibu karna ibu aku jadi suka biologi (suka ya, bukan pandai *semoga aamiin 😃), apa lagi ya pokoknya #salambiologi !! "
+                kesan: "ibu baik sekali, ibu mengajari kami seperti anak sendiri (jiwa keibuan nya sangat tajam *love), ibu karna ibu aku jadi suka biologi (suka ya, bukan pandai *semoga aamiin 😃), apa lagi ya pokoknya #salambiologi !!"
             },
             // ABSEN 25
             {
@@ -640,9 +631,6 @@
 
         /**
          * DATA 15 SLIDE (HALAMAN)
-         * - Halaman 1: Intro / Pembuka
-         * - Halaman 2-14: 13 Halaman Memori & Ucapan (6 halaman isi 4 siswa, 7 halaman isi 3 siswa = 45 siswa)
-         * - Halaman 15: Outro / Penutup
          */
         const memoryMeta = [
             {
@@ -760,7 +748,6 @@
         let lastFrameTimestamp = null;
         let animationFrameId = null;
 
-        // Variabel pelacak interaksi sentuh/klik (Tap vs Hold)
         let pointerDownTime = 0;
         let pointerDownX = 0;
         let isHolding = false;
@@ -781,7 +768,7 @@
         const iconSoundOff = document.getElementById('icon-sound-off');
 
         /**
-         * INISIALISASI 15 PROGRESS BAR DI BAGIAN ATAS
+         * INISIALISASI 15 PROGRESS BAR (Akselerasi GPU scaleX)
          */
         function initProgressBars() {
             progressBarsContainer.innerHTML = '';
@@ -791,7 +778,8 @@
                 
                 const fill = document.createElement('div');
                 fill.id = `progress-fill-${index}`;
-                fill.className = 'h-full bg-gold-600 rounded-full w-0 transition-none';
+                fill.className = 'h-full w-full bg-gold-600 rounded-full origin-left will-change-transform';
+                fill.style.transform = 'scaleX(0)';
                 
                 track.appendChild(fill);
                 progressBarsContainer.appendChild(track);
@@ -805,35 +793,37 @@
             const slide = slidesData[index];
             slideCounter.textContent = `${index + 1} / ${slidesData.length}`;
             slideCategory.textContent = slide.category;
-            ambientBg.style.backgroundImage = `url('${slide.photo}')`;
+
+            // Update ambient background hanya jika di layar desktop/tablet (>= 640px)
+            if (window.innerWidth >= 640) {
+                ambientBg.style.backgroundImage = `url('${slide.photo}')`;
+            }
 
             // Update status progress bar sebelum & sesudah slide aktif
             slidesData.forEach((_, idx) => {
                 const fillEl = document.getElementById(`progress-fill-${idx}`);
-                if (idx < index) {
-                    fillEl.style.width = '100%';
-                } else {
-                    fillEl.style.width = '0%';
+                if (fillEl) {
+                    fillEl.style.transform = idx < index ? 'scaleX(1)' : 'scaleX(0)';
                 }
             });
 
-            // Template HTML berdasarkan tipe slide
             if (slide.type === 'intro') {
                 slideContentArea.innerHTML = `
                     <div class="animate-slide-content flex flex-col justify-between h-full py-1">
                         <!-- Bingkai Foto Utama -->
                         <div class="relative w-full h-[46%] rounded-2xl overflow-hidden shadow-md border-2 border-white bg-cream-200 shrink-0">
                             <img src="${slide.photo}" alt="Foto Utama Kelas" 
+                                 decoding="async"
                                  onerror="this.src='https://placehold.co/800x600/F7F1E5/2C2520?text=Selamat+Hari+Guru+2026'"
                                  class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900/60 via-transparent to-transparent"></div>
-                            <span class="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-cream-50/90 backdrop-blur-sm text-[11px] font-semibold text-charcoal-900 shadow">
+                            <span class="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-cream-50/95 text-[11px] font-semibold text-charcoal-900 shadow">
                                 ✨ Hari Guru Nasional 2026
                             </span>
                         </div>
 
                         <!-- Kartu Ucapan Pembuka -->
-                        <div class="bg-white/90 backdrop-blur-sm rounded-2xl p-5 shadow-sm border border-gold-500/25 flex-1 mt-3 flex flex-col justify-center text-center">
+                        <div class="bg-white rounded-2xl p-5 shadow-sm border border-gold-500/25 flex-1 mt-3 flex flex-col justify-center text-center">
                             <p class="text-xs font-bold uppercase tracking-widest text-gold-600 mb-1.5">${slide.subtitle}</p>
                             <h2 class="font-serif text-2xl sm:text-[26px] font-bold text-charcoal-900 leading-snug mb-3">
                                 ${slide.title}
@@ -845,15 +835,15 @@
                     </div>
                 `;
             } else if (slide.type === 'memory') {
-                // Render kartu-kartu siswa (3 atau 4 kartu per slide) dengan foto siswa rasio 4:5 di sisi kiri
                 const cardsHtml = slide.students.map(student => {
                     const fallbackInisial = student.nama.split(' ').slice(0, 2).map(n => n[0]).join('');
                     const fallbackUrl = `https://placehold.co/400x500/EFE4CE/2C2520?text=${encodeURIComponent(fallbackInisial + ' • ' + String(student.absen).padStart(2, '0'))}`;
                     return `
-                    <div class="bg-white/95 rounded-xl p-2.5 shadow-sm border border-cream-200 hover:border-gold-400/60 transition flex items-start gap-2.5">
+                    <div class="bg-white rounded-xl p-2.5 shadow-sm border border-cream-200 flex items-start gap-2.5">
                         <!-- Foto Siswa Rasio Tepat 4:5 -->
                         <div class="w-[72px] sm:w-[82px] aspect-[4/5] rounded-lg overflow-hidden shrink-0 border border-gold-500/35 bg-cream-100 shadow-sm relative">
                             <img src="${student.photo}" alt="Foto ${student.nama}" 
+                                 decoding="async"
                                  onerror="this.onerror=null;this.src='${fallbackUrl}';"
                                  class="w-full h-full object-cover object-center">
                         </div>
@@ -882,6 +872,7 @@
                         <!-- Foto Memori Atas -->
                         <div class="relative w-full h-[140px] sm:h-[160px] rounded-2xl overflow-hidden shadow-sm border-2 border-white bg-cream-200 shrink-0">
                             <img src="${slide.photo}" alt="${slide.category}" 
+                                 decoding="async"
                                  onerror="this.src='https://placehold.co/800x450/F7F1E5/2C2520?text=Kenangan+Bersama+Guru'"
                                  class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900/80 via-charcoal-900/15 to-transparent"></div>
@@ -902,6 +893,7 @@
                         <!-- Foto Kenangan Terakhir -->
                         <div class="relative w-full h-[44%] rounded-2xl overflow-hidden shadow-md border-2 border-white bg-cream-200 shrink-0">
                             <img src="${slide.photo}" alt="Foto Penutup" 
+                                 decoding="async"
                                  onerror="this.src='https://placehold.co/800x600/F7F1E5/2C2520?text=Terima+Kasih+Ibu+Inggit!'"
                                  class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900/65 via-transparent to-transparent"></div>
@@ -911,7 +903,7 @@
                         </div>
 
                         <!-- Kartu Doa & Penutup -->
-                        <div class="bg-white/95 rounded-2xl p-5 shadow-sm border border-gold-500/30 flex-1 mt-3 flex flex-col justify-between text-center">
+                        <div class="bg-white rounded-2xl p-5 shadow-sm border border-gold-500/30 flex-1 mt-3 flex flex-col justify-between text-center">
                             <div>
                                 <h2 class="font-serif text-2xl sm:text-[26px] font-bold text-charcoal-900 mb-2">
                                     ${slide.title}
@@ -936,7 +928,6 @@
                     </div>
                 `;
 
-                // Event listener tombol Putar Ulang
                 const replayBtn = document.getElementById('replay-btn');
                 if (replayBtn) {
                     replayBtn.addEventListener('click', (e) => {
@@ -946,7 +937,6 @@
                 }
             }
 
-            // Reset scroll area ke paling atas setiap ganti slide
             slideContentArea.scrollTop = 0;
         }
 
@@ -970,10 +960,10 @@
                 elapsedBeforePause += delta;
                 lastFrameTimestamp = now;
 
-                const progressPercent = Math.min((elapsedBeforePause / SLIDE_DURATION) * 100, 100);
+                const progressRatio = Math.min(elapsedBeforePause / SLIDE_DURATION, 1);
                 const activeFill = document.getElementById(`progress-fill-${currentSlideIndex}`);
                 if (activeFill) {
-                    activeFill.style.width = `${progressPercent}%`;
+                    activeFill.style.transform = `scaleX(${progressRatio})`;
                 }
 
                 if (elapsedBeforePause >= SLIDE_DURATION) {
