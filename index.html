@@ -739,18 +739,16 @@
         });
 
         /**
-         * STATE & REFERENSI ELEMEN DOM
+         * STATE & REFERENSI ELEMEN DOM (MODE MANUAL TANPA TIMER OTOMATIS)
          */
         let currentSlideIndex = 0;
         let isStarted = false;
-        let isPaused = false;
-        let elapsedBeforePause = 0;
-        let lastFrameTimestamp = null;
-        let animationFrameId = null;
 
-        let pointerDownTime = 0;
+        // Pelacak sentuhan/klik agar tidak memicu double-tap (loncat 2 halaman) di HP
         let pointerDownX = 0;
-        let isHolding = false;
+        let pointerDownY = 0;
+        let pointerDownTime = 0;
+        let lastNavTime = 0;
 
         const welcomeOverlay = document.getElementById('welcome-overlay');
         const startBtn = document.getElementById('start-btn');
@@ -759,7 +757,6 @@
         const slideContentArea = document.getElementById('slide-content-area');
         const slideCounter = document.getElementById('slide-counter');
         const slideCategory = document.getElementById('slide-category');
-        const pauseIndicator = document.getElementById('pause-indicator');
         const ambientBg = document.getElementById('ambient-bg');
 
         const bgMusic = document.getElementById('bg-music');
@@ -768,7 +765,7 @@
         const iconSoundOff = document.getElementById('icon-sound-off');
 
         /**
-         * INISIALISASI 15 PROGRESS BAR (Akselerasi GPU scaleX)
+         * INISIALISASI 15 INDIKATOR HALAMAN DI BAGIAN ATAS
          */
         function initProgressBars() {
             progressBarsContainer.innerHTML = '';
@@ -778,7 +775,7 @@
                 
                 const fill = document.createElement('div');
                 fill.id = `progress-fill-${index}`;
-                fill.className = 'h-full w-full bg-gold-600 rounded-full origin-left will-change-transform';
+                fill.className = 'h-full w-full bg-gold-600 rounded-full origin-left transition-transform duration-300';
                 fill.style.transform = 'scaleX(0)';
                 
                 track.appendChild(fill);
@@ -794,23 +791,21 @@
             slideCounter.textContent = `${index + 1} / ${slidesData.length}`;
             slideCategory.textContent = slide.category;
 
-            // Update ambient background hanya jika di layar desktop/tablet (>= 640px)
             if (window.innerWidth >= 640) {
                 ambientBg.style.backgroundImage = `url('${slide.photo}')`;
             }
 
-            // Update status progress bar sebelum & sesudah slide aktif
+            // Isi penuh garis indikator untuk halaman yang sudah dilewati & halaman aktif
             slidesData.forEach((_, idx) => {
                 const fillEl = document.getElementById(`progress-fill-${idx}`);
                 if (fillEl) {
-                    fillEl.style.transform = idx < index ? 'scaleX(1)' : 'scaleX(0)';
+                    fillEl.style.transform = idx <= index ? 'scaleX(1)' : 'scaleX(0)';
                 }
             });
 
             if (slide.type === 'intro') {
                 slideContentArea.innerHTML = `
                     <div class="animate-slide-content flex flex-col justify-between h-full py-1">
-                        <!-- Bingkai Foto Utama -->
                         <div class="relative w-full h-[46%] rounded-2xl overflow-hidden shadow-md border-2 border-white bg-cream-200 shrink-0">
                             <img src="${slide.photo}" alt="Foto Utama Kelas" 
                                  decoding="async"
@@ -822,7 +817,6 @@
                             </span>
                         </div>
 
-                        <!-- Kartu Ucapan Pembuka -->
                         <div class="bg-white rounded-2xl p-5 shadow-sm border border-gold-500/25 flex-1 mt-3 flex flex-col justify-center text-center">
                             <p class="text-xs font-bold uppercase tracking-widest text-gold-600 mb-1.5">${slide.subtitle}</p>
                             <h2 class="font-serif text-2xl sm:text-[26px] font-bold text-charcoal-900 leading-snug mb-3">
@@ -840,7 +834,6 @@
                     const fallbackUrl = `https://placehold.co/400x500/EFE4CE/2C2520?text=${encodeURIComponent(fallbackInisial + ' • ' + String(student.absen).padStart(2, '0'))}`;
                     return `
                     <div class="bg-white rounded-xl p-2.5 shadow-sm border border-cream-200 flex items-start gap-2.5">
-                        <!-- Foto Siswa Rasio Tepat 4:5 -->
                         <div class="w-[72px] sm:w-[82px] aspect-[4/5] rounded-lg overflow-hidden shrink-0 border border-gold-500/35 bg-cream-100 shadow-sm relative">
                             <img src="${student.photo}" alt="Foto ${student.nama}" 
                                  decoding="async"
@@ -848,7 +841,6 @@
                                  class="w-full h-full object-cover object-center">
                         </div>
 
-                        <!-- Konten Teks Ucapan, Pesan & Kesan -->
                         <div class="flex-1 min-w-0">
                             <div class="flex items-center gap-1.5 mb-1 pb-1 border-b border-cream-100">
                                 <span class="px-1.5 py-0.5 rounded bg-sage-100 text-sage-700 font-bold text-[9.5px] shrink-0">
@@ -869,7 +861,6 @@
 
                 slideContentArea.innerHTML = `
                     <div class="animate-slide-content flex flex-col h-full gap-2">
-                        <!-- Foto Memori Atas -->
                         <div class="relative w-full h-[140px] sm:h-[160px] rounded-2xl overflow-hidden shadow-sm border-2 border-white bg-cream-200 shrink-0">
                             <img src="${slide.photo}" alt="${slide.category}" 
                                  decoding="async"
@@ -881,7 +872,6 @@
                             </p>
                         </div>
 
-                        <!-- Daftar Kartu Ucapan Siswa -->
                         <div class="flex-1 flex flex-col justify-start gap-2 overflow-y-auto no-scrollbar pb-1">
                             ${cardsHtml}
                         </div>
@@ -890,7 +880,6 @@
             } else if (slide.type === 'outro') {
                 slideContentArea.innerHTML = `
                     <div class="animate-slide-content flex flex-col justify-between h-full py-1">
-                        <!-- Foto Kenangan Terakhir -->
                         <div class="relative w-full h-[44%] rounded-2xl overflow-hidden shadow-md border-2 border-white bg-cream-200 shrink-0">
                             <img src="${slide.photo}" alt="Foto Penutup" 
                                  decoding="async"
@@ -902,7 +891,6 @@
                             </span>
                         </div>
 
-                        <!-- Kartu Doa & Penutup -->
                         <div class="bg-white rounded-2xl p-5 shadow-sm border border-gold-500/30 flex-1 mt-3 flex flex-col justify-between text-center">
                             <div>
                                 <h2 class="font-serif text-2xl sm:text-[26px] font-bold text-charcoal-900 mb-2">
@@ -921,7 +909,7 @@
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                                     </svg>
-                                    <span>Putar Ulang Perjalanan</span>
+                                    <span>Kembali ke Halaman Awal</span>
                                 </button>
                             </div>
                         </div>
@@ -941,159 +929,67 @@
         }
 
         /**
-         * ENGINE TIMER HALUS DENGAN REQUESTANIMATIONFRAME
-         */
-        function startSlideTimer() {
-            cancelAnimationFrame(animationFrameId);
-            elapsedBeforePause = 0;
-            lastFrameTimestamp = performance.now();
-            isPaused = false;
-            updatePauseUI(false);
-            animationFrameId = requestAnimationFrame(updateProgressLoop);
-        }
-
-        function updateProgressLoop(now) {
-            if (!isStarted) return;
-
-            if (!isPaused) {
-                const delta = now - lastFrameTimestamp;
-                elapsedBeforePause += delta;
-                lastFrameTimestamp = now;
-
-                const progressRatio = Math.min(elapsedBeforePause / SLIDE_DURATION, 1);
-                const activeFill = document.getElementById(`progress-fill-${currentSlideIndex}`);
-                if (activeFill) {
-                    activeFill.style.transform = `scaleX(${progressRatio})`;
-                }
-
-                if (elapsedBeforePause >= SLIDE_DURATION) {
-                    if (currentSlideIndex < slidesData.length - 1) {
-                        goToSlide(currentSlideIndex + 1);
-                        return;
-                    } else {
-                        isPaused = true;
-                        return;
-                    }
-                }
-            } else {
-                lastFrameTimestamp = now;
-            }
-
-            animationFrameId = requestAnimationFrame(updateProgressLoop);
-        }
-
-        function pauseTimer() {
-            if (!isStarted || isPaused) return;
-            isPaused = true;
-            updatePauseUI(true);
-        }
-
-        function resumeTimer() {
-            if (!isStarted || !isPaused) return;
-            if (currentSlideIndex === slidesData.length - 1 && elapsedBeforePause >= SLIDE_DURATION) {
-                updatePauseUI(false);
-                return;
-            }
-            isPaused = false;
-            lastFrameTimestamp = performance.now();
-            updatePauseUI(false);
-        }
-
-        function updatePauseUI(paused) {
-            if (paused) {
-                pauseIndicator.classList.remove('hidden');
-                pauseIndicator.classList.add('inline-flex');
-            } else {
-                pauseIndicator.classList.add('hidden');
-                pauseIndicator.classList.remove('inline-flex');
-            }
-        }
-
-        /**
-         * PINDAH HALAMAN (SLIDE)
+         * PINDAH HALAMAN (SLIDE) DENGAN ANTI DOUBLE-TAP (COOLDOWN 250ms)
          */
         function goToSlide(targetIndex) {
+            const now = performance.now();
+            if (now - lastNavTime < 250) return; // Mencegah loncat 2 halaman di HP
+            lastNavTime = now;
+
             if (targetIndex < 0) {
                 targetIndex = 0;
             } else if (targetIndex >= slidesData.length) {
                 targetIndex = slidesData.length - 1;
             }
 
+            if (targetIndex === currentSlideIndex && isStarted) return;
+
             currentSlideIndex = targetIndex;
             renderSlide(currentSlideIndex);
-            startSlideTimer();
         }
 
         /**
-         * LOGIKA INTERAKSI: TAHAN LAYAR (HOLD TO PAUSE) & KETUK KIRI/KANAN
+         * NAVIGASI KETUK KIRI / KANAN (MENDUKUNG SCROLL KARTU TANPA SALAH PINDAH HALAMAN)
          */
-        let holdTimeout = null;
-
-        function handlePointerDown(e) {
+        storyContainer.addEventListener('pointerdown', (e) => {
             if (!isStarted) return;
             if (e.target.closest('.interactive-control')) return;
 
+            pointerDownX = e.clientX;
+            pointerDownY = e.clientY;
             pointerDownTime = performance.now();
-            pointerDownX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
-            isHolding = false;
+        });
 
-            holdTimeout = setTimeout(() => {
-                isHolding = true;
-                pauseTimer();
-            }, 180);
-        }
-
-        function handlePointerUp(e) {
+        storyContainer.addEventListener('pointerup', (e) => {
             if (!isStarted) return;
-            clearTimeout(holdTimeout);
-
             if (e.target.closest('.interactive-control')) return;
 
+            const deltaX = Math.abs(e.clientX - pointerDownX);
+            const deltaY = Math.abs(e.clientY - pointerDownY);
             const pressDuration = performance.now() - pointerDownTime;
 
-            if (isHolding || pressDuration >= 200) {
-                isHolding = false;
-                resumeTimer();
+            // Jika jari menggeser (scroll ucapan) lebih dari 10px atau ditekan lama, jangan pindah halaman
+            if (deltaX > 10 || deltaY > 10 || pressDuration > 350) {
+                return;
+            }
+
+            const rect = storyContainer.getBoundingClientRect();
+            const relativeX = e.clientX - rect.left;
+            const leftBoundary = rect.width * 0.35;
+
+            if (relativeX < leftBoundary) {
+                goToSlide(currentSlideIndex - 1);
             } else {
-                const rect = storyContainer.getBoundingClientRect();
-                const relativeX = pointerDownX - rect.left;
-                const leftBoundary = rect.width * 0.35;
-
-                if (relativeX < leftBoundary) {
-                    goToSlide(currentSlideIndex - 1);
-                } else {
-                    if (currentSlideIndex < slidesData.length - 1) {
-                        goToSlide(currentSlideIndex + 1);
-                    }
-                }
+                goToSlide(currentSlideIndex + 1);
             }
-        }
-
-        function handlePointerCancel() {
-            clearTimeout(holdTimeout);
-            if (isHolding) {
-                isHolding = false;
-                resumeTimer();
-            }
-        }
-
-        storyContainer.addEventListener('mousedown', handlePointerDown);
-        storyContainer.addEventListener('mouseup', handlePointerUp);
-        storyContainer.addEventListener('mouseleave', handlePointerCancel);
-
-        storyContainer.addEventListener('touchstart', handlePointerDown, { passive: true });
-        storyContainer.addEventListener('touchend', handlePointerUp);
-        storyContainer.addEventListener('touchcancel', handlePointerCancel);
+        });
 
         window.addEventListener('keydown', (e) => {
             if (!isStarted) return;
             if (e.key === 'ArrowRight') {
-                if (currentSlideIndex < slidesData.length - 1) goToSlide(currentSlideIndex + 1);
+                goToSlide(currentSlideIndex + 1);
             } else if (e.key === 'ArrowLeft') {
                 goToSlide(currentSlideIndex - 1);
-            } else if (e.key === ' ') {
-                e.preventDefault();
-                isPaused ? resumeTimer() : pauseTimer();
             }
         });
 
@@ -1119,8 +1015,10 @@
             updateMuteIcons();
         });
 
-        startBtn.addEventListener('click', () => {
+        startBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
             isStarted = true;
+            lastNavTime = performance.now(); // Kunci navigasi sesaat agar klik tombol Mulai tidak langsung pindah ke slide 2
 
             bgMusic.volume = 0.55;
             bgMusic.play().then(() => {
@@ -1134,7 +1032,8 @@
                 welcomeOverlay.style.display = 'none';
             }, 700);
 
-            goToSlide(0);
+            currentSlideIndex = 0;
+            renderSlide(0);
         });
 
         /**
@@ -1142,34 +1041,25 @@
          */
         let pausedByTabSwitch = false;
 
-        function stopMusicAndStory() {
-            if (isStarted) {
-                bgMusic.pause();
-                pausedByTabSwitch = true;
-                pauseTimer();
-            }
-        }
-
-        function resumeMusicAndStory() {
-            if (isStarted && pausedByTabSwitch) {
-                pausedByTabSwitch = false;
-                resumeTimer();
-
-                if (!bgMusic.muted) {
-                    bgMusic.play().catch(() => {});
-                }
-            }
-        }
-
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) {
-                stopMusicAndStory();
+                if (isStarted) {
+                    bgMusic.pause();
+                    pausedByTabSwitch = true;
+                }
             } else {
-                resumeMusicAndStory();
+                if (isStarted && pausedByTabSwitch) {
+                    pausedByTabSwitch = false;
+                    if (!bgMusic.muted) {
+                        bgMusic.play().catch(() => {});
+                    }
+                }
             }
         });
 
-        window.addEventListener('pagehide', stopMusicAndStory);
+        window.addEventListener('pagehide', () => {
+            if (isStarted) bgMusic.pause();
+        });
 
         ['click', 'keydown', 'touchstart'].forEach((eventName) => {
             window.addEventListener(eventName, () => {
