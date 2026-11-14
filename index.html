@@ -111,7 +111,7 @@
     <!-- =====================================================================
          1. WELCOME OVERLAY (LAYAR PEMBUKA)
          ===================================================================== -->
-    <div id="welcome-overlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-charcoal-900/95 transition-opacity duration-700">
+    <div id="welcome-overlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1E1916] transition-opacity duration-700">
         <div class="w-full max-w-[440px] bg-cream-50 rounded-3xl p-7 sm:p-9 text-center shadow-2xl border border-gold-500/30 relative overflow-hidden">
             <!-- Ornamen Sudut -->
             <div class="w-24 h-24 rounded-full bg-gold-500/10 absolute -top-10 -right-10 pointer-events-none"></div>
@@ -154,6 +154,7 @@
          2. CONTAINER UTAMA STORIES (RESPONSIF: FULL DI HP, FRAME DI DESKTOP)
          ===================================================================== -->
     <main id="story-container" class="relative w-full h-[100dvh] sm:h-[94dvh] sm:max-h-[860px] sm:w-[440px] md:w-[460px] bg-cream-50 sm:rounded-[32px] shadow-2xl overflow-hidden flex flex-col justify-between sm:border sm:border-gold-500/30 cursor-pointer">
+        <main id="story-container" class="invisible relative w-full h-[100dvh] sm:h-[94dvh] sm:max-h-[860px] sm:w-[440px] md:w-[460px] bg-cream-50 sm:rounded-[32px] shadow-2xl overflow-hidden flex flex-col justify-between sm:border sm:border-gold-500/30 cursor-pointer"></main>
 
         <!-- Header Overlay: 15 Progress Bar & Kontrol Atas -->
         <header class="relative z-30 pt-3 px-3 pb-2 bg-gradient-to-b from-cream-50 via-cream-50/95 to-transparent">
@@ -1023,7 +1024,10 @@
         startBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             isStarted = true;
-            lastNavTime = performance.now(); // Kunci navigasi sesaat agar klik tombol Mulai tidak langsung pindah ke slide 2
+            lastNavTime = performance.now();
+
+            // Munculkan halaman utama setelah tombol diklik
+            storyContainer.classList.remove('invisible');
 
             bgMusic.volume = 0.55;
             bgMusic.play().then(() => {
@@ -1031,6 +1035,15 @@
             }).catch((err) => {
                 console.warn('Autoplay audio dibatasi browser:', err);
             });
+
+            welcomeOverlay.classList.add('opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                welcomeOverlay.style.display = 'none';
+            }, 700);
+
+            currentSlideIndex = 0;
+            renderSlide(0);
+        });
 
             welcomeOverlay.classList.add('opacity-0', 'pointer-events-none');
             setTimeout(() => {
