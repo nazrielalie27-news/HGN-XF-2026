@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Selamat Hari Guru Nasional 2026 — Perjalanan Kenangan</title>
+    <title>Ada Pesan Rahasia untuk Ibu Inggit... 💌</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -109,7 +109,7 @@
     </audio>
 
     <!-- =====================================================================
-         1. WELCOME OVERLAY (LAYAR PEMBUKA)
+         1. WELCOME OVERLAY (LAYAR PEMBUKA GELAP PEKAT ANTI-SPOILER)
          ===================================================================== -->
     <div id="welcome-overlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1E1916] transition-opacity duration-700">
         <div class="w-full max-w-[440px] bg-cream-50 rounded-3xl p-7 sm:p-9 text-center shadow-2xl border border-gold-500/30 relative overflow-hidden">
@@ -133,7 +133,7 @@
                 Ada sesuatu yang diam-diam kami siapkan khusus untuk <span class="font-semibold text-charcoal-900">Ibu Inggit</span>… Bukan sekadar ucapan biasa, melainkan <span class="font-semibold text-gold-600">45 rahasia kecil</span>, tawa, dan kenangan tak terlupakan dari anak-anak <span class="font-semibold text-charcoal-900">X.F</span>. Penasaran apa saja yang kami tulis tentang Ibu?
             </p>
 
-            <!-- Petunjuk Interaksi Singkat (Hanya 1 baris tanpa nomor) -->
+            <!-- Petunjuk Interaksi Singkat -->
             <div class="bg-cream-100 rounded-2xl p-3.5 mb-7 text-center border border-cream-200 text-xs text-charcoal-800">
                 <span>💡 <strong>Ketuk sisi kiri / kanan layar</strong> untuk membuka tiap lembar kenangan, dan <strong>geser kartu</strong> untuk membaca pesan lengkapnya.</span>
             </div>
@@ -153,17 +153,15 @@
     <!-- =====================================================================
          2. CONTAINER UTAMA STORIES (RESPONSIF: FULL DI HP, FRAME DI DESKTOP)
          ===================================================================== -->
-    <main id="story-container" class="relative w-full h-[100dvh] sm:h-[94dvh] sm:max-h-[860px] sm:w-[440px] md:w-[460px] bg-cream-50 sm:rounded-[32px] shadow-2xl overflow-hidden flex flex-col justify-between sm:border sm:border-gold-500/30 cursor-pointer">
-        <main id="story-container" class="invisible relative w-full h-[100dvh] sm:h-[94dvh] sm:max-h-[860px] sm:w-[440px] md:w-[460px] bg-cream-50 sm:rounded-[32px] shadow-2xl overflow-hidden flex flex-col justify-between sm:border sm:border-gold-500/30 cursor-pointer"></main>
+    <main id="story-container" class="invisible relative w-full h-[100dvh] sm:h-[94dvh] sm:max-h-[860px] sm:w-[440px] md:w-[460px] bg-cream-50 sm:rounded-[32px] shadow-2xl overflow-hidden flex flex-col justify-between sm:border sm:border-gold-500/30 cursor-pointer">
 
         <!-- Header Overlay: 15 Progress Bar & Kontrol Atas -->
         <header class="relative z-30 pt-3 px-3 pb-2 bg-gradient-to-b from-cream-50 via-cream-50/95 to-transparent">
             <!-- 15 Progress Bars -->
             <div id="progress-bars-container" class="grid gap-1 w-full mb-2.5" style="grid-template-columns: repeat(15, minmax(0, 1fr));">
-                <!-- Diisi otomatis via JavaScript -->
             </div>
 
-            <!-- Bar Info Halaman, Indikator Jeda & Tombol Musik -->
+            <!-- Bar Info Halaman & Tombol Musik -->
             <div class="flex items-center justify-between px-1">
                 <div class="flex items-center gap-2">
                     <span id="slide-counter" class="text-[11px] font-bold tracking-wider uppercase px-2.5 py-0.5 rounded-full bg-cream-200 text-charcoal-800">
@@ -175,19 +173,11 @@
                 </div>
 
                 <div class="flex items-center gap-1.5">
-                    <!-- Badge Indikator Dijeda (Muncul saat layar ditahan) -->
-                    <div id="pause-indicator" class="hidden items-center gap-1 px-2.5 py-1 rounded-full bg-charcoal-900 text-cream-50 text-[11px] font-medium shadow-sm">
-                        <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-ping"></span>
-                        <span>Dijeda</span>
-                    </div>
-
                     <!-- Tombol Mute / Unmute Musik -->
                     <button id="mute-btn" type="button" aria-label="Kontrol Musik" class="interactive-control p-2 rounded-full bg-cream-100 hover:bg-cream-200 text-charcoal-900 border border-gold-500/25 transition active:scale-90 shadow-sm">
-                        <!-- Ikon Suara Aktif -->
                         <svg id="icon-sound-on" class="w-4 h-4 text-gold-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
                         </svg>
-                        <!-- Ikon Suara Mute -->
                         <svg id="icon-sound-off" class="w-4 h-4 text-charcoal-800/60 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15zM17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
                         </svg>
@@ -198,27 +188,20 @@
 
         <!-- Area Konten Dinamis Slide (Halaman 1 s/d 15) -->
         <section id="slide-content-area" style="overscroll-behavior-y: auto;" class="relative z-20 flex-1 px-4 pb-3 overflow-y-auto no-scrollbar flex flex-col justify-between">
-            <!-- Konten slide dirender secara dinamis melalui JavaScript -->
         </section>
 
         <!-- Footer Petunjuk Halus di Bagian Bawah -->
         <footer class="relative z-30 px-4 py-2 bg-cream-100/80 border-t border-cream-200/80 flex items-center justify-between text-[10px] text-charcoal-800/65">
             <span>‹ Ketuk kiri: Sebelumnya</span>
-            <span class="font-medium text-gold-600">Tahan layar untuk menjeda</span>
+            <span class="font-medium text-gold-600">Geser kartu untuk membaca</span>
             <span>Ketuk kanan: Lanjut ›</span>
         </footer>
     </main>
 
     <!-- =====================================================================
-         JAVASCRIPT: DATA 45 SISWA, 15 SLIDE, ENGINE TIMER & HOLD TO PAUSE
+         JAVASCRIPT: DATA 45 SISWA, 15 SLIDE & NAVIGASI MANUAL ANTI DOUBLE-TAP
          ===================================================================== -->
     <script>
-        /**
-         * KONFIGURASI DURASI SLIDE (dalam milidetik)
-         * 7000 ms = 7 detik per halaman
-         */
-        const SLIDE_DURATION = 7000;
-
         /**
          * DATA LENGKAP 45 SISWA (ABSEN 1 - 45)
          */
@@ -228,7 +211,7 @@
                 absen: 1,
                 nama: "Abdurrazzaq Amran Zabran",
                 photo: "Amran.jpg",
-                ucapan: "Amran mungkin hanya seseorang yang baru hadir di hidup ibu, bahkan Amran gatau perjuangan ibu hingga sampai di titik ini, tetapi terimakasih kusampaikan hari ini, esok, dan seterusnya. ",
+                ucapan: "Amran mungkin hanya seseorang yang baru hadir di hidup ibu, bahkan Amran gatau perjuangan ibu hingga sampai di titik ini, tetapi terimakasih kusampaikan hari ini, esok, dan seterusnya.",
                 pesan: "Selalu bagikan kehangatan mentari, walau sedang menerjang perjuangan ditengah badai berpetir.",
                 kesan: "Jangan pernah lelah mendidik kami ya, Ibu. Tetaplah dan selalu menjadi pribadi yang sabar, ramah, dan charming juga suportif pada anak-anak didiknya."
             },
@@ -676,7 +659,7 @@
             },
             {
                 photo: "foto9.jpg",
-                caption: "Ibu mendmaampingi Ijmal di cosplay pahlawan.",
+                caption: "Ibu mendampingi Ijmal di cosplay pahlawan.",
                 count: 3
             },
             {
@@ -686,7 +669,7 @@
             },
             {
                 photo: "foto11.jpg",
-                caption: "Momen casis x.f diskusi tentang denah SMANTI pada saat MPLS.",
+                caption: "Momen casis X.F diskusi tentang denah SMANTI pada saat MPLS.",
                 count: 3
             },
             {
@@ -745,7 +728,6 @@
         let currentSlideIndex = 0;
         let isStarted = false;
 
-        // Pelacak sentuhan/klik agar tidak memicu double-tap (loncat 2 halaman) di HP
         let pointerDownX = 0;
         let pointerDownY = 0;
         let pointerDownTime = 0;
@@ -765,9 +747,6 @@
         const iconSoundOn = document.getElementById('icon-sound-on');
         const iconSoundOff = document.getElementById('icon-sound-off');
 
-        /**
-         * INISIALISASI 15 INDIKATOR HALAMAN DI BAGIAN ATAS
-         */
         function initProgressBars() {
             progressBarsContainer.innerHTML = '';
             slidesData.forEach((_, index) => {
@@ -784,19 +763,15 @@
             });
         }
 
-        /**
-         * MERENDER KONTEN SLIDE BERDASARKAN INDEX (0 - 14)
-         */
         function renderSlide(index) {
             const slide = slidesData[index];
             slideCounter.textContent = `${index + 1} / ${slidesData.length}`;
             slideCategory.textContent = slide.category;
 
-            if (window.innerWidth >= 640) {
+            if (window.innerWidth >= 640 && ambientBg) {
                 ambientBg.style.backgroundImage = `url('${slide.photo}')`;
             }
 
-            // Isi penuh garis indikator untuk halaman yang sudah dilewati & halaman aktif
             slidesData.forEach((_, idx) => {
                 const fillEl = document.getElementById(`progress-fill-${idx}`);
                 if (fillEl) {
@@ -881,23 +856,19 @@
             } else if (slide.type === 'outro') {
                 slideContentArea.innerHTML = `
                     <div class="animate-slide-content relative w-full h-full rounded-2xl overflow-hidden shadow-lg border-2 border-white flex flex-col justify-between p-6 text-center">
-                        <!-- Foto Latar Belakang Penutup dengan Sedikit Blur -->
                         <img src="${slide.photo}" alt="Foto Penutup" 
                              decoding="async"
                              onerror="this.src='https://placehold.co/800x1000/2C2520/F7F1E5?text=Terima+Kasih+Ibu+Inggit!'"
                              class="absolute inset-0 w-full h-full object-cover scale-105 blur-[3px]">
                         
-                        <!-- Lapisan Gelap Lembut agar Teks Kontras & Jelas -->
                         <div class="absolute inset-0 bg-gradient-to-b from-charcoal-900/55 via-charcoal-900/65 to-charcoal-900/85"></div>
 
-                        <!-- Badge Atas -->
                         <div class="relative z-10 flex justify-center pt-1">
                             <span class="px-3.5 py-1 rounded-full bg-gold-500/95 text-white text-[11px] font-semibold shadow-md">
                                 🎓 Selamanya Dalam Ingatan
                             </span>
                         </div>
 
-                        <!-- Teks Utama "Terima Kasih" dengan Bayangan Tegas -->
                         <div class="relative z-10 my-auto px-1">
                             <h2 class="font-serif text-3xl sm:text-[32px] font-bold text-cream-50 mb-3 drop-shadow-[0_3px_6px_rgba(0,0,0,0.85)]">
                                 ${slide.title}
@@ -907,7 +878,6 @@
                             </p>
                         </div>
 
-                        <!-- Penutup & Tombol Putar Ulang -->
                         <div class="relative z-10 pt-3 border-t border-white/25">
                             <p class="font-serif italic text-sm sm:text-base font-semibold text-gold-400 mb-3.5 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                                 ${slide.signature}
@@ -934,12 +904,9 @@
             slideContentArea.scrollTop = 0;
         }
 
-        /**
-         * PINDAH HALAMAN (SLIDE) DENGAN ANTI DOUBLE-TAP (COOLDOWN 250ms)
-         */
         function goToSlide(targetIndex) {
             const now = performance.now();
-            if (now - lastNavTime < 250) return; // Mencegah loncat 2 halaman di HP
+            if (now - lastNavTime < 250) return;
             lastNavTime = now;
 
             if (targetIndex < 0) {
@@ -954,9 +921,6 @@
             renderSlide(currentSlideIndex);
         }
 
-        /**
-         * NAVIGASI KETUK KIRI / KANAN (MENDUKUNG SCROLL KARTU TANPA SALAH PINDAH HALAMAN)
-         */
         storyContainer.addEventListener('pointerdown', (e) => {
             if (!isStarted) return;
             if (e.target.closest('.interactive-control')) return;
@@ -974,7 +938,6 @@
             const deltaY = Math.abs(e.clientY - pointerDownY);
             const pressDuration = performance.now() - pointerDownTime;
 
-            // Jika jari menggeser (scroll ucapan) lebih dari 10px atau ditekan lama, jangan pindah halaman
             if (deltaX > 10 || deltaY > 10 || pressDuration > 350) {
                 return;
             }
@@ -999,9 +962,6 @@
             }
         });
 
-        /**
-         * KONTROL MUSIK & TOMBOL MULAI
-         */
         function updateMuteIcons() {
             if (bgMusic.muted) {
                 iconSoundOn.classList.add('hidden');
@@ -1026,7 +986,6 @@
             isStarted = true;
             lastNavTime = performance.now();
 
-            // Munculkan halaman utama setelah tombol diklik
             storyContainer.classList.remove('invisible');
 
             bgMusic.volume = 0.55;
@@ -1045,18 +1004,6 @@
             renderSlide(0);
         });
 
-            welcomeOverlay.classList.add('opacity-0', 'pointer-events-none');
-            setTimeout(() => {
-                welcomeOverlay.style.display = 'none';
-            }, 700);
-
-            currentSlideIndex = 0;
-            renderSlide(0);
-        });
-
-        /**
-         * KONTROL OTOMATIS SAAT PINDAH TAB / KELUAR WEB / LAYAR MATI (PC & HP)
-         */
         let pausedByTabSwitch = false;
 
         document.addEventListener('visibilitychange', () => {
