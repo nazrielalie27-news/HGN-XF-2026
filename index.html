@@ -109,7 +109,7 @@
     </audio>
 
     <!-- =====================================================================
-         1. WELCOME OVERLAY (BERSIH TANPA TOMBOL MUSIK)
+         1. WELCOME OVERLAY
          ===================================================================== -->
     <div id="welcome-overlay" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1E1916] transition-opacity duration-700">
         <div class="w-full max-w-[440px] bg-cream-50 rounded-3xl p-7 sm:p-9 text-center shadow-2xl border border-gold-500/30 relative overflow-hidden">
@@ -151,7 +151,7 @@
     </div>
 
     <!-- =====================================================================
-         2. CONTAINER UTAMA STORIES (16 HALAMAN: PEMBUKA, 13 MEMORI, PENUTUP, CREDITS)
+         2. CONTAINER UTAMA STORIES (16 HALAMAN)
          ===================================================================== -->
     <main id="story-container" class="invisible relative w-full h-[100dvh] sm:h-[94dvh] sm:max-h-[860px] sm:w-[440px] md:w-[460px] bg-cream-50 sm:rounded-[32px] shadow-2xl overflow-hidden flex flex-col justify-between sm:border sm:border-gold-500/30 cursor-pointer">
 
@@ -198,412 +198,413 @@
     <script>
         /**
          * DATA LENGKAP 45 SISWA (ABSEN 1 - 45)
+         * Menggunakan backtick (`...`) agar aman jika teks mengandung tanda kutip (" atau ') maupun baris baru
          */
         const studentsList = [
             // ABSEN 01
             {
                 absen: 1,
-                nama: "Abdurrazzaq Amran Zabran",
-                photo: "Amran.jpg",
-                ucapan: "Amran mungkin hanya seseorang yang baru hadir di hidup ibu, bahkan Amran gatau perjuangan ibu hingga sampai di titik ini, tetapi terimakasih kusampaikan hari ini, esok, dan seterusnya.",
-                pesan: "Selalu bagikan kehangatan mentari, walau sedang menerjang perjuangan ditengah badai berpetir.",
-                kesan: "Jangan pernah lelah mendidik kami ya, Ibu. Tetaplah dan selalu menjadi pribadi yang sabar, ramah, dan charming juga suportif pada anak-anak didiknya."
+                nama: `Abdurrazzaq Amran Zabran`,
+                photo: `Amran.jpg`,
+                ucapan: `Amran mungkin hanya seseorang yang baru hadir di hidup ibu, bahkan Amran gatau perjuangan ibu hingga sampai di titik ini, tetapi terimakasih kusampaikan hari ini, esok, dan seterusnya.`,
+                pesan: `Selalu bagikan kehangatan mentari, walau sedang menerjang perjuangan ditengah badai berpetir.`,
+                kesan: `Jangan pernah lelah mendidik kami ya, Ibu. Tetaplah dan selalu menjadi pribadi yang sabar, ramah, dan charming juga suportif pada anak-anak didiknya.`
             },
             // ABSEN 02
             {
                 absen: 2,
-                nama: "Balqis Nailatul Husna",
-                photo: "foto-siswa/02.jpg",
-                ucapan: "Selamat Hari Guru untuk sosok paling menginspirasi di sekolah.",
-                pesan: "Teruslah menjadi guru yang ramah dan penuh semangat seperti yang kami kenal selama ini.",
-                kesan: "Tidak pernah bosan menjawab pertanyaan kami meskipun sering diulang-ulang."
+                nama: `Balqis Nailatul Husna`,
+                photo: `foto-siswa/02.jpg`,
+                ucapan: `Selamat Hari Guru untuk sosok paling menginspirasi di sekolah.`,
+                pesan: `Teruslah menjadi guru yang ramah dan penuh semangat seperti yang kami kenal selama ini.`,
+                kesan: `Tidak pernah bosan menjawab pertanyaan kami meskipun sering diulang-ulang.`
             },
             // ABSEN 03
             {
                 absen: 3,
-                nama: "Balqis Shafira Ahnafiyah",
-                photo: "foto-siswa/03.jpg",
-                ucapan: "Terima kasih atas segala ilmu dan nasihat berharga yang telah diberikan.",
-                pesan: "Semoga segala kebaikan Bapak/Ibu dibalas berlipat ganda oleh Tuhan Yang Maha Esa.",
-                kesan: "Momen diskusi di kelas bersama Bapak/Ibu selalu menjadi waktu yang paling ditunggu."
+                nama: `Balqis Shafira Ahnafiyah`,
+                photo: `foto-siswa/03.jpg`,
+                ucapan: `Terima kasih atas segala ilmu dan nasihat berharga yang telah diberikan.`,
+                pesan: `Semoga segala kebaikan Bapak/Ibu dibalas berlipat ganda oleh Tuhan Yang Maha Esa.`,
+                kesan: `Momen diskusi di kelas bersama Bapak/Ibu selalu menjadi waktu yang paling ditunggu.`
             },
             // ABSEN 04
             {
                 absen: 4,
-                nama: "Diana Fauziah",
-                photo: "foto-siswa/04.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Jasa Bapak/Ibu tidak akan pernah kami lupakan.",
-                pesan: "Jaga kesehatan selalu di tengah padatnya jadwal mengajar.",
-                kesan: "Belajar dengan Bapak/Ibu tidak hanya tentang nilai, tapi juga tentang etika dan kedisiplinan."
+                nama: `Diana Fauziah`,
+                photo: `foto-siswa/04.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Jasa Bapak/Ibu tidak akan pernah kami lupakan.`,
+                pesan: `Jaga kesehatan selalu di tengah padatnya jadwal mengajar.`,
+                kesan: `Belajar dengan Bapak/Ibu tidak hanya tentang nilai, tapi juga tentang etika dan kedisiplinan.`
             },
             // ABSEN 05
             {
                 absen: 5,
-                nama: "Evan Khaerul Azzam",
-                photo: "foto-siswa/05.jpg",
-                ucapan: "Happy Teacher's Day! Terima kasih telah membimbing kami dengan sepenuh hati.",
-                pesan: "Semoga Bapak/Ibu selalu sukses dan bangga melihat keberhasilan murid-muridnya kelak.",
-                kesan: "Humor ringan di sela-sela pelajaran membuat kami tidak pernah merasa tertekan."
+                nama: `Evan Khaerul Azzam`,
+                photo: `foto-siswa/05.jpg`,
+                ucapan: `Happy Teacher's Day! Terima kasih telah membimbing kami dengan sepenuh hati.`,
+                pesan: `Semoga Bapak/Ibu selalu sukses dan bangga melihat keberhasilan murid-muridnya kelak.`,
+                kesan: `Humor ringan di sela-sela pelajaran membuat kami tidak pernah merasa tertekan.`
             },
             // ABSEN 06
             {
                 absen: 6,
-                nama: "Fadhil Putra Ghandra",
-                photo: "Fadhil.jpg",
-                ucapan: "OAMAGA HELLOW MAMSKY INGGIT!! time fly sooo fast! udah mau uas aja nih itu menandakan hampir 6 bulan kita bersama sebagai seorang siswa dan wali kelas!. Aku ucapkan banyak banyak terimakasih untuk ibu yang selalu siaga membantu anak anak nya any time any where... Terimakasih banyak atas segala ilmu dan terimakasih pula atas selaga tugas nya..!",
-                pesan: "Pesan aku semoga ibu selalu sehat dan di limpahkan keberkahan oleh Allah.Swt terus apa yang di semogakan segera tersemogakan selalu jadi Bu Inggit yang punya perhatian lebih sama anak anak nya ya buu! dan selalu jadi guru biologi yang tenang di mulut dan killer di soal ya buu! ( jangan lupa Tj sekre Bu heheh..... 🥴🥴 )",
-                kesan: "Opkors kesan yang paling pertama adalah ibu seorang yang detail dan perfeksionis dan selalu mengusahan yang terbaik untuk anak anak nya lalu kesan kedua aku ibu adalah seorang yang luas wawasan nya, kayanya ada buku 1001 about biologi deh di kepala ibu?? 😭😭 tapi jujur aku kagum sama luas nya pengetahuan ibu. Lagiiii kesan aku lainnya adalah soal² ibu yang penggunaan bahasa nya menarik! ga kaya soal biasanya ini beneran kaya omongan Bu Inggit versi ketik tau ga si buuuu ih ( jangan lupa tanda tangan agenda kelas ibu..... 🐻🐻 )"
+                nama: `Fadhil Putra Ghandra`,
+                photo: `Fadhil.jpg`,
+                ucapan: `OAMAGA HELLOW MAMSKY INGGIT!! time fly sooo fast! udah mau uas aja nih itu menandakan hampir 6 bulan kita bersama sebagai seorang siswa dan wali kelas!. Aku ucapkan banyak banyak terimakasih untuk ibu yang selalu siaga membantu anak anak nya any time any where... Terimakasih banyak atas segala ilmu dan terimakasih pula atas selaga tugas nya..!`,
+                pesan: `Pesan aku semoga ibu selalu sehat dan di limpahkan keberkahan oleh Allah.Swt terus apa yang di semogakan segera tersemogakan selalu jadi Bu Inggit yang punya perhatian lebih sama anak anak nya ya buu! dan selalu jadi guru biologi yang tenang di mulut dan killer di soal ya buu! ( jangan lupa Tj sekre Bu heheh..... 🥴🥴 )`,
+                kesan: `Opkors kesan yang paling pertama adalah ibu seorang yang detail dan perfeksionis dan selalu mengusahan yang terbaik untuk anak anak nya lalu kesan kedua aku ibu adalah seorang yang luas wawasan nya, kayanya ada buku 1001 about biologi deh di kepala ibu?? 😭😭 tapi jujur aku kagum sama luas nya pengetahuan ibu. Lagiiii kesan aku lainnya adalah soal² ibu yang penggunaan bahasa nya menarik! ga kaya soal biasanya ini beneran kaya omongan Bu Inggit versi ketik tau ga si buuuu ih ( jangan lupa tanda tangan agenda kelas ibu..... 🐻🐻 )`
             },
             // ABSEN 07
             {
                 absen: 7,
-                nama: "Falisha Alya Sukmawibawa",
-                photo: "foto-siswa/07.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Falisha Alya Sukmawibawa`,
+                photo: `foto-siswa/07.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 08
             {
                 absen: 8,
-                nama: "Fhaneysa Rasyqa Margareyta",
-                photo: "foto-siswa/08.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Fhaneysa Rasyqa Margareyta`,
+                photo: `foto-siswa/08.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 09
             {
                 absen: 9,
-                nama: "Fitri Amaliah Wardana",
-                photo: "foto-siswa/09.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Fitri Amaliah Wardana`,
+                photo: `foto-siswa/09.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 10
             {
                 absen: 10,
-                nama: "Ghazi Akbar Fathurrahim",
-                photo: "foto-siswa/10.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Ghazi Akbar Fathurrahim`,
+                photo: `foto-siswa/10.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
-            // ABSEN 11
+            // ABSEN 11 — HABIBIE BINTANG RAMADHAN (Halaman 4 / Memori #3)
             {
                 absen: 11,
-                nama: "Habibie Bintang Ramadhan",
-                photo: "foto-siswa/11.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Habibie Bintang Ramadhan`,
+                photo: `foto-siswa/11.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`, // <-- TEMPEL UCAPAN HABIBIE DI SINI
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`, // <-- TEMPEL PESAN HABIBIE DI SINI
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.` // <-- TEMPEL KESAN HABIBIE DI SINI
             },
             // ABSEN 12
             {
                 absen: 12,
-                nama: "Jeremiah Benedictus Caesar Toban",
-                photo: "foto-siswa/12.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Jeremiah Benedictus Caesar Toban`,
+                photo: `foto-siswa/12.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 13
             {
                 absen: 13,
-                nama: "Keysha Aldeandra Budiman",
-                photo: "foto-siswa/13.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Keysha Aldeandra Budiman`,
+                photo: `foto-siswa/13.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 14
             {
                 absen: 14,
-                nama: "Khansa Fathia Madina",
-                photo: "foto-siswa/14.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Khansa Fathia Madina`,
+                photo: `foto-siswa/14.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 15
             {
                 absen: 15,
-                nama: "Khanza Humaira Prawira",
-                photo: "foto-siswa/15.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Khanza Humaira Prawira`,
+                photo: `foto-siswa/15.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 16
             {
                 absen: 16,
-                nama: "M. Ghaizan Fajar Addien",
-                photo: "foto-siswa/16.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `M. Ghaizan Fajar Addien`,
+                photo: `foto-siswa/16.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 17
             {
                 absen: 17,
-                nama: "Maisyah Nursyafa Salma Dwiyanti",
-                photo: "foto-siswa/17.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Maisyah Nursyafa Salma Dwiyanti`,
+                photo: `foto-siswa/17.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 18
             {
                 absen: 18,
-                nama: "Muhamad Valene Maisan Ghani",
-                photo: "Valene.jpg",
-                ucapan: "Terimakasih yaa ibuu udah jadi wali kelas yang perhatian banget dan selalu nanya kabar tentang kita bahkan kondisi kita di setiap mapel apapun.",
-                pesan: "Untuk Bu Inggit jangan lupaa semangat terus yaa dan doakan kami agar sukses terus walaupun kita kelas 11 akan berpisah karena beda² minat, dan Ibu sukses terus yaa ibuu.",
-                kesan: "Valene ga nyangka ternyata Bu Inggit itu wali kelas yang bisa diajak bercanda tapi sekaligus serius, jadinyaa kita merasa have fun banget tanpa adanya tekanan batin hehehe"
+                nama: `Muhamad Valene Maisan Ghani`,
+                photo: `Valene.jpg`,
+                ucapan: `Terimakasih yaa ibuu udah jadi wali kelas yang perhatian banget dan selalu nanya kabar tentang kita bahkan kondisi kita di setiap mapel apapun.`,
+                pesan: `Untuk Bu Inggit jangan lupaa semangat terus yaa dan doakan kami agar sukses terus walaupun kita kelas 11 akan berpisah karena beda² minat, dan Ibu sukses terus yaa ibuu.`,
+                kesan: `Valene ga nyangka ternyata Bu Inggit itu wali kelas yang bisa diajak bercanda tapi sekaligus serius, jadinyaa kita merasa have fun banget tanpa adanya tekanan batin hehehe`
             },
             // ABSEN 19
             {
                 absen: 19,
-                nama: "Muhammad Dzaky Ananda",
-                photo: "foto-siswa/19.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Muhammad Dzaky Ananda`,
+                photo: `foto-siswa/19.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 20
             {
                 absen: 20,
-                nama: "Muhammad Farrel Rinaldi",
-                photo: "foto-siswa/20.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Muhammad Farrel Rinaldi`,
+                photo: `foto-siswa/20.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 21
             {
                 absen: 21,
-                nama: "Muhammad Fitra Ramadhan",
-                photo: "foto-siswa/21.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Muhammad Fitra Ramadhan`,
+                photo: `foto-siswa/21.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 22
             {
                 absen: 22,
-                nama: "Muhammad Ijmal Maulana",
-                photo: "Ijmal.jpg",
-                ucapan: "Terimakasih ibu udah menjadi bagian dalam hidup ijmal",
-                pesan: "ibu sebelumnya ijmal mau ngucapin terimakasih banyak udah menjadi sebuat bagian dari hidup ijmal menjadi salah satu guru terbaik yang pernah ada dalah hidup ijmal. mungkin dari si kakak juga sama rasa bahagianya kayak ijmal di wali kelasin sama ibu inggit, semoga ibu sehat selalu, diberikan umur yang panjang buat melihat murid murid ibu 5-20 tahun kedepan yang udah sukses sukses pastinya aamiinn. mohon maaf ibu kalau ijmal masih ngga nurut, banyak bercandanya, banyak ini itunya ya buu, janji bercandanya diulangin lagi hehehe. Arigatou guzaimasu ibuu 🥳",
-                kesan: "seru, rame, solid, menyenangkan, bahagia, istimewa well"
+                nama: `Muhammad Ijmal Maulana`,
+                photo: `Ijmal.jpg`,
+                ucapan: `Terimakasih ibu udah menjadi bagian dalam hidup ijmal`,
+                pesan: `ibu sebelumnya ijmal mau ngucapin terimakasih banyak udah menjadi sebuat bagian dari hidup ijmal menjadi salah satu guru terbaik yang pernah ada dalah hidup ijmal. mungkin dari si kakak juga sama rasa bahagianya kayak ijmal di wali kelasin sama ibu inggit, semoga ibu sehat selalu, diberikan umur yang panjang buat melihat murid murid ibu 5-20 tahun kedepan yang udah sukses sukses pastinya aamiinn. mohon maaf ibu kalau ijmal masih ngga nurut, banyak bercandanya, banyak ini itunya ya buu, janji bercandanya diulangin lagi hehehe. Arigatou guzaimasu ibuu 🥳`,
+                kesan: `seru, rame, solid, menyenangkan, bahagia, istimewa well`
             },
             // ABSEN 23
             {
                 absen: 23,
-                nama: "Muhammad Nazril Ali",
-                photo: "Nazril.jpg",
-                ucapan: "Selamat Hari Guru Nasional, Ibu Inggit!",
-                pesan: "Semoga ibu tetap dikelilingan orang-orang yang membahagiakan ibu, membuat ibu tertawa, membuat ibu nyaman. Setelah kurang lebih 6 bulan ibu memimpin mobil Forzaverse, ibu sangat amat berjasa layaknya Team Principal Mercedes tahun 2020. Ibu memberikan kasih sayang, pelajaran untuk otak dan hidup, serta memberikan kebahagiaan tersendiri dari senyuman ibu. Ibu, terimakasih atas jasa dan kasih sayang ibu ke Nazril selama menempuh di SMANTI, Ibu layak menjadi ibu kedua disekolah. Tetap menjadi ibu Inggit yang dicintai oleh seluruh murid.",
-                kesan: "Semangat belajar ibu mengingatkan ku ke Walikelas di SMP yang sama-sama pembina Paduan suara di sekolah, bedanya walikelas di SMP membedah masakan, kalo ibu membedah anatomi tubuh, hehe :). Kesan aku, ibu sangat baik, ramah, penuh kasih sayang. Ibu juga tidak membandingkan nilai aku dengan orang lain yang notabene lebih unggul di Mapel Biologi, hehe. Makasih banyak ya ibu, love u! Happy Teacher Day!"
+                nama: `Muhammad Nazril Ali`,
+                photo: `Nazril.jpg`,
+                ucapan: `Selamat Hari Guru Nasional, Ibu Inggit!`,
+                pesan: `Semoga ibu tetap dikelilingan orang-orang yang membahagiakan ibu, membuat ibu tertawa, membuat ibu nyaman. Setelah kurang lebih 6 bulan ibu memimpin mobil Forzaverse, ibu sangat amat berjasa layaknya Team Principal Mercedes tahun 2020. Ibu memberikan kasih sayang, pelajaran untuk otak dan hidup, serta memberikan kebahagiaan tersendiri dari senyuman ibu. Ibu, terimakasih atas jasa dan kasih sayang ibu ke Nazril selama menempuh di SMANTI, Ibu layak menjadi ibu kedua disekolah. Tetap menjadi ibu Inggit yang dicintai oleh seluruh murid.`,
+                kesan: `Semangat belajar ibu mengingatkan ku ke Walikelas di SMP yang sama-sama pembina Paduan suara di sekolah, bedanya walikelas di SMP membedah masakan, kalo ibu membedah anatomi tubuh, hehe :). Kesan aku, ibu sangat baik, ramah, penuh kasih sayang. Ibu juga tidak membandingkan nilai aku dengan orang lain yang notabene lebih unggul di Mapel Biologi, hehe. Makasih banyak ya ibu, love u! Happy Teacher Day!`
             },
             // ABSEN 24
             {
                 absen: 24,
-                nama: "Muhammad Nicky Al Vhaley",
-                photo: "Nicky.jpg",
-                ucapan: "Ibu terimakasih banyak telah menuntun kami, ibu sangat baik, ibu mendidik kita seperti ke anak sendiri",
-                pesan: "ibuu baik baik saja yaa, semoga Allah memberikan kesehatan, diberikan rezeki yang baik, dan dipermudahkan segala urusan nya, ibu maaf mungkin aku seringkali mengecewakan ibu (karena sering telat huhuu 😿) jangan pernah berhenti menjadi ibu yang sekarang ❤️",
-                kesan: "ibu baik sekali, ibu mengajari kami seperti anak sendiri (jiwa keibuan nya sangat tajam *love), ibu karna ibu aku jadi suka biologi (suka ya, bukan pandai *semoga aamiin 😃), apa lagi ya pokoknya #salambiologi !!"
+                nama: `Muhammad Nicky Al Vhaley`,
+                photo: `Nicky.jpg`,
+                ucapan: `Ibu terimakasih banyak telah menuntun kami, ibu sangat baik, ibu mendidik kita seperti ke anak sendiri`,
+                pesan: `ibuu baik baik saja yaa, semoga Allah memberikan kesehatan, diberikan rezeki yang baik, dan dipermudahkan segala urusan nya, ibu maaf mungkin aku seringkali mengecewakan ibu (karena sering telat huhuu 😿) jangan pernah berhenti menjadi ibu yang sekarang ❤️`,
+                kesan: `ibu baik sekali, ibu mengajari kami seperti anak sendiri (jiwa keibuan nya sangat tajam *love), ibu karna ibu aku jadi suka biologi (suka ya, bukan pandai *semoga aamiin 😃), apa lagi ya pokoknya #salambiologi !!`
             },
-            // ABSEN 25
+            // ABSEN 25 — MUHAMMAD RASYA AFFANDIE (Halaman 8 / Memori #7)
             {
                 absen: 25,
-                nama: "Muhammad Rasya Affandie",
-                photo: "foto-siswa/25.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Muhammad Rasya Affandie`,
+                photo: `foto-siswa/25.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`, // <-- TEMPEL UCAPAN RASYA DI SINI
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`, // <-- TEMPEL PESAN RASYA DI SINI
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.` // <-- TEMPEL KESAN RASYA DI SINI
             },
             // ABSEN 26
             {
                 absen: 26,
-                nama: "Muthiaravanza Putri Supriatna",
-                photo: "foto-siswa/26.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Muthiaravanza Putri Supriatna`,
+                photo: `foto-siswa/26.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 27
             {
                 absen: 27,
-                nama: "Nayla Abigail Cantika Shafire",
-                photo: "foto-siswa/27.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Nayla Abigail Cantika Shafire`,
+                photo: `foto-siswa/27.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 28
             {
                 absen: 28,
-                nama: "Pitri Oktari",
-                photo: "foto-siswa/28.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Pitri Oktari`,
+                photo: `foto-siswa/28.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 29
             {
                 absen: 29,
-                nama: "Puput Puspitasari",
-                photo: "foto-siswa/29.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Puput Puspitasari`,
+                photo: `foto-siswa/29.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 30
             {
                 absen: 30,
-                nama: "Queenza Maura Jamilanafisa Gunawan",
-                photo: "foto-siswa/30.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Queenza Maura Jamilanafisa Gunawan`,
+                photo: `foto-siswa/30.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 31
             {
                 absen: 31,
-                nama: "Raihan Ahmad Fauzi",
-                photo: "foto-siswa/31.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Raihan Ahmad Fauzi`,
+                photo: `foto-siswa/31.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 32
             {
                 absen: 32,
-                nama: "Rais Anindya Hilwan",
-                photo: "foto-siswa/32.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Rais Anindya Hilwan`,
+                photo: `foto-siswa/32.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 33
             {
                 absen: 33,
-                nama: "Rayhan Byantara Antoneva",
-                photo: "foto-siswa/33.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Rayhan Byantara Antoneva`,
+                photo: `foto-siswa/33.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
-            // ABSEN 34
+            // ABSEN 34 — RAYHANUM AYATUL KHUZMA (Halaman 11 / Memori #10)
             {
                 absen: 34,
-                nama: "Rayhanum Ayatul Khuzma",
-                photo: "foto-siswa/34.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Rayhanum Ayatul Khuzma`,
+                photo: `foto-siswa/34.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`, // <-- TEMPEL UCAPAN RAYHANUM DI SINI
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`, // <-- TEMPEL PESAN RAYHANUM DI SINI
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.` // <-- TEMPEL KESAN RAYHANUM DI SINI
             },
             // ABSEN 35
             {
                 absen: 35,
-                nama: "Rianti Puspita Sari",
-                photo: "foto-siswa/35.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Rianti Puspita Sari`,
+                photo: `foto-siswa/35.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 36
             {
                 absen: 36,
-                nama: "Sadra Adiyat Sanaha",
-                photo: "foto-siswa/36.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Sadra Adiyat Sanaha`,
+                photo: `foto-siswa/36.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 37
             {
                 absen: 37,
-                nama: "Sasabila Syakieb",
-                photo: "foto-siswa/37.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Sasabila Syakieb`,
+                photo: `foto-siswa/37.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
-            // ABSEN 38
+            // ABSEN 38 — SHAZFA SAMIADZAKY SUKARNA (Halaman 12 / Memori #11)
             {
                 absen: 38,
-                nama: "Shazfa Samiadzaky Sukarna",
-                photo: "foto-siswa/38.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Shazfa Samiadzaky Sukarna`,
+                photo: `Shazfa.jpg`,
+                ucapan: `bu inggit, terimakasih banyak ya. terimakasih karena ngga pernah lelah sabar ngadepin kita, selalu nyambut kita dgn senyuman manis, dan ga cuma ngajarin materi pelajaran, tapi juga ngajarin kita semua arti kebersamaan dan kekompakan.`, // <-- TEMPEL UCAPAN SHAZFA DI SINI
+                pesan: `semoga ibu selalu diberikan kesehatan yg limpah, kebahagiaan yg ga ada putusnya, dan keberkahan dlm setiap langkah ibu.`, // <-- TEMPEL PESAN SHAZFA DI SINI
+                kesan: `punya wali kelas seperti ibu itu sebuah kebahagiaan. kelas ibu selalu jadi tempat yg aman untuk aku belajar, salah, dan terus bertumbuh tanpa ngerasa takut akan dihakimi. ` // <-- TEMPEL KESAN SHAZFA DI SINI
             },
             // ABSEN 39
             {
                 absen: 39,
-                nama: "Shidiq Gammawan",
-                photo: "Shidiq.jpg",
-                ucapan: "Syukron Ibu, sudah menjadi Wali Kelas yang selalu mendukung semua kegiatan kami dan mengerti apa yang kami inginkan",
-                pesan: "Semoga ibu diberikan kemudahan dan kelancaran dalam semua urusannya dan maaf kalo gamma sering sakit 😅",
-                kesan: "Alhamdulillah, rame, asik, dan bikin tenang"
+                nama: `Shidiq Gammawan`,
+                photo: `Shidiq.jpg`,
+                ucapan: `Syukron Ibu, sudah menjadi Wali Kelas yang selalu mendukung semua kegiatan kami dan mengerti apa yang kami inginkan`,
+                pesan: `Semoga ibu diberikan kemudahan dan kelancaran dalam semua urusannya dan maaf kalo gamma sering sakit 😅`,
+                kesan: `Alhamdulillah, rame, asik, dan bikin tenang`
             },
-            // ABSEN 40
+            // ABSEN 40 — SYAQIRA RAJASA NURSALIH (Halaman 13 / Memori #12)
             {
                 absen: 40,
-                nama: "Syaqira Rajasa Nursalih",
-                photo: "foto-siswa/40.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Syaqira Rajasa Nursalih`,
+                photo: `foto-siswa/40.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`, // <-- TEMPEL UCAPAN SYAQIRA DI SINI
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`, // <-- TEMPEL PESAN SYAQIRA DI SINI
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.` // <-- TEMPEL KESAN SYAQIRA DI SINI
             },
             // ABSEN 41
             {
                 absen: 41,
-                nama: "Veloxa Caithlynn Widjaja",
-                photo: "foto-siswa/41.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Veloxa Caithlynn Widjaja`,
+                photo: `foto-siswa/41.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
             // ABSEN 42
             {
                 absen: 42,
-                nama: "Washifa Hazirah Mutiara",
-                photo: "foto-siswa/42.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Washifa Hazirah Mutiara`,
+                photo: `foto-siswa/42.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
-            // ABSEN 43
+            // ABSEN 43 — ZAIDAN FIRAS SULTHANI (Halaman 14 / Memori #13)
             {
                 absen: 43,
-                nama: "Zaidan Firas Sulthani",
-                photo: "foto-siswa/43.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Zaidan Firas Sulthani`,
+                photo: `foto-siswa/43.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`, // <-- TEMPEL UCAPAN ZAIDAN DI SINI
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`, // <-- TEMPEL PESAN ZAIDAN DI SINI
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.` // <-- TEMPEL KESAN ZAIDAN DI SINI
             },
             // ABSEN 44
             {
                 absen: 44,
-                nama: "Zaskia Dwi Aviya",
-                photo: "foto-siswa/44.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Zaskia Dwi Aviya`,
+                photo: `foto-siswa/44.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
             },
-            // ABSEN 45
+            // ABSEN 45 — ZYDNA ILMA MEIRINA (Halaman 14 / Memori #13)
             {
                 absen: 45,
-                nama: "Zydna Ilma Meirina",
-                photo: "foto-siswa/45.jpg",
-                ucapan: "Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.",
-                pesan: "Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.",
-                kesan: "Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya."
+                nama: `Zydna Ilma Meirina`,
+                photo: `foto-siswa/45.jpg`,
+                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`, // <-- TEMPEL UCAPAN ZYDNA DI SINI
+                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`, // <-- TEMPEL PESAN ZYDNA DI SINI
+                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.` // <-- TEMPEL KESAN ZYDNA DI SINI
             }
         ];
 
@@ -659,74 +660,21 @@
          * DATA 16 SLIDE (HALAMAN)
          */
         const memoryMeta = [
-            {
-                photo: "foto1.jpg",
-                caption: "Momen Surprise ke Raihan atas pencapaian nya.",
-                count: 4
-            },
-            {
-                photo: "foto2.jpg",
-                caption: "Foto kelas resmi pertama kali setelah MPLS.",
-                count: 4
-            },
-            {
-                photo: "foto3.jpg",
-                caption: "Momen sekelas menjadi supporter di event GANTARI pertama.",
-                count: 4
-            },
-            {
-                photo: "foto4.jpg",
-                caption: "Momen ibu berjuang sebagai peserta tes.",
-                count: 4
-            },
-            {
-                photo: "foto5.jpg",
-                caption: "Pengumuman PEKERTIE, semua nya berjuang, semua nya menang!.",
-                count: 4
-            },
-            {
-                photo: "foto6.jpg",
-                caption: "Momen ibu menjadi supporter pertama di bidang LDBI",
-                count: 4
-            },
-            {
-                photo: "foto7.jpg",
-                caption: "Foto bersama untuk pertama kali menutup momen MPLS.",
-                count: 3
-            },
-            {
-                photo: "foto8.jpg",
-                caption: "Kumpulan pengangkut MBG.",
-                count: 3
-            },
-            {
-                photo: "foto9.jpg",
-                caption: "Ibu mendampingi Ijmal di cosplay pahlawan.",
-                count: 3
-            },
-            {
-                photo: "foto10.jpg",
-                caption: "Momen ibu selesai melaksanakan tes di Bandung.",
-                count: 3
-            },
-            {
-                photo: "foto11.jpg",
-                caption: "Momen casis X.F diskusi tentang denah SMANTI pada saat MPLS.",
-                count: 3
-            },
-            {
-                photo: "foto12.jpg",
-                caption: "Momen sekelas ikut pembinaan OSN, tapi lupa ngabarin guru Mapel.",
-                count: 3
-            },
-            {
-                photo: "foto13.jpg",
-                caption: "Momen disambut seluruh keluarga besar SMANTI, termasuk Ibu sendiri.",
-                count: 3
-            }
+            { photo: "foto1.jpg", caption: "Momen Surprise ke Raihan atas pencapaian nya.", count: 4 },
+            { photo: "foto2.jpg", caption: "Foto kelas resmi pertama kali setelah MPLS.", count: 4 },
+            { photo: "foto3.jpg", caption: "Momen sekelas menjadi supporter di event GANTARI pertama.", count: 4 },
+            { photo: "foto4.jpg", caption: "Momen ibu berjuang sebagai peserta tes.", count: 4 },
+            { photo: "foto5.jpg", caption: "Pengumuman PEKERTIE, semua nya berjuang, semua nya menang!.", count: 4 },
+            { photo: "foto6.jpg", caption: "Momen ibu menjadi supporter pertama di bidang LDBI", count: 4 },
+            { photo: "foto7.jpg", caption: "Foto bersama untuk pertama kali menutup momen MPLS.", count: 3 },
+            { photo: "foto8.jpg", caption: "Kumpulan pengangkut MBG.", count: 3 },
+            { photo: "foto9.jpg", caption: "Ibu mendampingi Ijmal di cosplay pahlawan.", count: 3 },
+            { photo: "foto10.jpg", caption: "Momen ibu selesai melaksanakan tes di Bandung.", count: 3 },
+            { photo: "foto11.jpg", caption: "Momen casis X.F diskusi tentang denah SMANTI pada saat MPLS.", count: 3 },
+            { photo: "foto12.jpg", caption: "Momen sekelas ikut pembinaan OSN, tapi lupa ngabarin guru Mapel.", count: 3 },
+            { photo: "foto13.jpg", caption: "Momen disambut seluruh keluarga besar SMANTI, termasuk Ibu sendiri.", count: 3 }
         ];
 
-        // Susun array lengkap 16 halaman
         const slidesData = [
             {
                 type: 'intro',
@@ -752,7 +700,6 @@
             });
         });
 
-        // Halaman 15: Penutup
         slidesData.push({
             type: 'outro',
             category: 'Penutup & Doa',
@@ -762,12 +709,23 @@
             signature: 'Dari Kami, Kelas X.F — 2026'
         });
 
-        // Halaman 16: Credits & Struktur Pengurus Kelas X.F
         slidesData.push({
             type: 'credits',
             category: 'Credits & Pengurus',
             photo: 'Ibu-Inggit.jpeg'
         });
+
+        /**
+         * HELPER ANTI-ERROR KARAKTER HTML
+         */
+        function escapeHTML(str) {
+            return String(str ?? '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/\n/g, '<br>');
+        }
 
         /**
          * STATE & REFERENSI ELEMEN DOM
@@ -837,12 +795,12 @@
                         </div>
 
                         <div class="bg-white rounded-2xl p-5 shadow-sm border border-gold-500/25 flex-1 mt-3 flex flex-col justify-center text-center">
-                            <p class="text-xs font-bold uppercase tracking-widest text-gold-600 mb-1.5">${slide.subtitle}</p>
+                            <p class="text-xs font-bold uppercase tracking-widest text-gold-600 mb-1.5">${escapeHTML(slide.subtitle)}</p>
                             <h2 class="font-serif text-2xl sm:text-[26px] font-bold text-charcoal-900 leading-snug mb-3">
-                                ${slide.title}
+                                ${escapeHTML(slide.title)}
                             </h2>
                             <p class="text-xs sm:text-[13.5px] text-charcoal-800 leading-relaxed">
-                                "${slide.message}"
+                                "${escapeHTML(slide.message)}"
                             </p>
                         </div>
                     </div>
@@ -854,7 +812,7 @@
                     return `
                     <div class="bg-white rounded-xl p-2.5 shadow-sm border border-cream-200 flex items-start gap-2.5">
                         <div class="w-[72px] sm:w-[82px] aspect-[4/5] rounded-lg overflow-hidden shrink-0 border border-gold-500/35 bg-cream-100 shadow-sm relative">
-                            <img src="${student.photo}" alt="Foto ${student.nama}" 
+                            <img src="${student.photo}" alt="Foto ${escapeHTML(student.nama)}" 
                                  decoding="async"
                                  onerror="this.onerror=null;this.src='${fallbackUrl}';"
                                  class="w-full h-full object-cover object-center">
@@ -866,13 +824,13 @@
                                     #${String(student.absen).padStart(2, '0')}
                                 </span>
                                 <h3 class="font-bold text-xs sm:text-[12.5px] text-charcoal-900 truncate">
-                                    ${student.nama}
+                                    ${escapeHTML(student.nama)}
                                 </h3>
                             </div>
                             <div class="space-y-0.5 text-[10.5px] sm:text-[11px] leading-snug text-charcoal-800">
-                                <p><span class="font-semibold text-gold-600">Ucapan:</span> ${student.ucapan}</p>
-                                <p><span class="font-semibold text-sage-700">Pesan:</span> ${student.pesan}</p>
-                                <p><span class="font-semibold text-charcoal-900">Kesan:</span> ${student.kesan}</p>
+                                <p><span class="font-semibold text-gold-600">Ucapan:</span> ${escapeHTML(student.ucapan)}</p>
+                                <p><span class="font-semibold text-sage-700">Pesan:</span> ${escapeHTML(student.pesan)}</p>
+                                <p><span class="font-semibold text-charcoal-900">Kesan:</span> ${escapeHTML(student.kesan)}</p>
                             </div>
                         </div>
                     </div>
@@ -881,13 +839,13 @@
                 slideContentArea.innerHTML = `
                     <div class="animate-slide-content flex flex-col h-full gap-2">
                         <div class="relative w-full h-[140px] sm:h-[160px] rounded-2xl overflow-hidden shadow-sm border-2 border-white bg-cream-200 shrink-0">
-                            <img src="${slide.photo}" alt="${slide.category}" 
+                            <img src="${slide.photo}" alt="${escapeHTML(slide.category)}" 
                                  decoding="async"
                                  onerror="this.src='https://placehold.co/800x450/F7F1E5/2C2520?text=Kenangan+Bersama+Guru'"
                                  class="w-full h-full object-cover">
                             <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900/80 via-charcoal-900/15 to-transparent"></div>
                             <p class="absolute bottom-2 left-3 right-3 text-cream-50 text-[11px] font-medium leading-tight drop-shadow">
-                                📸 ${slide.caption}
+                                📸 ${escapeHTML(slide.caption)}
                             </p>
                         </div>
 
@@ -914,16 +872,16 @@
 
                         <div class="relative z-10 my-auto px-1">
                             <h2 class="font-serif text-3xl sm:text-[32px] font-bold text-cream-50 mb-3 drop-shadow-[0_3px_6px_rgba(0,0,0,0.85)]">
-                                ${slide.title}
+                                ${escapeHTML(slide.title)}
                             </h2>
                             <p class="text-xs sm:text-[14px] text-cream-50/95 leading-relaxed font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-                                "${slide.message}"
+                                "${escapeHTML(slide.message)}"
                             </p>
                         </div>
 
                         <div class="relative z-10 pt-3 border-t border-white/25">
                             <p class="font-serif italic text-sm sm:text-base font-semibold text-gold-400 mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-                                ${slide.signature}
+                                ${escapeHTML(slide.signature)}
                             </p>
                             <p class="text-[11px] text-cream-50/80">
                                 Ketuk kanan untuk melihat halaman apresiasi tim &amp; pengurus ›
@@ -934,28 +892,27 @@
             } else if (slide.type === 'credits') {
                 const intiHtml = creditsData.pengurusInti.map(item => `
                     <div class="bg-cream-50 rounded-lg p-2.5 border border-cream-200 text-center">
-                        <span class="block text-[9.5px] font-bold uppercase tracking-wider text-gold-600">${item.jabatan}</span>
-                        <span class="block text-[11px] font-semibold text-charcoal-900 leading-tight mt-0.5">${item.nama}</span>
+                        <span class="block text-[9.5px] font-bold uppercase tracking-wider text-gold-600">${escapeHTML(item.jabatan)}</span>
+                        <span class="block text-[11px] font-semibold text-charcoal-900 leading-tight mt-0.5">${escapeHTML(item.nama)}</span>
                     </div>
                 `).join('');
 
                 const divisiHtml = creditsData.divisiList.map(item => `
                     <div class="py-2 border-b border-cream-100 last:border-b-0 text-center">
-                        <span class="block text-[10px] font-bold uppercase tracking-wider text-sage-700">${item.divisi}</span>
-                        <span class="block text-[11.5px] font-medium text-charcoal-900 leading-snug mt-0.5">${item.nama}</span>
+                        <span class="block text-[10px] font-bold uppercase tracking-wider text-sage-700">${escapeHTML(item.divisi)}</span>
+                        <span class="block text-[11.5px] font-medium text-charcoal-900 leading-snug mt-0.5">${escapeHTML(item.nama)}</span>
                     </div>
                 `).join('');
 
                 const pjHtml = creditsData.pjMapel.map(item => `
                     <div class="bg-cream-50 rounded-lg p-2 border border-cream-200 text-center">
-                        <span class="block text-[9.5px] font-bold uppercase tracking-wider text-gold-600">${item.mapel}</span>
-                        <span class="block text-[11px] font-medium text-charcoal-900 leading-tight mt-0.5">${item.nama}</span>
+                        <span class="block text-[9.5px] font-bold uppercase tracking-wider text-gold-600">${escapeHTML(item.mapel)}</span>
+                        <span class="block text-[11px] font-medium text-charcoal-900 leading-tight mt-0.5">${escapeHTML(item.nama)}</span>
                     </div>
                 `).join('');
 
                 slideContentArea.innerHTML = `
                     <div class="animate-slide-content flex flex-col gap-3 pb-2 text-center">
-                        <!-- Header Credits & Developed By -->
                         <div class="bg-charcoal-900 text-cream-50 rounded-2xl p-4 text-center shadow-md border border-gold-500/40 relative overflow-hidden">
                             <span class="inline-block px-3 py-0.5 rounded-full bg-gold-500/20 text-gold-400 text-[10px] font-bold uppercase tracking-widest mb-2 border border-gold-500/30">
                                 Behind The Scenes • Kelas X.F
@@ -965,12 +922,11 @@
                             </h2>
                             <div class="bg-white/10 rounded-xl p-2.5 border border-white/10 text-center">
                                 <p class="text-[10px] uppercase tracking-wider text-gold-400 font-bold">Developed by</p>
-                                <p class="text-xs sm:text-sm font-bold text-white mt-0.5">${creditsData.developer.divisi}</p>
-                                <p class="text-[11px] text-cream-200 mt-0.5">${creditsData.developer.anggota}</p>
+                                <p class="text-xs sm:text-sm font-bold text-white mt-0.5">${escapeHTML(creditsData.developer.divisi)}</p>
+                                <p class="text-[11px] text-cream-200 mt-0.5">${escapeHTML(creditsData.developer.anggota)}</p>
                             </div>
                         </div>
 
-                        <!-- Special Thanks: Pengurus Inti -->
                         <div class="bg-white rounded-2xl p-3.5 shadow-sm border border-gold-500/25 text-center">
                             <div class="flex items-center justify-center gap-1.5 mb-2.5">
                                 <span class="w-1.5 h-1.5 rounded-full bg-gold-600"></span>
@@ -982,7 +938,6 @@
                             </div>
                         </div>
 
-                        <!-- Koordinator Divisi -->
                         <div class="bg-white rounded-2xl p-3.5 shadow-sm border border-cream-200 text-center">
                             <div class="flex items-center justify-center gap-1.5 mb-2">
                                 <span class="w-1.5 h-1.5 rounded-full bg-sage-500"></span>
@@ -994,7 +949,6 @@
                             </div>
                         </div>
 
-                        <!-- Penanggung Jawab Mata Pelajaran -->
                         <div class="bg-white rounded-2xl p-3.5 shadow-sm border border-cream-200 text-center">
                             <div class="flex items-center justify-center gap-1.5 mb-2.5">
                                 <span class="w-1.5 h-1.5 rounded-full bg-gold-500"></span>
@@ -1006,7 +960,6 @@
                             </div>
                         </div>
 
-                        <!-- Tombol Kembali ke Awal -->
                         <div class="pt-1 text-center">
                             <p class="text-[10.5px] text-charcoal-800/70 mb-2.5 font-medium">#WERACEASONE • SMAN 3 Kota Sukabumi</p>
                             <button id="replay-btn" type="button" class="interactive-control w-full py-3 px-5 rounded-xl gold-shimmer text-white font-semibold text-xs sm:text-sm tracking-wide transition-transform active:scale-95 inline-flex items-center justify-center gap-2 shadow-lg cursor-pointer">
