@@ -193,12 +193,11 @@
     </main>
 
     <!-- =====================================================================
-         JAVASCRIPT: DATA 45 SISWA, PENGURUS KELAS, 16 SLIDE & AUTOPLAY FADE-IN
+         JAVASCRIPT: DATA 45 SISWA (SAMA PERSIS DENGAN INDEX_4), CREDITS & 16 SLIDE
          ===================================================================== -->
     <script>
         /**
          * DATA LENGKAP 45 SISWA (ABSEN 1 - 45)
-         * Menggunakan backtick (`...`) agar aman jika teks mengandung tanda kutip (" atau ') maupun baris baru
          */
         const studentsList = [
             // ABSEN 01
@@ -214,7 +213,7 @@
             {
                 absen: 2,
                 nama: `Balqis Nailatul Husna`,
-                photo: `foto-siswa/02.jpg`,
+                photo: `Naila.jpeg`,
                 ucapan: `Terimakasih ibu `,
                 pesan: `Sangat bersyukur dan senang di kelas f apalagi bersama ibu .`,
                 kesan: `Ibu guru hebat.`
@@ -286,19 +285,19 @@
             {
                 absen: 10,
                 nama: `Ghazi Akbar Fathurrahim`,
-                photo: `foto-siswa/10.jpg`,
-                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
-                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
-                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
+                photo: `Ghazi.jpg`,
+                ucapan: `Selamat Hari Guru Nasional, Ibu Inggit! Terima kasih sudah sabar banget membimbing dan mendampingi kami selama ini di kelas, baik sebagai guru Biologi maupun wali kelas yang selalu peduli sama anak-anaknya.`,
+                pesan: `Semoga Ibu selalu diberi kesehatan, dilancarkan segala urusannya, dan tetap menjadi Ibu Inggit yang hangat serta perhatian seperti sekarang. Jangan bosan-bosan mengingatkan kami kalau lagi susah diatur ya, Bu.`,
+                kesan: `Awalnya sempat mengira pelajaran Biologi dan aturan wali kelas bakal kaku, ternyata sama Ibu malah asyik banget. Cara Ibu menjelaskan materi gampang dipahami, dan perhatian Ibu ke kondisi anak-anak di kelas benar-benar bikin kami merasa nyaman.`
             },
-            // ABSEN 11 — HABIBIE BINTANG RAMADHAN (Halaman 4 / Memori #3)
+            // ABSEN 11
             {
                 absen: 11,
                 nama: `Habibie Bintang Ramadhan`,
                 photo: `Habibie.jpg`,
-                ucapan: `Terimakasih Ibu Inggit telah memberikan ilmu yang bermanfaat, semoga ilmu yang telah ibu berikan kepada kita bisa bermanfaat untuk kedepannya dan menjadi amal jariyah bagi ibu. Selamat hari guru! `, // <-- TEMPEL UCAPAN HABIBIE DI SINI
-                pesan: `Semoga bu Inggit selalu diberikan kesehatan, rezekinya lancar dan tetap semangatt, maafin juga kalau Habibie pernah melakukan kesalahan atau kurang memperhatikan pelajaran saat ibu sedang menjelaskan materi`, // <-- TEMPEL PESAN HABIBIE DI SINI
-                kesan: `Saya sangat bersyukur dapat wali kelas seperti ibu, soalnya ibu selalu mendukung anaknya, perhatian, dan Terima kasih atas segala ilmu, kesabaran, perhatian, dan pengorbanan yang telah Ibu berikan selama ini.` // <-- TEMPEL KESAN HABIBIE DI SINI
+                ucapan: `Terimakasih Ibu Inggit telah memberikan ilmu yang bermanfaat, semoga ilmu yang telah ibu berikan kepada kita bisa bermanfaat untuk kedepannya dan menjadi amal jariyah bagi ibu. Selamat hari guru! `,
+                pesan: `Semoga bu Inggit selalu diberikan kesehatan, rezekinya lancar dan tetap semangatt, maafin juga kalau Habibie pernah melakukan kesalahan atau kurang memperhatikan pelajaran saat ibu sedang menjelaskan materi`,
+                kesan: `Saya sangat bersyukur dapat wali kelas seperti ibu, soalnya ibu selalu mendukung anaknya, perhatian, dan Terima kasih atas segala ilmu, kesabaran, perhatian, dan pengorbanan yang telah Ibu berikan selama ini.`
             },
             // ABSEN 12
             {
@@ -314,7 +313,7 @@
                 absen: 13,
                 nama: `Keysha Aldeandra Budiman`,
                 photo: `Keysha.png`,
-                ucapan: `Haloo ibuu👋🏻, keysha mau ngucapin terimakasih banyak buat ibu inggit karena udah jadi walikelas yang baikk bangettt, perhatiann, asikk dan selalu mastiin kelas kita baik baik aja 💕💕, TERIMAKASIH BANYAK BANYAK BANYAK BANYAK BANYAK BANYAK BANYAK BANYAK IBUUUUU 🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍.`,
+                ucapan: `Haloo ibuu👋🏻, keysha mau ngucapin terimakasih banyak buat ibu inggit karena udah jadi walikelas yang baikk bangettt, perhatiann, asikk dan selalu mastiin kelas kita baik baik aja 💕💕, TERIMAKASIH BANYAK BANYAK BANYAK BANYAK BANYAK BANYAK BANYAK BANYAK BANYAK IBUUUUU 🤍🤍🤍🤍🤍🤍🤍🤍🤍🤍.`,
                 pesan: `Maaf ya bu kalau selama pembelajaran ibu aku masih sering kurang fokus atau punya banyak salah. Jangan pernah bosan mengajar dan berbagi ilmu ke kita semuaa ya buu. sehat dan bahagia selalu, inget terus 10F yaaaa buu 🤍🤍😉.`,
                 kesan: `Jujur aja ibu aku sewaktu awal awal masuk SMA kaya belum se siap itu, aku harus menghadapi lingkungan yang bener bener baru buat aku karna selama aku sd dan smp itu masih di satu lingkungan jadi sewaktu aku ke smanti kaya, wah aku bisa ga yaa.. Tapi ternyata di sini aku di pertemukan dengan teman² yang baik baik banget dan lingkungan yang baik bangett dan tentunyaa wali kelas yang baik banget kaya ibuuu, aku bersyukur banget bisa ada di sini 🤍.`
             },
@@ -417,14 +416,14 @@
                 pesan: `ibuu baik baik saja yaa, semoga Allah memberikan kesehatan, diberikan rezeki yang baik, dan dipermudahkan segala urusan nya, ibu maaf mungkin aku seringkali mengecewakan ibu (karena sering telat huhuu 😿) jangan pernah berhenti menjadi ibu yang sekarang ❤️`,
                 kesan: `ibu baik sekali, ibu mengajari kami seperti anak sendiri (jiwa keibuan nya sangat tajam *love), ibu karna ibu aku jadi suka biologi (suka ya, bukan pandai *semoga aamiin 😃), apa lagi ya pokoknya #salambiologi !!`
             },
-            // ABSEN 25 — MUHAMMAD RASYA AFFANDIE (Halaman 8 / Memori #7)
+            // ABSEN 25
             {
                 absen: 25,
                 nama: `Muhammad Rasya Affandie`,
                 photo: `Rasya.jpg`,
-                ucapan: `Untuk Ibu inggit, Terimakasih atas ilmunya dan Sudah Membimbing kami sampai saat ini hingga seterusnya. .`, // <-- TEMPEL UCAPAN RASYA DI SINI
-                pesan: `Selamat Hari Guru Nasional, Ibu. Semoga ibu selalu diberi kesehatan dan kekuatan dalam menjalankan urusan apapun. Dan ilmu yang diberikan terus mengalir menjadi amal jariyah. .`, // <-- TEMPEL PESAN RASYA DI SINI
-                kesan: `Selama dikelas ini dan bimbing oleh ibu, saya mendapatkan banyak pelajaran, dan juga motivasi untuk menjadi "seseorang" dan berubah jadi lebih baik. .` // <-- TEMPEL KESAN RASYA DI SINI
+                ucapan: `Untuk Ibu inggit, Terimakasih atas ilmunya dan Sudah Membimbing kami sampai saat ini hingga seterusnya. .`,
+                pesan: `Selamat Hari Guru Nasional, Ibu. Semoga ibu selalu diberi kesehatan dan kekuatan dalam menjalankan urusan apapun. Dan ilmu yang diberikan terus mengalir menjadi amal jariyah. .`,
+                kesan: `Selama dikelas ini dan bimbing oleh ibu, saya mendapatkan banyak pelajaran, dan juga motivasi untuk menjadi "seseorang" dan berubah jadi lebih baik. .`
             },
             // ABSEN 26
             {
@@ -457,10 +456,10 @@
             {
                 absen: 29,
                 nama: `Puput Puspitasari`,
-                photo: `foto-siswa/29.jpg`,
-                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
-                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
-                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
+                photo: `Puput.jpg`,
+                ucapan: `Selamat Hari Guru untuk Ibu Inggit tersayang! Terima kasih banyak atas semua ilmu, perhatian, dan kasih sayang yang sudah Ibu berikan ke kami tanpa pernah pilih-pilih.`,
+                pesan: `Sehat-sehat terus ya, Bu, di tengah padatnya jadwal mengajar dan ngurusin kelas. Semoga kebahagiaan selalu menyertai Ibu dan keluarga, dan semoga Ibu selalu bangga melihat perkembangan kami ke depannya.`,
+                kesan: `Ibu Inggit itu sosok guru yang keibuan banget dan detail dalam memperhatikan muridnya. Setiap kali ada masalah atau butuh arahan di kelas, Ibu selalu hadir menenangkan dan kasih solusi yang bikin hati adem.`
             },
             // ABSEN 30
             {
@@ -498,23 +497,23 @@
                 pesan: `Pesan byan untuk Bu Inggit, semoga Ibu selalu diberi kesehatan, kebahagiaan, dan kesabaran yang luar biasa dalam mendidik murid-murid di SMAN 3 Kota Sukabumi. Ke depannya, semoga kita semua bisa terus belajar dengan suasana yang makin seru. Kalau boleh memberi sedikit masukan, semoga dalam kegiatan belajar mengajar ke depan kita bisa lebih fokus lagi, dan mungkin sesekali bisa diselingi cara mengajar yang lebih interaktif supaya suasana kelas makin hidup dan materinya makin gampang nempel di kepala kami..`,
                 kesan: `"Kesan selama kenal dan dibimbing sama Bu Inggit itu bener-bener seru banget! Bu Inggit orangnya asyik, gaul, dan gen-z banget kalau diajak ngobrol, jadi setiap ngobrol atau konsultasi sama Ibu tuh rasanya nyambung terus dan nggak kaku kayak lagi sama guru killer. Suasana kelas jadi terasa lebih cair dan nyaman karena pendekatan Ibu yang dekat banget sama siswanya.""Semoga teks-teks ini bisa membantumu dan teman-teman sekelas untuk merayakan Hari Guru Nasional bersama Bu Inggit, ya! Ada lagi yang mau disiapin buat acara Hari Guru nanti?".`
             },
-            // ABSEN 34 — RAYHANUM AYATUL KHUZMA (Halaman 11 / Memori #10)
+            // ABSEN 34
             {
                 absen: 34,
                 nama: `Rayhanum Ayatul Khuzma`,
                 photo: `Rayhanum.jpg`,
-                ucapan: `halo ibu inggit! aku berterimakasih banyak untuk ibu karena selalu menjadi wali kelas yang sangaatt perhatian, aku juga berterimakasih ibu selalu ada untuk kita, selalu mendukung kita, dan selalu menjadi yang terbaik untuk kita. Terimakasih banyak ibuu!!🤍`, // <-- TEMPEL UCAPAN RAYHANUM DI SINI
-                pesan: `semoga ibu inggit sehat selalu, semoga ibu semakin sayang sama 10f, semoga ibu juga selalu bahagia dan senang bersama 10f, dan juga semoga segala bentuk kepedulian, kesabaran, dan ilmu yang ibu berikan untuk kita kembali menjadi kebaikan yang berlipat ganda untuk ibu🤍`, // <-- TEMPEL PESAN RAYHANUM DI SINI
-                kesan: `selama bersama ibu, aku merasa senaaangg banget, karena akhirnya punya wali kelas yang penuh perhatian dan selalu mendukung anak-anaknya. Ibu selalu menjadi sosok yang wow untuk aku, karena menurut aku menjadi wali kelas bukan gampang, tapi ibu selalu disini untuk mengenal dan memahami anak-anak 10f. terimakasih untuk ibu yang selalu menasehati dengan tulus dan selalu memberikan kita quotes of the day yang mengarahkan kita ke langkah yang lebih baik🤍🤍💕💕💗💗` // <-- TEMPEL KESAN RAYHANUM DI SINI
+                ucapan: `halo ibu inggit! aku berterimakasih banyak untuk ibu karena selalu menjadi wali kelas yang sangaatt perhatian, aku juga berterimakasih ibu selalu ada untuk kita, selalu mendukung kita, dan selalu menjadi yang terbaik untuk kita. Terimakasih banyak ibuu!!🤍`,
+                pesan: `semoga ibu inggit sehat selalu, semoga ibu semakin sayang sama 10f, semoga ibu juga selalu bahagia dan senang bersama 10f, dan juga semoga segala bentuk kepedulian, kesabaran, dan ilmu yang ibu berikan untuk kita kembali menjadi kebaikan yang berlipat ganda untuk ibu🤍`,
+                kesan: `selama bersama ibu, aku merasa senaaangg banget, karena akhirnya punya wali kelas yang penuh perhatian dan selalu mendukung anak-anaknya. Ibu selalu menjadi sosok yang wow untuk aku, karena menurut aku menjadi wali kelas bukan gampang, tapi ibu selalu disini untuk mengenal dan memahami anak-anak 10f. terimakasih untuk ibu yang selalu menasehati dengan tulus dan selalu memberikan kita quotes of the day yang mengarahkan kita ke langkah yang lebih baik🤍🤍💕💕💗💗`
             },
             // ABSEN 35
             {
                 absen: 35,
                 nama: `Rianti Puspita Sari`,
-                photo: `foto-siswa/35.jpg`,
-                ucapan: `Selamat Hari Guru Nasional! Terima kasih atas segala ilmu dan bimbingan terbaik untuk kami.`,
-                pesan: `Semoga Bapak/Ibu selalu sehat, bahagia, dan terus menginspirasi banyak siswa.`,
-                kesan: `Belajar bersama Bapak/Ibu selalu menyenangkan dan penuh makna bagi saya.`
+                photo: `Rianti.jpg`,
+                ucapan: `Ibu Inggit, rianti ngucapin makasih banget udah sabar dan selalu dukung kelas 10F. Maaf waktu uh 2 Rianti telat bilang belum susulan, alhasil bikin ibu bingung sendiri :], tapi ibu bahkan ga marah, malah selesaiin dulu susulan Rianti. Rianti ga bisa ucapin banyak, tapi rianti bersyukur banget di kelas 10 ini, dimana awal masuk SMA, udah dapet walas sebaik ibu, yang ngajarin banyak hal ke kelas 10F. Sehat terus ya, ibu! 🩵`,
+                pesan: `Harapan rianti sih cuma pengen bisa terus sama ibu, sama anak-anak 10F yang sekarang, tapi mungkin ga bisa, ya. Jadi semoga ibu selalu dikasih kesabaran setahun ini buat bareng sama 10F, semoga semua urusan ibu lancar, terus dikasih kesehatan, panjang umurnya. Begitu juga keluarga ibu, selalu dikelilingi hal baik, Aamiin.`,
+                kesan: `Kesan pertama rianti ke ibu waktu MPLS, dari awal keliatannya udah baik. Ternyata emang bener, baik banget! Ibu kalo manggil murid selalu tersempil kata "nak" atau "sayang", rasanya tuh kaya lebih deket gitu. Sejujurnya rianti tuh paling ga tertarik sama biologi, bener-bener kelemahan rianti, jadi mungkin itu makanya nilainya ga sebesar itu. Tapi yang bikin lumayan suka itu karena gurunya adalah ibu, seenggaknya selama belajar enjoy, ga makin pusing. Selain itu sistem TJ seru banget, bikin murid-murid tuh termotivasi biar lebih rajin belajar, berlomba-lomba lebih banyak ngumpulin TJ. Kesan rianti ke ibu, pokoknya ibu tuh guru yang paling best, ga cuma di mapel, ibu juga ngajarin banyak hal lain. Misalnya yang paling rianti inget tuh, bahwa kita harus selalu sisain ruang kecewa buat segala hal, yang penting udah usaha maksimal. Makasih banyak, ibu 🩵`
             },
             // ABSEN 36
             {
@@ -534,14 +533,14 @@
                 pesan: `Semoga Ibu selalu diberikan kesehatan, kebahagiaan, dan kesabaran dalam menjalankan tugas mulia ini, Tetaplah menjadi sosok yang menginspirasi dan membawa semangat bagi setiap murid. Jangan pernah merasa bahwa usaha dan pengorbanan Ibu sia-sia, karena setiap hal yang diajarkan pasti memiliki arti bagi kami.`,
                 kesan: `Kesan aku, aku seneng banget di 10F ini dan terutama bersama wali kelas Bu inggit, karna banyakk banget pengalaman bukan cuma dalam pelajaran aja tapi dari bagaimana di kelas ini seperti keluarga`
             },
-            // ABSEN 38 — SHAZFA SAMIADZAKY SUKARNA (Halaman 12 / Memori #11)
+            // ABSEN 38
             {
                 absen: 38,
                 nama: `Shazfa Samiadzaky Sukarna`,
                 photo: `Shazfa.jpg`,
-                ucapan: `bu inggit, terimakasih banyak ya. terimakasih karena ngga pernah lelah sabar ngadepin kita, selalu nyambut kita dgn senyuman manis, dan ga cuma ngajarin materi pelajaran, tapi juga ngajarin kita semua arti kebersamaan dan kekompakan.`, // <-- TEMPEL UCAPAN SHAZFA DI SINI
-                pesan: `semoga ibu selalu diberikan kesehatan yg limpah, kebahagiaan yg ga ada putusnya, dan keberkahan dlm setiap langkah ibu.`, // <-- TEMPEL PESAN SHAZFA DI SINI
-                kesan: `punya wali kelas seperti ibu itu sebuah kebahagiaan. kelas ibu selalu jadi tempat yg aman untuk aku belajar, salah, dan terus bertumbuh tanpa ngerasa takut akan dihakimi. ` // <-- TEMPEL KESAN SHAZFA DI SINI
+                ucapan: `bu inggit, terimakasih banyak ya. terimakasih karena ngga pernah lelah sabar ngadepin kita, selalu nyambut kita dgn senyuman manis, dan ga cuma ngajarin materi pelajaran, tapi juga ngajarin kita semua arti kebersamaan dan kekompakan.`,
+                pesan: `semoga ibu selalu diberikan kesehatan yg limpah, kebahagiaan yg ga ada putusnya, dan keberkahan dlm setiap langkah ibu.`,
+                kesan: `punya wali kelas seperti ibu itu sebuah kebahagiaan. kelas ibu selalu jadi tempat yg aman untuk aku belajar, salah, dan terus bertumbuh tanpa ngerasa takut akan dihakimi. `
             },
             // ABSEN 39
             {
@@ -552,14 +551,14 @@
                 pesan: `Semoga ibu diberikan kemudahan dan kelancaran dalam semua urusannya dan maaf kalo gamma sering sakit 😅`,
                 kesan: `Alhamdulillah, rame, asik, dan bikin tenang`
             },
-            // ABSEN 40 — SYAQIRA RAJASA NURSALIH (Halaman 13 / Memori #12)
+            // ABSEN 40
             {
                 absen: 40,
                 nama: `Syaqira Rajasa Nursalih`,
                 photo: `Syaqira.jpg`,
-                ucapan: `aku mengucapkan terima kasih yang sebesar-besarnya kepada bu inggittttt atas segala dedikasi, waktu, dan ilmu yang telah dicurahkan selama beberapa bulan ini dan beberapa bulan kedepannya`, // <-- TEMPEL UCAPAN SYAQIRA DI SINI
-                pesan: `aku mohon maaf atas segala tingkah laku aku yang terkadang merepotkan Ibu, semoga Ibu senantiasa sukses dan sehat selalu dalam mendidik aku dan teman teman kelas .`, // <-- TEMPEL PESAN SYAQIRA DI SINI
-                kesan: `bimbingan Ibu yang tegas namun penuh perhatian membuat kami belajar menjadi pribadi yang lebih bertanggung jawab dan taat. setiap nasihat yang Ibu berikan sangat berarti bagi perkembangan aku` // <-- TEMPEL KESAN SYAQIRA DI SINI
+                ucapan: `aku mengucapkan terima kasih yang sebesar-besarnya kepada bu inggittttt atas segala dedikasi, waktu, dan ilmu yang telah dicurahkan selama beberapa bulan ini dan beberapa bulan kedepannya`,
+                pesan: `aku mohon maaf atas segala tingkah laku aku yang terkadang merepotkan Ibu, semoga Ibu senantiasa sukses dan sehat selalu dalam mendidik aku dan teman teman kelas .`,
+                kesan: `bimbingan Ibu yang tegas namun penuh perhatian membuat kami belajar menjadi pribadi yang lebih bertanggung jawab dan taat. setiap nasihat yang Ibu berikan sangat berarti bagi perkembangan aku`
             },
             // ABSEN 41
             {
@@ -579,14 +578,14 @@
                 pesan: `Sehat selalu ya, Bu! Semoga segala kebaikan dan kesabaran Bu Inggit dalam mengajar dibalas dengan kebaikan yang berlipat ganda..`,
                 kesan: `Di kelas, bu Inggit selalu menjadi pengalaman pembelajaran yang menyenangkan. Cara mengajar Ibu nya yang jelas, sabar, asik dan penuh semangat membuat materi pelajaran jadi jauh lebih mudah dipahami lagii. Kehadiran Ibu di kelas selalu berhasil mencairkan suasana dan bikin aku jadi lebih bersemangat dalam mengikuti pelajaran ibu yang awalny gasuka biologi jadi lumayan suka deh ❤️🤩🤭😊😃😄`
             },
-            // ABSEN 43 — ZAIDAN FIRAS SULTHANI (Halaman 14 / Memori #13)
+            // ABSEN 43
             {
                 absen: 43,
                 nama: `Zaidan Firas Sulthani`,
                 photo: `foto-siswa/43.jpg`,
-                ucapan: `pertama tama, jidan mau berterimakasih sama ibuu karena ibuu udah selalu sabar dalam mengajari jidan banyak hal, jidan minta maaf karena mungkin masih banyak kekurangan dan kesalahan yang pernah jidan lakuin ke ibuu dan jidan minta maaf kalo jidan pernah bikin ibuu sakit hati. pokonya jidan mau berterimakasih sama ibuu karena ibu udah selalu mendampingi jidan buat jadi lebih baik karena jidan tau jadi guru itu gaa gampang`, // <-- TEMPEL UCAPAN ZAIDAN DI SINI
-                pesan: `semoga ibuu selalu sehat, bahagia, dilancarkan rezeki nya. maaf kalo selama ini kita masih sering bikin ibu kesel yaa buu`, // <-- TEMPEL PESAN ZAIDAN DI SINI
-                kesan: `wahh ibuu, kayanya banyak banget pelajaran yang bisa jidan ambil dari ibu selama ini. kita emang belum lama, tapi rasanya kayak udah lama aja gituu hehe. mungkin dulu kita kayak agak ribet kalo misalnya banyak tugas atau banyak job, tapi ternyata jidan jadi sadar kalo semua itu bakalan jadi kenangan yang gabakal kita lupain dan membuat hidup jidan jadi lebih berwarna.` // <-- TEMPEL KESAN ZAIDAN DI SINI
+                ucapan: `pertama tama, jidan mau berterimakasih sama ibuu karena ibuu udah selalu sabar dalam mengajari jidan banyak hal, jidan minta maaf karena mungkin masih banyak kekurangan dan kesalahan yang pernah jidan lakuin ke ibuu dan jidan minta maaf kalo jidan pernah bikin ibuu sakit hati. pokonya jidan mau berterimakasih sama ibuu karena ibu udah selalu mendampingi jidan buat jadi lebih baik karena jidan tau jadi guru itu gaa gampang`,
+                pesan: `semoga ibuu selalu sehat, bahagia, dilancarkan rezeki nya. maaf kalo selama ini kita masih sering bikin ibu kesel yaa buu`,
+                kesan: `wahh ibuu, kayanya banyak banget pelajaran yang bisa jidan ambil dari ibu selama ini. kita emang belum lama, tapi rasanya kayak udah lama aja gituu hehe. mungkin dulu kita kayak agak ribet kalo misalnya banyak tugas atau banyak job, tapi ternyata jidan jadi sadar kalo semua itu bakalan jadi kenangan yang gabakal kita lupain dan membuat hidup jidan jadi lebih berwarna.`
             },
             // ABSEN 44
             {
@@ -597,64 +596,16 @@
                 pesan: `Jangan lupain aku ya ibuu, aku selalu berdoa agar ibu di berikan kesehatan dan kelancaran di setiap urusannya semoga kelak saat aku udah sukses bisa bertemu kembali dengan ibu`,
                 kesan: `Dari pertama kali aku liat ibu Inggit aku kira ibu tipe guru yang galak tegas gituu, tapi ternyata setelah beberapa hari lebih kenal ibu orangnya asikk dan baik banget. Cara ngajar ibu juga selalu asik, menyenangkan.`
             },
-            // ABSEN 45 — ZYDNA ILMA MEIRINA (Halaman 14 / Memori #13)
+            // ABSEN 45
             {
                 absen: 45,
                 nama: `Zydna Ilma Meirina`,
                 photo: `Zydna.jpg`,
-                ucapan: `ibuu terimakasih atas semua bimbingan dan ilmu bermanfaat yang udah ibu berikan selama ini`, // <-- TEMPEL UCAPAN ZYDNA DI SINI
-                pesan: `semoga ibuu selalu diberi kesehatan, kebahagiaan, dan kesabaran yang luass biar bisa terus mendidik murid murid ibu kedepannya`, // <-- TEMPEL PESAN ZYDNA DI SINI
-                kesan: `kesan dari aku ibu tuu sabaaaar bgtbgt orangnya, terus juga asik buat diajak ngobrol/diskusi, jadi belajar nya tuh ga bikin takuut` // <-- TEMPEL KESAN ZYDNA DI SINI
+                ucapan: `ibuu terimakasih atas semua bimbingan dan ilmu bermanfaat yang udah ibu berikan selama ini`,
+                pesan: `semoga ibuu selalu diberi kesehatan, kebahagiaan, dan kesabaran yang luass biar bisa terus mendidik murid murid ibu kedepannya`,
+                kesan: `kesan dari aku ibu tuu sabaaaar bgtbgt orangnya, terus juga asik buat diajak ngobrol/diskusi, jadi belajar nya tuh ga bikin takuut`
             }
         ];
-
-        /**
-         * DATA PENGURUS INTI, DIVISI & PJ MATA PELAJARAN KELAS X.F
-         */
-        const creditsData = {
-            developer: {
-                divisi: "Divisi Hubungan Masyarakat",
-                anggota: "M. Nazril Ali & Rianti Puspita Sari"
-            },
-            pengurusInti: [
-                { jabatan: "Ketua Kelas", nama: "Khanza Humaira Prawira" },
-                { jabatan: "Wakil Ketua", nama: "Raihan Ahmad Fauzi" },
-                { jabatan: "Sekretaris 1", nama: "Fadhil Putra Ghandra" },
-                { jabatan: "Sekretaris 2", nama: "Rayhanum Ayatul Khuzma" },
-                { jabatan: "Bendahara 1", nama: "Puput Puspitasari" },
-                { jabatan: "Bendahara 2", nama: "Maisyah Nursyafa Salma D" }
-            ],
-            divisiList: [
-                { divisi: "Kebersihan", nama: "Fitri Amaliah Wardana & Abdurazzaq Amran Zabran" },
-                { divisi: "Keamanan & Ketertiban", nama: "Pitri Oktari & M. Ghaizan Fajar Adien" },
-                { divisi: "Acara & Dokumentasi", nama: "Washifa Hazirah Mutiara & Muthiaravanza Putri S" },
-                { divisi: "Peralatan", nama: "M. Farrel Rinaldi & Shidiq Gammawan" },
-                { divisi: "Olahraga", nama: "Zaidan Firas Sulthani & Fhaneysa Rasyqa Margareyta" },
-                { divisi: "Hubungan Masyarakat", nama: "M. Nazril Ali & Rianti Puspita Sari" },
-                { divisi: "Keagamaan", nama: "Keysha Aldeandra Budiman & M. Ijmal Maulana" },
-                { divisi: "Kesehatan", nama: "Nayla Abigail Cantika S & Syaqira Rajasa N" },
-                { divisi: "Kesenian", nama: "M. Fitra Ramadhan & M. Nicky Al Vhaley" }
-            ],
-            pjMapel: [
-                { mapel: "PAI", nama: "Keysha & Ijmal" },
-                { mapel: "PPKn", nama: "Evan" },
-                { mapel: "B. Indonesia", nama: "Sasabila" },
-                { mapel: "Matematika", nama: "Rayhan Byantara & Jeremiah" },
-                { mapel: "B. Inggris", nama: "Balqis Shafira & Rasya" },
-                { mapel: "Fisika", nama: "Khansa Fathia" },
-                { mapel: "Kimia", nama: "Dzaky" },
-                { mapel: "Biologi", nama: "Sadra & Valene" },
-                { mapel: "Sejarah", nama: "Maura" },
-                { mapel: "Geografi", nama: "Falisha & Veloxa" },
-                { mapel: "Ekonomi", nama: "Diana & Balqis Naila" },
-                { mapel: "Sosiologi", nama: "Shidiq & Zydna" },
-                { mapel: "Informatika", nama: "Rais" },
-                { mapel: "PJOK", nama: "Zaidan & Fhaney" },
-                { mapel: "PKWU", nama: "Habibie" },
-                { mapel: "B. Sunda", nama: "Shazfa" },
-                { mapel: "KKA", nama: "Ghazi Akbar" }
-            ]
-        };
 
         /**
          * DATA 16 SLIDE (HALAMAN)
@@ -700,19 +651,26 @@
             });
         });
 
+        // Halaman 15: Penutup dengan Foto Bersama & Rangkuman Panjang 45 Murid
         slidesData.push({
             type: 'outro',
             category: 'Penutup & Doa',
-            photo: 'penutup.jpg',
-            title: 'Terima Kasih Selamanya',
-            message: 'Waktu mungkin akan membawa kami melangkah jauh meninggalkan bangku sekolah ini, namun jasa dan ketulusan Bapak/Ibu akan selalu hidup di hati kami. Semoga Bapak/Ibu senantiasa dikaruniai kesehatan, kebahagiaan, dan keberkahan.',
-            signature: 'Dari Kami, Kelas X.F — 2026'
+            photo: 'Foto-Bersama.jpg',
+            title: 'Suara Hati 45 Anak X.F untuk Ibu Inggit',
+            paragraphs: [
+                'Jika 45 suara dari seluruh sudut kelas X.F dirangkum menjadi satu kalimat, semuanya bermuara pada satu rasa: syukur yang tidak pernah habis karena telah dipertemukan dengan wali kelas sekaligus guru Biologi sebaik Ibu Inggit. Sejak hari pertama MPLS hingga hampir enam bulan perjalanan bersama di kelas ini, Ibu bukan hanya mengajar di depan papan tulis, tetapi juga hadir menuntun kami layaknya ibu kedua di sekolah.',
+                'Di mata kami, Ibu adalah sosok yang detail, perfeksionis, dan berwawasan sangat luas—seakan ada ensiklopedia Biologi lengkap di kepala Ibu yang selalu siap menjawab rasa penasaran kami. Ibu bisa sangat tegas dan serius saat membimbing, tetapi di saat yang sama begitu hangat, ramah, sabar, dan seru diajak bercanda sehingga suasana belajar selalu terasa hidup tanpa tekanan.',
+                'Kami ingat betul bagaimana perhatian Ibu yang selalu menanyakan kabar serta kondisi kami di setiap mata pelajaran, mendampingi perjuangan kami di berbagai lomba, hingga mendukung setiap langkah kelas Forzaverse tanpa pernah membanding-bandingkan kemampuan kami satu sama lain. Maafkan kami ya, Bu, kalau masih sering telat, terlalu banyak bercanda, atau bikin Ibu repot mengurus kelas.',
+                'Selamat Hari Guru Nasional 2026, Ibu Inggit! Semoga Allah SWT senantiasa melimpahkan kesehatan, umur panjang, rezeki yang berkah, serta kemudahan dalam setiap urusan Ibu. Tetaplah dikelilingi orang-orang yang menyayangi dan membuat Ibu tersenyum, sampai kelak Ibu menyaksikan 45 anak didik Ibu ini tumbuh sukses di jalannya masing-masing. Salam Biologi dan terima kasih selamanya, Bu!'
+            ],
+            signature: 'Dengan Cinta & Hormat, 45 Murid Kelas X.F (Forzaverse) — 2026'
         });
 
+        // Halaman 16: Credits (Developed by Muhammad Nazril Ali & Special Thanks to Semua Murid)
         slidesData.push({
             type: 'credits',
-            category: 'Credits & Pengurus',
-            photo: 'Ibu-Inggit.jpeg'
+            category: 'Credits & Apresiasi',
+            photo: 'Foto-Bersama.jpg'
         });
 
         /**
@@ -855,111 +813,102 @@
                     </div>
                 `;
             } else if (slide.type === 'outro') {
+                const paragraphsHtml = slide.paragraphs.map(p => `
+                    <p class="text-xs sm:text-[13px] text-charcoal-800 leading-relaxed text-justify">
+                        ${escapeHTML(p)}
+                    </p>
+                `).join('');
+
                 slideContentArea.innerHTML = `
-                    <div class="animate-slide-content relative w-full h-full rounded-2xl overflow-hidden shadow-lg border-2 border-white flex flex-col justify-between p-6 text-center">
-                        <img src="${slide.photo}" alt="Foto Penutup" 
-                             decoding="async"
-                             onerror="this.src='https://placehold.co/800x1000/2C2520/F7F1E5?text=Terima+Kasih+Ibu+Inggit!'"
-                             class="absolute inset-0 w-full h-full object-cover scale-105 blur-[3px]">
-                        
-                        <div class="absolute inset-0 bg-gradient-to-b from-charcoal-900/55 via-charcoal-900/65 to-charcoal-900/85"></div>
-
-                        <div class="relative z-10 flex justify-center pt-1">
-                            <span class="px-3.5 py-1 rounded-full bg-gold-500/95 text-white text-[11px] font-semibold shadow-md">
-                                🎓 Selamanya Dalam Ingatan
-                            </span>
+                    <div class="animate-slide-content flex flex-col gap-3 pb-2">
+                        <!-- Foto Bersama Kelas X.F -->
+                        <div class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden shadow-md border-2 border-white bg-cream-200 shrink-0">
+                            <img src="${slide.photo}" alt="Foto Bersama Kelas X.F" 
+                                 decoding="async"
+                                 onerror="this.src='https://placehold.co/800x500/F7F1E5/2C2520?text=Foto+Bersama+Kelas+X.F'"
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900/75 via-transparent to-transparent"></div>
+                            <div class="absolute bottom-2.5 left-3 right-3 flex items-center justify-between">
+                                <span class="px-2.5 py-0.5 rounded-full bg-gold-500 text-white text-[10px] font-bold shadow">
+                                    🎓 Keluarga Besar X.F
+                                </span>
+                                <span class="text-[10.5px] font-semibold text-cream-50 drop-shadow">
+                                    #WERACEASONE
+                                </span>
+                            </div>
                         </div>
 
-                        <div class="relative z-10 my-auto px-1">
-                            <h2 class="font-serif text-3xl sm:text-[32px] font-bold text-cream-50 mb-3 drop-shadow-[0_3px_6px_rgba(0,0,0,0.85)]">
-                                ${escapeHTML(slide.title)}
-                            </h2>
-                            <p class="text-xs sm:text-[14px] text-cream-50/95 leading-relaxed font-medium drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-                                "${escapeHTML(slide.message)}"
-                            </p>
-                        </div>
+                        <!-- Kartu Rangkuman Panjang dari 45 Murid -->
+                        <div class="bg-white rounded-2xl p-4 sm:p-5 shadow-sm border border-gold-500/30">
+                            <div class="text-center mb-3 pb-2.5 border-b border-cream-200">
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-gold-600 block mb-1">
+                                    Rangkuman 45 Suara Hati
+                                </span>
+                                <h2 class="font-serif text-xl sm:text-2xl font-bold text-charcoal-900 leading-snug">
+                                    ${escapeHTML(slide.title)}
+                                </h2>
+                            </div>
 
-                        <div class="relative z-10 pt-3 border-t border-white/25">
-                            <p class="font-serif italic text-sm sm:text-base font-semibold text-gold-400 mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
-                                ${escapeHTML(slide.signature)}
-                            </p>
-                            <p class="text-[11px] text-cream-50/80">
-                                Ketuk kanan untuk melihat halaman apresiasi tim &amp; pengurus ›
-                            </p>
+                            <div class="space-y-3">
+                                ${paragraphsHtml}
+                            </div>
+
+                            <div class="mt-4 pt-3 border-t border-cream-200 text-center">
+                                <p class="font-serif italic text-xs sm:text-sm font-semibold text-gold-600">
+                                    ${escapeHTML(slide.signature)}
+                                </p>
+                                <p class="text-[10.5px] text-charcoal-800/65 mt-1.5">
+                                    Ketuk kanan untuk melihat halaman apresiasi &amp; daftar 45 murid ›
+                                </p>
+                            </div>
                         </div>
                     </div>
                 `;
             } else if (slide.type === 'credits') {
-                const intiHtml = creditsData.pengurusInti.map(item => `
-                    <div class="bg-cream-50 rounded-lg p-2.5 border border-cream-200 text-center">
-                        <span class="block text-[9.5px] font-bold uppercase tracking-wider text-gold-600">${escapeHTML(item.jabatan)}</span>
-                        <span class="block text-[11px] font-semibold text-charcoal-900 leading-tight mt-0.5">${escapeHTML(item.nama)}</span>
-                    </div>
-                `).join('');
-
-                const divisiHtml = creditsData.divisiList.map(item => `
-                    <div class="py-2 border-b border-cream-100 last:border-b-0 text-center">
-                        <span class="block text-[10px] font-bold uppercase tracking-wider text-sage-700">${escapeHTML(item.divisi)}</span>
-                        <span class="block text-[11.5px] font-medium text-charcoal-900 leading-snug mt-0.5">${escapeHTML(item.nama)}</span>
-                    </div>
-                `).join('');
-
-                const pjHtml = creditsData.pjMapel.map(item => `
-                    <div class="bg-cream-50 rounded-lg p-2 border border-cream-200 text-center">
-                        <span class="block text-[9.5px] font-bold uppercase tracking-wider text-gold-600">${escapeHTML(item.mapel)}</span>
-                        <span class="block text-[11px] font-medium text-charcoal-900 leading-tight mt-0.5">${escapeHTML(item.nama)}</span>
+                const allStudentsHtml = studentsList.map(student => `
+                    <div class="bg-cream-50 rounded-lg px-2.5 py-2 border border-cream-200 text-center flex flex-col items-center justify-center">
+                        <span class="text-[9px] font-bold text-sage-700 bg-sage-100 px-1.5 py-0.5 rounded mb-1">
+                            #${String(student.absen).padStart(2, '0')}
+                        </span>
+                        <span class="text-[10.5px] font-semibold text-charcoal-900 leading-tight">
+                            ${escapeHTML(student.nama)}
+                        </span>
                     </div>
                 `).join('');
 
                 slideContentArea.innerHTML = `
                     <div class="animate-slide-content flex flex-col gap-3 pb-2 text-center">
+                        <!-- Header Apresiasi & Developed By -->
                         <div class="bg-charcoal-900 text-cream-50 rounded-2xl p-4 text-center shadow-md border border-gold-500/40 relative overflow-hidden">
                             <span class="inline-block px-3 py-0.5 rounded-full bg-gold-500/20 text-gold-400 text-[10px] font-bold uppercase tracking-widest mb-2 border border-gold-500/30">
                                 Behind The Scenes • Kelas X.F
                             </span>
                             <h2 class="font-serif text-2xl sm:text-3xl italic font-semibold text-gold-400 leading-tight mb-3">
-                                Apresiasi &amp; Pengurus Kelas
+                                Apresiasi &amp; Terima Kasih
                             </h2>
-                            <div class="bg-white/10 rounded-xl p-2.5 border border-white/10 text-center">
+                            <div class="bg-white/10 rounded-xl p-3 border border-white/10 text-center">
                                 <p class="text-[10px] uppercase tracking-wider text-gold-400 font-bold">Developed by</p>
-                                <p class="text-xs sm:text-sm font-bold text-white mt-0.5">${escapeHTML(creditsData.developer.divisi)}</p>
-                                <p class="text-[11px] text-cream-200 mt-0.5">${escapeHTML(creditsData.developer.anggota)}</p>
+                                <p class="text-sm sm:text-base font-bold text-white mt-0.5">Muhammad Nazril Ali</p>
+                                <p class="text-[10.5px] text-cream-200 mt-0.5">Divisi Hubungan Masyarakat • Kelas X.F</p>
                             </div>
                         </div>
 
+                        <!-- Special Thanks to Semua Murid (45 Siswa) -->
                         <div class="bg-white rounded-2xl p-3.5 shadow-sm border border-gold-500/25 text-center">
-                            <div class="flex items-center justify-center gap-1.5 mb-2.5">
+                            <div class="flex items-center justify-center gap-1.5 mb-1">
                                 <span class="w-1.5 h-1.5 rounded-full bg-gold-600"></span>
-                                <h3 class="text-xs font-bold uppercase tracking-wider text-charcoal-900">Special Thanks — Pengurus Inti</h3>
+                                <h3 class="text-xs font-bold uppercase tracking-wider text-charcoal-900">Special Thanks To</h3>
                                 <span class="w-1.5 h-1.5 rounded-full bg-gold-600"></span>
                             </div>
-                            <div class="grid grid-cols-2 gap-2">
-                                ${intiHtml}
+                            <p class="text-[11px] text-charcoal-800/75 mb-3">
+                                Seluruh 45 Murid Kelas X.F yang telah berkontribusi mengirimkan ucapan, pesan, kesan, dan kenangan terbaiknya:
+                            </p>
+                            <div class="grid grid-cols-2 gap-1.5">
+                                ${allStudentsHtml}
                             </div>
                         </div>
 
-                        <div class="bg-white rounded-2xl p-3.5 shadow-sm border border-cream-200 text-center">
-                            <div class="flex items-center justify-center gap-1.5 mb-2">
-                                <span class="w-1.5 h-1.5 rounded-full bg-sage-500"></span>
-                                <h3 class="text-xs font-bold uppercase tracking-wider text-charcoal-900">Koordinator Divisi Kelas</h3>
-                                <span class="w-1.5 h-1.5 rounded-full bg-sage-500"></span>
-                            </div>
-                            <div>
-                                ${divisiHtml}
-                            </div>
-                        </div>
-
-                        <div class="bg-white rounded-2xl p-3.5 shadow-sm border border-cream-200 text-center">
-                            <div class="flex items-center justify-center gap-1.5 mb-2.5">
-                                <span class="w-1.5 h-1.5 rounded-full bg-gold-500"></span>
-                                <h3 class="text-xs font-bold uppercase tracking-wider text-charcoal-900">PJ Mata Pelajaran</h3>
-                                <span class="w-1.5 h-1.5 rounded-full bg-gold-500"></span>
-                            </div>
-                            <div class="grid grid-cols-2 gap-2">
-                                ${pjHtml}
-                            </div>
-                        </div>
-
+                        <!-- Tombol Kembali ke Awal -->
                         <div class="pt-1 text-center">
                             <p class="text-[10.5px] text-charcoal-800/70 mb-2.5 font-medium">#WERACEASONE • SMAN 3 Kota Sukabumi</p>
                             <button id="replay-btn" type="button" class="interactive-control w-full py-3 px-5 rounded-xl gold-shimmer text-white font-semibold text-xs sm:text-sm tracking-wide transition-transform active:scale-95 inline-flex items-center justify-center gap-2 shadow-lg cursor-pointer">
