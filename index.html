@@ -105,10 +105,8 @@
     </div>
     <div class="hidden sm:block fixed inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70 pointer-events-none"></div>
 
-    <!-- Pemutar Audio Tunggal (Langsung Autoplay dengan Fade-In, satu jalan tanpa stop) -->
-    <audio id="bg-music" loop preload="auto" autoplay>
-        <source src="hymne-guru.mp3" type="audio/mpeg">
-    </audio>
+    <!-- Pemutar Audio Playlist (Bergantian 2 Lagu & Berulang Terus) -->
+    <audio id="bg-music" preload="auto" autoplay></audio>
 
     <!-- =====================================================================
          1. WELCOME OVERLAY
@@ -191,7 +189,7 @@
                     <!-- Badge Musik Mengalun -->
                     <div class="flex items-center gap-1 px-2 py-1 rounded-full bg-cream-100 border border-gold-500/20 text-[10px] font-medium text-gold-600">
                         <span class="w-1.5 h-1.5 rounded-full bg-gold-600 animate-ping"></span>
-                        <span class="hidden sm:inline">Hymne Guru</span>
+                        <span id="music-title" class="whitespace-nowrap">Hymne Guru</span>
                     </div>
                 </div>
             </div>
@@ -1083,10 +1081,29 @@
         });
 
         /**
-         * DIRECT AUTOPLAY + UNLOCK AUDIO CONTEXT SEGERA SAAT WEB DIBUKA (FADE-IN)
+         * PLAYLIST 2 LAGU BERGANTIAN & BERULANG TERUS + AUTO-PAUSE SAAT KELUAR WEB / LAYAR MATI
          */
+        const playlist = [
+            { src: 'hymne-guru.mp3', title: 'Hymne Guru' },
+            { src: 'Terimakasih-NauraAyu.mp3', title: 'Terima Kasih' }
+        ];
+        let currentTrackIndex = 0;
         let fadeInterval = null;
         let hasFadedIn = false;
+        let pausedByTabSwitch = false;
+
+        const musicTitleEl = document.getElementById('music-title');
+
+        function setTrack(index) {
+            currentTrackIndex = index;
+            bgMusic.src = playlist[currentTrackIndex].src;
+            if (musicTitleEl) {
+                musicTitleEl.textContent = playlist[currentTrackIndex].title;
+            }
+        }
+
+        // Set lagu pertama saat halaman dibuka
+        setTrack(0);
 
         function fadeInAudio(targetVolume = 0.55, durationMs = 3500) {
             if (fadeInterval) clearInterval(fadeInterval);
@@ -1111,7 +1128,19 @@
             }, stepTime);
         }
 
+        // Otomatis lanjut ke lagu berikutnya & ubah teks badge saat satu lagu selesai
+        bgMusic.addEventListener('ended', () => {
+            const nextIndex = (currentTrackIndex + 1) % playlist.length;
+            setTrack(nextIndex);
+            bgMusic.volume = 0.55;
+            if (!document.hidden && !pausedByTabSwitch) {
+                bgMusic.play().catch(() => {});
+            }
+        });
+
         function unlockAndPlayAutoplay() {
+            if (document.hidden || pausedByTabSwitch) return;
+
             const AudioCtx = window.AudioContext || window.webkitAudioContext;
             if (AudioCtx) {
                 const ctx = new AudioCtx();
@@ -1121,7 +1150,7 @@
             }
 
             bgMusic.muted = false;
-            if (bgMusic.paused && !document.hidden) {
+            if (bgMusic.paused) {
                 if (!hasFadedIn) {
                     bgMusic.volume = 0;
                 }
@@ -1145,7 +1174,8 @@
         });
 
         bgMusic.addEventListener('pause', () => {
-            if (!document.hidden && isStarted) {
+            // Jangan putar ulang jika dijeda karena pindah tab, layar mati, atau lagu sedang berganti track
+            if (!document.hidden && !pausedByTabSwitch && !bgMusic.ended && isStarted) {
                 bgMusic.play().catch(() => {});
             }
         });
@@ -1168,10 +1198,8 @@
         });
 
         /**
-         * JEDA OTOMATIS HANYA SAAT PINDAH TAB / KELUAR APLIKASI / LAYAR MATI
+         * JEDA OTOMATIS SAAT PINDAH TAB / KELUAR APLIKASI / LAYAR HP MATI
          */
-        let pausedByTabSwitch = false;
-
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) {
                 if (!bgMusic.paused) {
@@ -1189,6 +1217,13 @@
         window.addEventListener('pagehide', () => {
             pausedByTabSwitch = true;
             bgMusic.pause();
+        });
+
+        window.addEventListener('blur', () => {
+            if (document.hidden && !bgMusic.paused) {
+                pausedByTabSwitch = true;
+                bgMusic.pause();
+            }
         });
 
         // Inisialisasi awal tampilan
